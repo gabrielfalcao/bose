@@ -78,8 +78,8 @@ class TestPdbPlugin(unittest.TestCase):
         assert not p.enabled
         assert not p.enabled_for_failures
 
-        env = {'BOSE_PDB': '1',
-               'BOSE_PDB_FAILURES': '1'}
+        env = {'PSY_ECHOS_TICKS_PDB': '1',
+               'PSY_ECHOS_TICKS_PDB_FAILURES': '1'}
 
         parser = OptionParser()
         p.addOptions(parser, env)

@@ -40,7 +40,7 @@ class TestLogCapturePlugin(object):
         c.configure(options, Config())
         assert not c.enabled
 
-        env = {'BOSE_NOLOGCAPTURE': 1}
+        env = {'PSY_ECHOS_TICKS_NOLOGCAPTURE': 1}
         c = LogCapture()
         parser = OptionParser()
         c.addOptions(parser, env)
@@ -49,7 +49,7 @@ class TestLogCapturePlugin(object):
         assert not c.enabled
 
     def test_logging_format_option(self):
-        env = {'BOSE_LOGFORMAT': '++%(message)s++'}
+        env = {'PSY_ECHOS_TICKS_LOGFORMAT': '++%(message)s++'}
         c = LogCapture()
         parser = OptionParser()
         c.addOptions(parser, env)
@@ -58,7 +58,7 @@ class TestLogCapturePlugin(object):
         eq_('++%(message)s++', c.logformat)
 
     def test_logging_datefmt_option(self):
-        env = {'BOSE_LOGDATEFMT': '%H:%M:%S'}
+        env = {'PSY_ECHOS_TICKS_LOGDATEFMT': '%H:%M:%S'}
         c = LogCapture()
         parser = OptionParser()
         c.addOptions(parser, env)
@@ -176,7 +176,7 @@ class TestLogCapturePlugin(object):
         eq_("++Hello++", records[0])
 
     def test_logging_filter(self):
-        env = {'BOSE_LOGFILTER': 'foo,bar'}
+        env = {'PSY_ECHOS_TICKS_LOGFILTER': 'foo,bar'}
         c = LogCapture()
         parser = OptionParser()
         c.addOptions(parser, env)
@@ -195,7 +195,7 @@ class TestLogCapturePlugin(object):
         assert records[2].startswith('bar.quux:'), records[2]
 
     def test_logging_filter_exclude(self):
-        env = {'BOSE_LOGFILTER': '-foo,-bar'}
+        env = {'PSY_ECHOS_TICKS_LOGFILTER': '-foo,-bar'}
         c = LogCapture()
         parser = OptionParser()
         c.addOptions(parser, env)
@@ -213,7 +213,7 @@ class TestLogCapturePlugin(object):
         assert records[1].startswith('abara:'), records[1]
 
     def test_logging_filter_exclude_and_include(self):
-        env = {'BOSE_LOGFILTER': 'foo,-foo.bar'}
+        env = {'PSY_ECHOS_TICKS_LOGFILTER': 'foo,-foo.bar'}
         c = LogCapture()
         parser = OptionParser()
         c.addOptions(parser, env)

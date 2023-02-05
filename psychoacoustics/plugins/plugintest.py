@@ -316,7 +316,7 @@ def remove_stack_traces(out):
         ^(?=\w)                 #     a line *starts* with alphanum.
         .*?(?P<exception> \w+ ) # exception name
         (?P<msg> [:\n] .*)      # the rest
-        """, re.VERBOSE | re.MULTILINE | re.DOTALL)
+        """, re.VERPSY_ECHOS_TICKS | re.MULTILINE | re.DOTALL)
     blocks = []
     for block in blankline_separated_blocks(out):
         blocks.append(traceback_re.sub(r"\g<hdr>\n...\n\g<exception>\g<msg>", block))
@@ -330,7 +330,7 @@ def simplify_warnings(out):
         (?P<category>\w+): \s+        # warning category
         (?P<detail>.+) $ \n?          # warning message
         ^ .* $                        # stack frame
-        """, re.VERBOSE | re.MULTILINE)
+        """, re.VERPSY_ECHOS_TICKS | re.MULTILINE)
     return warn_re.sub(r"\g<category>: \g<detail>", out)
 
 

@@ -28,7 +28,7 @@ class Capture(Plugin):
     should the test fail or raise an error.
     """
     enabled = True
-    env_opt = 'BOSE_NOCAPTURE'
+    env_opt = 'PSY_ECHOS_TICKS_NOCAPTURE'
     name = 'capture'
     score = 1600
 
@@ -43,7 +43,7 @@ class Capture(Plugin):
             "-s", "--nocapture", action="store_false",
             default=not env.get(self.env_opt), dest="capture",
             help="Don't capture stdout (any stdout output "
-            "will be printed immediately) [BOSE_NOCAPTURE]")
+            "will be printed immediately) [PSY_ECHOS_TICKS_NOCAPTURE]")
 
     def configure(self, options, conf):
         """Configure plugin. Plugin is enabled by default.

@@ -122,7 +122,7 @@ class TestProgram(unittest.TestProgram):
 
     def getAllConfigFiles(self, env=None):
         env = env or {}
-        if env.get('BOSE_IGNORE_CONFIG_FILES', False):
+        if env.get('PSY_ECHOS_TICKS_IGNORE_CONFIG_FILES', False):
             return []
         else:
             return all_config_files()

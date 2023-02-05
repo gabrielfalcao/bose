@@ -79,7 +79,7 @@ class TestProgramConfigs(unittest.TestCase):
         self.assertEqual(self.program.getAllConfigFiles(), all_config_files())
 
     def test_getAllConfigFiles_ignore_configs(self):
-        env = {'BOSE_IGNORE_CONFIG_FILES': 'yes'}
+        env = {'PSY_ECHOS_TICKS_IGNORE_CONFIG_FILES': 'yes'}
         self.assertEqual(self.program.getAllConfigFiles(env), [])
 
     def test_makeConfig(self):

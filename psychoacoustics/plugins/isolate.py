@@ -1,6 +1,6 @@
 """The isolation plugin resets the contents of sys.modules after running
 each test module or package. Use it by setting ``--with-isolation`` or the
-BOSE_WITH_ISOLATION environment variable.
+PSY_ECHOS_TICKS_WITH_ISOLATION environment variable.
 
 The effects are similar to wrapping the following functions around the
 import and execution of each test module::

@@ -3,11 +3,11 @@ import os
 from tempfile import mktemp
 from time import sleep
 
-if 'BOSE_MP_LOG' not in os.environ:
-    raise Exception('Environment variable BOSE_MP_LOG is not set')
+if 'PSY_ECHOS_TICKS_MP_LOG' not in os.environ:
+    raise Exception('Environment variable PSY_ECHOS_TICKS_MP_LOG is not set')
 
-logfile = os.environ['BOSE_MP_LOG']
-killfile = os.environ['BOSE_MP_KILL']
+logfile = os.environ['PSY_ECHOS_TICKS_MP_LOG']
+killfile = os.environ['PSY_ECHOS_TICKS_MP_KILL']
 
 def log(w):
     f = open(logfile, 'a')

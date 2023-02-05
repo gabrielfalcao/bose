@@ -31,7 +31,7 @@ class CollectOnly(Plugin):
         parser.add_option('--collect-only',
                           action='store_true',
                           dest=self.enableOpt,
-                          default=env.get('BOSE_COLLECT_ONLY'),
+                          default=env.get('PSY_ECHOS_TICKS_COLLECT_ONLY'),
                           help="Enable collect-only: %s [COLLECT_ONLY]" %
                           (self.help()))
 

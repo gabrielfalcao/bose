@@ -21,17 +21,17 @@ class Pdb(Plugin):
         """
         parser.add_option(
             "--pdb", action="store_true", dest="debugBoth",
-            default=env.get('BOSE_PDB', False),
+            default=env.get('PSY_ECHOS_TICKS_PDB', False),
             help="Drop into debugger on failures or errors")
         parser.add_option(
             "--pdb-failures", action="store_true",
             dest="debugFailures",
-            default=env.get('BOSE_PDB_FAILURES', False),
+            default=env.get('PSY_ECHOS_TICKS_PDB_FAILURES', False),
             help="Drop into debugger on failures")
         parser.add_option(
             "--pdb-errors", action="store_true",
             dest="debugErrors",
-            default=env.get('BOSE_PDB_ERRORS', False),
+            default=env.get('PSY_ECHOS_TICKS_PDB_ERRORS', False),
             help="Drop into debugger on errors")
 
     def configure(self, options, conf):

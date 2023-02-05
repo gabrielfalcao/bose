@@ -1,4 +1,4 @@
-"""Use the Doctest plugin with ``--with-doctest`` or the BOSE_WITH_DOCTEST
+"""Use the Doctest plugin with ``--with-doctest`` or the PSY_ECHOS_TICKS_WITH_DOCTEST
 environment variable to enable collection and execution of :mod:`doctests
 <doctest>`.  Because doctests are usually included in the tested package
 (instead of being grouped into packages or modules of their own), bose only
@@ -6,7 +6,7 @@ looks for them in the non-test packages it discovers in the working directory.
 
 Doctests may also be placed into files other than python modules, in which
 case they can be collected and executed by using the ``--doctest-extension``
-switch or BOSE_DOCTEST_EXTENSION environment variable to indicate which file
+switch or PSY_ECHOS_TICKS_DOCTEST_EXTENSION environment variable to indicate which file
 extension(s) to load.
 
 When loading doctests from non-module files, use the ``--doctest-fixtures``
@@ -145,25 +145,25 @@ class Doctest(Plugin):
         Plugin.options(self, parser, env)
         parser.add_option('--doctest-tests', action='store_true',
                           dest='doctest_tests',
-                          default=env.get('BOSE_DOCTEST_TESTS'),
+                          default=env.get('PSY_ECHOS_TICKS_DOCTEST_TESTS'),
                           help="Also look for doctests in test modules. "
                           "Note that classes, methods and functions should "
                           "have either doctests or non-doctest tests, "
-                          "not both. [BOSE_DOCTEST_TESTS]")
+                          "not both. [PSY_ECHOS_TICKS_DOCTEST_TESTS]")
         parser.add_option('--doctest-extension', action="append",
                           dest="doctestExtension",
                           metavar="EXT",
                           help="Also look for doctests in files with "
-                          "this extension [BOSE_DOCTEST_EXTENSION]")
+                          "this extension [PSY_ECHOS_TICKS_DOCTEST_EXTENSION]")
         parser.add_option('--doctest-result-variable',
                           dest='doctest_result_var',
-                          default=env.get('BOSE_DOCTEST_RESULT_VAR'),
+                          default=env.get('PSY_ECHOS_TICKS_DOCTEST_RESULT_VAR'),
                           metavar="VAR",
                           help="Change the variable name set to the result of "
                           "the last interpreter command from the default '_'. "
                           "Can be used to avoid conflicts with the _() "
                           "function used for text translation. "
-                          "[BOSE_DOCTEST_RESULT_VAR]")
+                          "[PSY_ECHOS_TICKS_DOCTEST_RESULT_VAR]")
         parser.add_option('--doctest-fixtures', action="store",
                           dest="doctestFixtures",
                           metavar="SUFFIX",
@@ -178,7 +178,7 @@ class Doctest(Plugin):
         # Set the default as a list, if given in env; otherwise
         # an additional value set on the command line will cause
         # an error.
-        env_setting = env.get('BOSE_DOCTEST_EXTENSION')
+        env_setting = env.get('PSY_ECHOS_TICKS_DOCTEST_EXTENSION')
         if env_setting is not None:
             parser.set_defaults(doctestExtension=tolist(env_setting))
 

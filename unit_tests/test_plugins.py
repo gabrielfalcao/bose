@@ -57,7 +57,7 @@ class TestBuiltinPlugins(unittest.TestCase):
         assert d['action'] == 'store_true'
         assert not d['default']
         assert d['dest'] == 'enable_plugin_p'
-        assert d['help'] == 'Enable plugin P: Plugin of destiny! [BOSE_WITH_P]'
+        assert d['help'] == 'Enable plugin P: Plugin of destiny! [PSY_ECHOS_TICKS_WITH_P]'
 
         opt.enable_plugin_p = True
         plug.configure(opt, conf)
@@ -93,7 +93,7 @@ class TestDoctestPlugin(unittest.TestCase):
         # test that configuration works properly when both environment
         # and command line specify a doctest extension
         parser = OptionParser()
-        env = {'BOSE_DOCTEST_EXTENSION':'ext'}
+        env = {'PSY_ECHOS_TICKS_DOCTEST_EXTENSION':'ext'}
         argv = ['--doctest-extension', 'txt']
         dtp = Doctest()
         dtp.add_options(parser, env)
@@ -218,7 +218,7 @@ class TestAttribPlugin(unittest.TestCase):
                    {'dest': 'attr', 'action': 'append', 'default': None,
                     'metavar': 'ATTR',
                     'help': 'Run only tests that have attributes '
-                    'specified by ATTR [BOSE_ATTR]'})]
+                    'specified by ATTR [PSY_ECHOS_TICKS_ATTR]'})]
 
         if compat_24:
             expect.append(
@@ -227,7 +227,7 @@ class TestAttribPlugin(unittest.TestCase):
                   'default': None, 'metavar': 'EXPR',
                   'help': 'Run only tests for whose attributes the '
                   'Python expression EXPR evaluates to True '
-                  '[BOSE_EVAL_ATTR]'}))
+                  '[PSY_ECHOS_TICKS_EVAL_ATTR]'}))
         self.assertEqual(parser.opts, expect)
 
         opt = Bucket()

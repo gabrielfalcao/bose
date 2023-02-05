@@ -508,7 +508,7 @@ class DocTestParser:
                      (?![ ]*>>>)  # Not a line starting with PS1
                      .*$\n?       # But any other line
                   )*)
-        ''', re.MULTILINE | re.VERBOSE)
+        ''', re.MULTILINE | re.VERPSY_ECHOS_TICKS)
 
     # A regular expression for handling `want` strings that contain
     # expected exceptions.  It divides `want` into three pieces:
@@ -530,7 +530,7 @@ class DocTestParser:
         \s* $                # toss trailing whitespace on the header.
         (?P<stack> .*?)      # don't blink: absorb stuff until...
         ^ (?P<msg> \w+ .*)   #     a line *starts* with alphanum.
-        """, re.VERBOSE | re.MULTILINE | re.DOTALL)
+        """, re.VERPSY_ECHOS_TICKS | re.MULTILINE | re.DOTALL)
 
     # A callable returning a true value iff its argument is a blank line
     # or contains a single comment.

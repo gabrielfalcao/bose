@@ -1,11 +1,11 @@
 """If you have Ned Batchelder's coverage_ module installed, you may activate a
-coverage report with the ``--with-coverage`` switch or BOSE_WITH_COVERAGE
+coverage report with the ``--with-coverage`` switch or PSY_ECHOS_TICKS_WITH_COVERAGE
 environment variable. The coverage report will cover any python source module
 imported after the start of the test run, excluding modules that match
 testMatch. If you want to include those modules too, use the ``--cover-tests``
-switch, or set the BOSE_COVER_TESTS environment variable to a true value. To
+switch, or set the PSY_ECHOS_TICKS_COVER_TESTS environment variable to a true value. To
 restrict the coverage report to modules from a particular package or packages,
-use the ``--cover-package`` switch or the BOSE_COVER_PACKAGE environment
+use the ``--cover-package`` switch or the PSY_ECHOS_TICKS_COVER_PACKAGE environment
 variable.
 
 .. _coverage: http://www.nedbatchelder.com/code/modules/coverage.html
@@ -39,65 +39,65 @@ class Coverage(Plugin):
         """
         super(Coverage, self).options(parser, env)
         parser.add_option("--cover-package", action="append",
-                          default=env.get('BOSE_COVER_PACKAGE'),
+                          default=env.get('PSY_ECHOS_TICKS_COVER_PACKAGE'),
                           metavar="PACKAGE",
                           dest="cover_packages",
                           help="Restrict coverage output to selected packages "
-                          "[BOSE_COVER_PACKAGE]")
+                          "[PSY_ECHOS_TICKS_COVER_PACKAGE]")
         parser.add_option("--cover-erase", action="store_true",
-                          default=env.get('BOSE_COVER_ERASE'),
+                          default=env.get('PSY_ECHOS_TICKS_COVER_ERASE'),
                           dest="cover_erase",
                           help="Erase previously collected coverage "
                           "statistics before run")
         parser.add_option("--cover-tests", action="store_true",
                           dest="cover_tests",
-                          default=env.get('BOSE_COVER_TESTS'),
+                          default=env.get('PSY_ECHOS_TICKS_COVER_TESTS'),
                           help="Include test modules in coverage report "
-                          "[BOSE_COVER_TESTS]")
+                          "[PSY_ECHOS_TICKS_COVER_TESTS]")
         parser.add_option("--cover-min-percentage", action="store",
                           dest="cover_min_percentage",
-                          default=env.get('BOSE_COVER_MIN_PERCENTAGE'),
+                          default=env.get('PSY_ECHOS_TICKS_COVER_MIN_PERCENTAGE'),
                           help="Minimum percentage of coverage for tests "
-                          "to pass [BOSE_COVER_MIN_PERCENTAGE]")
+                          "to pass [PSY_ECHOS_TICKS_COVER_MIN_PERCENTAGE]")
         parser.add_option("--cover-inclusive", action="store_true",
                           dest="cover_inclusive",
-                          default=env.get('BOSE_COVER_INCLUSIVE'),
+                          default=env.get('PSY_ECHOS_TICKS_COVER_INCLUSIVE'),
                           help="Include all python files under working "
                           "directory in coverage report.  Useful for "
                           "discovering holes in test coverage if not all "
                           "files are imported by the test suite. "
-                          "[BOSE_COVER_INCLUSIVE]")
+                          "[PSY_ECHOS_TICKS_COVER_INCLUSIVE]")
         parser.add_option("--cover-html", action="store_true",
-                          default=env.get('BOSE_COVER_HTML'),
+                          default=env.get('PSY_ECHOS_TICKS_COVER_HTML'),
                           dest='cover_html',
                           help="Produce HTML coverage information")
         parser.add_option('--cover-html-dir', action='store',
-                          default=env.get('BOSE_COVER_HTML_DIR', 'cover'),
+                          default=env.get('PSY_ECHOS_TICKS_COVER_HTML_DIR', 'cover'),
                           dest='cover_html_dir',
                           metavar='DIR',
                           help='Produce HTML coverage information in dir')
         parser.add_option("--cover-branches", action="store_true",
-                          default=env.get('BOSE_COVER_BRANCHES'),
+                          default=env.get('PSY_ECHOS_TICKS_COVER_BRANCHES'),
                           dest="cover_branches",
                           help="Include branch coverage in coverage report "
-                          "[BOSE_COVER_BRANCHES]")
+                          "[PSY_ECHOS_TICKS_COVER_BRANCHES]")
         parser.add_option("--cover-xml", action="store_true",
-                          default=env.get('BOSE_COVER_XML'),
+                          default=env.get('PSY_ECHOS_TICKS_COVER_XML'),
                           dest="cover_xml",
                           help="Produce XML coverage information")
         parser.add_option("--cover-xml-file", action="store",
-                          default=env.get('BOSE_COVER_XML_FILE',
+                          default=env.get('PSY_ECHOS_TICKS_COVER_XML_FILE',
                                           'coverage.xml'),
                           dest="cover_xml_file",
                           metavar="FILE",
                           help="Produce XML coverage information in file")
         parser.add_option("--cover-config-file", action="store",
-                          default=env.get('BOSE_COVER_CONFIG_FILE'),
+                          default=env.get('PSY_ECHOS_TICKS_COVER_CONFIG_FILE'),
                           dest="cover_config_file",
                           help="Location of coverage config file "
-                          "[BOSE_COVER_CONFIG_FILE]")
+                          "[PSY_ECHOS_TICKS_COVER_CONFIG_FILE]")
         parser.add_option("--cover-no-print", action="store_true",
-                          default=env.get('BOSE_COVER_NO_PRINT'),
+                          default=env.get('PSY_ECHOS_TICKS_COVER_NO_PRINT'),
                           dest="cover_no_print",
                           help="Suppress printing of coverage information")
 

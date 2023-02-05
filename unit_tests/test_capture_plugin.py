@@ -32,7 +32,7 @@ class TestCapturePlugin(unittest.TestCase):
         c.configure(options, Config())
         assert not c.enabled
 
-        env = {'BOSE_NOCAPTURE': 1}
+        env = {'PSY_ECHOS_TICKS_NOCAPTURE': 1}
         c = Capture()
         parser = OptionParser()
         c.addOptions(parser, env)

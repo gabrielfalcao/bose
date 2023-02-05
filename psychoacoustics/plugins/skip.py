@@ -44,7 +44,7 @@ class Skip(ErrorClassPlugin):
         """
         Add my options to command line.
         """
-        env_opt = 'BOSE_WITHOUT_SKIP'
+        env_opt = 'PSY_ECHOS_TICKS_WITHOUT_SKIP'
         parser.add_option('--no-skip', action='store_true',
                           dest='noSkip', default=env.get(env_opt, False),
                           help="Disable special handling of SkipTest "

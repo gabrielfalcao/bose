@@ -1,6 +1,6 @@
 """This plugin will run tests using the hotshot profiler, which is part
 of the standard library. To turn it on, use the ``--with-profile`` option
-or set the BOSE_WITH_PROFILE environment variable. Profiler output can be
+or set the PSY_ECHOS_TICKS_WITH_PROFILE environment variable. Profiler output can be
 controlled with the ``--profile-sort`` and ``--profile-restrict`` options,
 and the profiler output file may be changed with ``--profile-stats-file``.
 
@@ -37,19 +37,19 @@ class Profile(Plugin):
             return
         Plugin.options(self, parser, env)
         parser.add_option('--profile-sort', action='store', dest='profile_sort',
-                          default=env.get('BOSE_PROFILE_SORT', 'cumulative'),
+                          default=env.get('PSY_ECHOS_TICKS_PROFILE_SORT', 'cumulative'),
                           metavar="SORT",
                           help="Set sort order for profiler output")
         parser.add_option('--profile-stats-file', action='store',
                           dest='profile_stats_file',
                           metavar="FILE",
-                          default=env.get('BOSE_PROFILE_STATS_FILE'),
+                          default=env.get('PSY_ECHOS_TICKS_PROFILE_STATS_FILE'),
                           help='Profiler stats file; default is a new '
                           'temp file on each run')
         parser.add_option('--profile-restrict', action='append',
                           dest='profile_restrict',
                           metavar="RESTRICT",
-                          default=env.get('BOSE_PROFILE_RESTRICT'),
+                          default=env.get('PSY_ECHOS_TICKS_PROFILE_RESTRICT'),
                           help="Restrict profiler output. See help for "
                           "pstats.Stats for details")
 

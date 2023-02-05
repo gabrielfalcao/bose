@@ -104,7 +104,7 @@ class LogCapture(Plugin):
     should the test fail or raise an error.
     """
     enabled = True
-    env_opt = 'BOSE_NOLOGCAPTURE'
+    env_opt = 'PSY_ECHOS_TICKS_NOLOGCAPTURE'
     name = 'logcapture'
     score = 500
     logformat = '%(name)s: %(levelname)s: %(message)s'
@@ -120,24 +120,24 @@ class LogCapture(Plugin):
             default=not env.get(self.env_opt), dest="logcapture",
             help="Disable logging capture plugin. "
                  "Logging configuration will be left intact."
-                 " [BOSE_NOLOGCAPTURE]")
+                 " [PSY_ECHOS_TICKS_NOLOGCAPTURE]")
         parser.add_option(
             "--logging-format", action="store", dest="logcapture_format",
-            default=env.get('BOSE_LOGFORMAT') or self.logformat,
+            default=env.get('PSY_ECHOS_TICKS_LOGFORMAT') or self.logformat,
             metavar="FORMAT",
             help="Specify custom format to print statements. "
                  "Uses the same format as used by standard logging handlers."
-                 " [BOSE_LOGFORMAT]")
+                 " [PSY_ECHOS_TICKS_LOGFORMAT]")
         parser.add_option(
             "--logging-datefmt", action="store", dest="logcapture_datefmt",
-            default=env.get('BOSE_LOGDATEFMT') or self.logdatefmt,
+            default=env.get('PSY_ECHOS_TICKS_LOGDATEFMT') or self.logdatefmt,
             metavar="FORMAT",
             help="Specify custom date/time format to print statements. "
                  "Uses the same format as used by standard logging handlers."
-                 " [BOSE_LOGDATEFMT]")
+                 " [PSY_ECHOS_TICKS_LOGDATEFMT]")
         parser.add_option(
             "--logging-filter", action="store", dest="logcapture_filters",
-            default=env.get('BOSE_LOGFILTER'),
+            default=env.get('PSY_ECHOS_TICKS_LOGFILTER'),
             metavar="FILTER",
             help="Specify which statements to filter in/out. "
                  "By default, everything is captured. If the output is too"
@@ -148,7 +148,7 @@ class LogCapture(Plugin):
                  "If any logger name is prefixed with a minus, eg filter=-foo,\n"
                  "it will be excluded rather than included. Default: "
                  "exclude logging messages from bose itself (-bose)."
-                 " [BOSE_LOGFILTER]\n")
+                 " [PSY_ECHOS_TICKS_LOGFILTER]\n")
         parser.add_option(
             "--logging-clear-handlers", action="store_true",
             default=False, dest="logcapture_clear",

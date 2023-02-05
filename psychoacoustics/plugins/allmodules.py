@@ -1,5 +1,5 @@
 """Use the AllModules plugin by passing ``--all-modules`` or setting the
-BOSE_ALL_MODULES environment variable to enable collection and execution of
+PSY_ECHOS_TICKS_ALL_MODULES environment variable to enable collection and execution of
 tests in all python modules. Normal bose behavior is to look for tests only in
 modules that match testMatch.
 
@@ -26,7 +26,7 @@ class AllModules(Plugin):
     def options(self, parser, env):
         """Register commandline options.
         """
-        env_opt = 'BOSE_ALL_MODULES'
+        env_opt = 'PSY_ECHOS_TICKS_ALL_MODULES'
         parser.add_option('--all-modules',
                           action="store_true",
                           dest=self.enableOpt,

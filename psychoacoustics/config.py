@@ -147,14 +147,14 @@ class Config(object):
 
       self.env = env = kw.pop('env', {})
       self.args = ()
-      self.testMatch = re.compile(env.get('BOSE_TESTMATCH', r'(?:\b|_)[Tt]est'))
-      self.addPaths = not env.get('BOSE_NOPATH', False)
+      self.testMatch = re.compile(env.get('PSY_ECHOS_TICKS_TESTMATCH', r'(?:\b|_)[Tt]est'))
+      self.addPaths = not env.get('PSY_ECHOS_TICKS_NOPATH', False)
       self.configSection = 'bosetests'
-      self.debug = env.get('BOSE_DEBUG')
-      self.debugLog = env.get('BOSE_DEBUG_LOG')
+      self.debug = env.get('PSY_ECHOS_TICKS_DEBUG')
+      self.debugLog = env.get('PSY_ECHOS_TICKS_DEBUG_LOG')
       self.exclude = None
       self.getTestCaseNamesCompat = False
-      self.includeExe = env.get('BOSE_INCLUDE_EXE',
+      self.includeExe = env.get('PSY_ECHOS_TICKS_INCLUDE_EXE',
                                 sys.platform in exe_allowed_platforms)
       self.ignoreFiles = (re.compile(r'^\.'),
                           re.compile(r'^_'),
@@ -168,10 +168,10 @@ class Config(object):
       self.plugins = NoPlugins()
       self.srcDirs = ('lib', 'src')
       self.runOnInit = True
-      self.stopOnError = env.get('BOSE_STOP', False)
+      self.stopOnError = env.get('PSY_ECHOS_TICKS_STOP', False)
       self.stream = sys.stderr
       self.testNames = ()
-      self.verbosity = int(env.get('BOSE_VERBOSE', 1))
+      self.verbosity = int(env.get('PSY_ECHOS_TICKS_VERPSY_ECHOS_TICKS', 1))
       self.where = ()
       self.py3where = ()
       self.workingDir = None
@@ -180,15 +180,15 @@ class Config(object):
     def __init__(self, **kw):
         self.env = env = kw.pop('env', {})
         self.args = ()
-        self.testMatchPat = env.get('BOSE_TESTMATCH', r'(?:\b|_)[Tt]est')
+        self.testMatchPat = env.get('PSY_ECHOS_TICKS_TESTMATCH', r'(?:\b|_)[Tt]est')
         self.testMatch = re.compile(self.testMatchPat)
-        self.addPaths = not env.get('BOSE_NOPATH', False)
+        self.addPaths = not env.get('PSY_ECHOS_TICKS_NOPATH', False)
         self.configSection = 'bosetests'
-        self.debug = env.get('BOSE_DEBUG')
-        self.debugLog = env.get('BOSE_DEBUG_LOG')
+        self.debug = env.get('PSY_ECHOS_TICKS_DEBUG')
+        self.debugLog = env.get('PSY_ECHOS_TICKS_DEBUG_LOG')
         self.exclude = None
         self.getTestCaseNamesCompat = False
-        self.includeExe = env.get('BOSE_INCLUDE_EXE',
+        self.includeExe = env.get('PSY_ECHOS_TICKS_INCLUDE_EXE',
                                   sys.platform in exe_allowed_platforms)
         self.ignoreFilesDefaultStrings = [r'^\.',
                                           r'^_',
@@ -203,10 +203,10 @@ class Config(object):
         self.plugins = NoPlugins()
         self.srcDirs = ('lib', 'src')
         self.runOnInit = True
-        self.stopOnError = env.get('BOSE_STOP', False)
+        self.stopOnError = env.get('PSY_ECHOS_TICKS_STOP', False)
         self.stream = sys.stderr
         self.testNames = []
-        self.verbosity = int(env.get('BOSE_VERBOSE', 1))
+        self.verbosity = int(env.get('PSY_ECHOS_TICKS_VERPSY_ECHOS_TICKS', 1))
         self.where = ()
         self.py3where = ()
         self.workingDir = os.getcwd()
@@ -296,15 +296,15 @@ class Config(object):
         # `where` is an append action, so it can't have a default value
         # in the parser, or that default will always be in the list
         if not options.where:
-            options.where = env.get('BOSE_WHERE', None)
+            options.where = env.get('PSY_ECHOS_TICKS_WHERE', None)
 
         # include and exclude also
         if not options.ignoreFiles:
-            options.ignoreFiles = env.get('BOSE_IGNORE_FILES', [])
+            options.ignoreFiles = env.get('PSY_ECHOS_TICKS_IGNORE_FILES', [])
         if not options.include:
-            options.include = env.get('BOSE_INCLUDE', [])
+            options.include = env.get('PSY_ECHOS_TICKS_INCLUDE', [])
         if not options.exclude:
-            options.exclude = env.get('BOSE_EXCLUDE', [])
+            options.exclude = env.get('PSY_ECHOS_TICKS_EXCLUDE', [])
 
         self.addPaths = options.addPaths
         self.stopOnError = options.stopOnError
@@ -460,7 +460,7 @@ class Config(object):
             "-v", "--verbose",
             action="count", dest="verbosity",
             default=self.verbosity,
-            help="Be more verbose. [BOSE_VERBOSE]")
+            help="Be more verbose. [PSY_ECHOS_TICKS_VERPSY_ECHOS_TICKS]")
         parser.add_option(
             "--verbosity", action="store", dest="verbosity",
             metavar='VERBOSITY',
@@ -482,7 +482,7 @@ class Config(object):
             "May be specified multiple times. The first directory passed "
             "will be used as the working directory, in place of the current "
             "working directory, which is the default. Others will be added "
-            "to the list of tests to execute. [BOSE_WHERE]"
+            "to the list of tests to execute. [PSY_ECHOS_TICKS_WHERE]"
             )
         parser.add_option(
             "--py3where", action="append", dest="py3where",
@@ -492,14 +492,14 @@ class Config(object):
             "Python 3.x or above.  Note that, if present under 3.x, this "
             "option completely replaces any directories specified with "
             "'where', so the 'where' option becomes ineffective. "
-            "[BOSE_PY3WHERE]"
+            "[PSY_ECHOS_TICKS_PY3WHERE]"
             )
         parser.add_option(
             "-m", "--match", "--testmatch", action="store",
             dest="testMatch", metavar="REGEX",
             help="Files, directories, function names, and class names "
             "that match this regular expression are considered tests.  "
-            "Default: %s [BOSE_TESTMATCH]" % self.testMatchPat,
+            "Default: %s [PSY_ECHOS_TICKS_TESTMATCH]" % self.testMatchPat,
             default=self.testMatchPat)
         parser.add_option(
             "--tests", action="store", dest="testNames", default=None,
@@ -534,12 +534,12 @@ class Config(object):
             "plugins. "
             "Specifying this option will replace the default setting. "
             "Specify this option multiple times "
-            "to add more regular expressions [BOSE_IGNORE_FILES]")
+            "to add more regular expressions [PSY_ECHOS_TICKS_IGNORE_FILES]")
         parser.add_option(
             "-e", "--exclude", action="append", dest="exclude",
             metavar="REGEX",
             help="Don't run tests that match regular "
-            "expression [BOSE_EXCLUDE]")
+            "expression [PSY_ECHOS_TICKS_EXCLUDE]")
         parser.add_option(
             "-i", "--include", action="append", dest="include",
             metavar="REGEX",
@@ -547,7 +547,7 @@ class Config(object):
             "directories, function names, and class names for a chance "
             "to include additional tests that do not match TESTMATCH.  "
             "Specify this option multiple times "
-            "to add more regular expressions [BOSE_INCLUDE]")
+            "to add more regular expressions [PSY_ECHOS_TICKS_INCLUDE]")
         parser.add_option(
             "-x", "--stop", action="store_true", dest="stopOnError",
             default=self.stopOnError,
@@ -557,14 +557,14 @@ class Config(object):
             dest="addPaths",
             default=self.addPaths,
             help="Don't make any changes to sys.path when "
-            "loading tests [BOSE_NOPATH]")
+            "loading tests [PSY_ECHOS_TICKS_NOPATH]")
         parser.add_option(
             "--exe", action="store_true", dest="includeExe",
             default=self.includeExe,
             help="Look for tests in python modules that are "
             "executable. Normal behavior is to exclude executable "
             "modules, since they may not be import-safe "
-            "[BOSE_INCLUDE_EXE]")
+            "[PSY_ECHOS_TICKS_INCLUDE_EXE]")
         parser.add_option(
             "--noexe", action="store_false", dest="includeExe",
             help="DO NOT look for tests in python modules that are "
