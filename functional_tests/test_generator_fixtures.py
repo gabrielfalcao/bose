@@ -1,4 +1,4 @@
-from nose.tools import eq_
+from bose.tools import eq_
 called = []
 
 def outer_setup():

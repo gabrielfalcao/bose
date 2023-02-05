@@ -1,5 +1,5 @@
 Importer
 ========
 
-.. automodule :: nose.importer
+.. automodule :: bose.importer
    :members:

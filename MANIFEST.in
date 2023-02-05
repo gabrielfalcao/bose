@@ -3,14 +3,14 @@ include CHANGELOG
 include NEWS
 include README.txt
 include lgpl.txt
-include nosetests.1
+include bosetests.1
 include install-rpm.sh
-include bin/nosetests
+include bin/bosetests
 include distribute_setup.py
 include selftest.py
 include setup3lib.py
 include patch.py
-include nose/usage.txt
+include bose/usage.txt
 graft doc
 graft examples
 graft unit_tests

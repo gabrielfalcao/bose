@@ -1,9 +1,9 @@
 import unittest
 import imp
 import sys
-from nose.loader import TestLoader
-from nose.plugins import multiprocess
-from nose.suite import ContextSuite
+from bose.loader import TestLoader
+from bose.plugins import multiprocess
+from bose.suite import ContextSuite
 
 class T_fixt:
     def setupClass(cls):

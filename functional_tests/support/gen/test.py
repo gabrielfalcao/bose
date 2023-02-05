@@ -1,6 +1,6 @@
 """This test will fail if generators bind too early."""
     
-from nose.tools import eq_
+from bose.tools import eq_
 
 def test1():
 

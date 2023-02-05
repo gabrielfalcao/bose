@@ -1,7 +1,7 @@
 Finding and running tests
 -------------------------
 
-nose, by default, follows a few simple rules for test discovery.
+bose, by default, follows a few simple rules for test discovery.
 
 * If it looks like a test, it's a test. Names of directories, modules,
   classes and functions are compared against the testMatch regular
@@ -19,13 +19,13 @@ nose, by default, follows a few simple rules for test discovery.
 
 * Packages are always inspected, but they are only collected if they look
   like tests. This means that you can include your tests inside of your
-  packages (somepackage/tests) and nose will collect the tests without
+  packages (somepackage/tests) and bose will collect the tests without
   running package code inappropriately.
 
 * When a project appears to have library and test code organized into
   separate directories, library directories are examined first.
 
-* When nose imports a module, it adds that module's directory to sys.path;
+* When bose imports a module, it adds that module's directory to sys.path;
   when the module is inside of a package, like package.module, it will be
   loaded as package.module and the directory of *package* will be added to
   sys.path.

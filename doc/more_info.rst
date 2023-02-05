@@ -1,28 +1,28 @@
 About the name
 ==============
 
-* nose is the least silly short synonym for discover in the dictionary.com
+* bose is the least silly short synonym for discover in the dictionary.com
   thesaurus that does not contain the word 'spy.'
-* Pythons have noses
-* The nose knows where to find your tests
+* Pythons have boses
+* The bose knows where to find your tests
 * Nose Obviates Suite Employment
 
 Contact the author
 ==================
 
-You can email me at jpellerin+nose at gmail dot com.
+You can email me at jpellerin+bose at gmail dot com.
 
 To report bugs, ask questions, or request features, please use the *issues*
-tab at the Google code site: http://code.google.com/p/python-nose/issues/list.
+tab at the Google code site: http://code.google.com/p/python-bose/issues/list.
 Patches are welcome!
 
 Similar test runners
 ====================
 
-nose was inspired mainly by py.test_, which is a great test runner, but
+bose was inspired mainly by py.test_, which is a great test runner, but
 formerly was not all that easy to install, and is not based on unittest.
 
-Test suites written for use with nose should work equally well with py.test,
+Test suites written for use with bose should work equally well with py.test,
 and vice versa, except for the differences in output capture and command line
 arguments for the respective tools.
 
@@ -31,7 +31,7 @@ arguments for the respective tools.
 License and copyright
 =====================
 
-nose is copyright Jason Pellerin 2005-2009
+bose is copyright Jason Pellerin 2005-2009
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License as published by

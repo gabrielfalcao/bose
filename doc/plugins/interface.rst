@@ -7,7 +7,7 @@ Plugin Interface
 Plugin base class
 -----------------
 
-.. autoclass :: nose.plugins.base.Plugin
+.. autoclass :: bose.plugins.base.Plugin
    :members:
 
 Nose plugin API
@@ -27,8 +27,8 @@ in the chain are determined by the plugin sort order, which is in order by
 `score` descending.
 
 In general, plugin methods correspond directly to methods of
-`nose.selector.Selector`, `nose.loader.TestLoader` and
-`nose.result.TextTestResult` are called by those methods when they are
+`bose.selector.Selector`, `bose.loader.TestLoader` and
+`bose.result.TextTestResult` are called by those methods when they are
 called. In some cases, the plugin hook doesn't neatly match the method in
 which it is called; for those, the documentation for the hook will tell you
 where in the test process it is called.
@@ -63,7 +63,7 @@ Handling errors
 
 To alter error handling behavior -- for instance to catch a certain class of 
 exception and handle it differently from the normal error or failure handling
--- you should subclass :class:`nose.plugins.errorclass.ErrorClassPlugin`. See
+-- you should subclass :class:`bose.plugins.errorclass.ErrorClassPlugin`. See
 :doc:`the section on ErrorClass plugins <errorclasses>` for more details.
 
 Examples:
@@ -118,5 +118,5 @@ Examples:
 Plugin interface methods
 ------------------------
 
-.. autoclass :: nose.plugins.base.IPluginInterface
+.. autoclass :: bose.plugins.base.IPluginInterface
    :members:

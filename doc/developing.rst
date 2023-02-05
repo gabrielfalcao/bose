@@ -1,17 +1,17 @@
-Developing with nose
+Developing with bose
 ====================
 
 Get the code
 ------------
 
-nose is hosted at `GitHub
-<http://github.com/nose-devs/nose/>`__. You should clone this
-repository if you're developing a plugin or working on bug fixes for nose::
+bose is hosted at `GitHub
+<http://github.com/gabrielfalcao/bose/>`__. You should clone this
+repository if you're developing a plugin or working on bug fixes for bose::
 
-  git clone https://github.com/nose-devs/nose
+  git clone https://github.com/gabrielfalcao/bose
 
 You should **fork** this repository if you are developing new features for
-nose. Then submit your changes as a pull request.
+bose. Then submit your changes as a pull request.
 
 
 Read

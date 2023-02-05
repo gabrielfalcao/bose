@@ -1,8 +1,8 @@
 import os
 import sys
 import unittest
-from nose.config import Config
-from nose.core import TestProgram
+from bose.config import Config
+from bose.core import TestProgram
 
 here = os.path.abspath(os.path.dirname(__file__))
 support = os.path.join(here, 'support')

@@ -1,6 +1,6 @@
-from nose.exc import SkipTest
-from nose.tools import *
-from nose.twistedtools import *
+from bose.exc import SkipTest
+from bose.tools import *
+from bose.twistedtools import *
 try:    
     from twisted.internet.defer import Deferred
     from twisted.internet.error import DNSLookupError
@@ -89,5 +89,5 @@ test_timeout_expired = raises(TimeExpired)(
 
 
 if __name__ == '__main__':
-    from nose import runmodule
+    from bose import runmodule
     runmodule()

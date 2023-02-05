@@ -1,4 +1,4 @@
 Failure Detail: introspect asserts
 ==================================
 
-.. autoplugin :: nose.plugins.failuredetail
+.. autoplugin :: bose.plugins.failuredetail

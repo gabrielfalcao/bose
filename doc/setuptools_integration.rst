@@ -4,35 +4,35 @@ Setuptools integration
 .. warning :: Please note that when run under the setuptools test command,
               many plugins will not be available, including the builtin
               coverage and profiler plugins. If you want to access to all
-              available plugins, use the :doc:`nosetests <api/commands>`
+              available plugins, use the :doc:`bosetests <api/commands>`
               command instead.
 
-nose may be used with the setuptools_ test command. Simply specify
-nose.collector as the test suite in your setup file::
+bose may be used with the setuptools_ test command. Simply specify
+bose.collector as the test suite in your setup file::
 
   setup (
       # ...
-      test_suite = 'nose.collector'
+      test_suite = 'bose.collector'
   )
 
 Then to find and run tests, you can run::
 
   python setup.py test
 
-When running under setuptools, you can configure nose settings via the
-environment variables detailed in the nosetests script usage message,
-or the setup.cfg, ~/.noserc or ~/.nose.cfg config files.
+When running under setuptools, you can configure bose settings via the
+environment variables detailed in the bosetests script usage message,
+or the setup.cfg, ~/.boserc or ~/.bose.cfg config files.
 
-`nosetests` command
+`bosetests` command
 -------------------
 
-nose also includes its own setuptools command, ``nosetests``, that provides
+bose also includes its own setuptools command, ``bosetests``, that provides
 support for all plugins and command line options. It works just like the
 ``test`` command::
 
-  python setup.py nosetests
+  python setup.py bosetests
 
-See :doc:`api/commands` for more information about the ``nosetests`` command.
+See :doc:`api/commands` for more information about the ``bosetests`` command.
 
 .. _setuptools: http://peak.telecommunity.com/DevCenter/setuptools
 

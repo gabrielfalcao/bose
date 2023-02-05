@@ -1,5 +1,5 @@
 Configuration
 =============
 
-.. automodule :: nose.config
+.. automodule :: bose.config
    :members:

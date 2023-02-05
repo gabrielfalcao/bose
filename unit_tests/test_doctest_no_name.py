@@ -1,8 +1,8 @@
 import os
 import sys
 import unittest
-from nose.config import Config
-from nose.plugins import doctests
+from bose.config import Config
+from bose.plugins import doctests
 from mock import Bucket
 
 class TestDoctestErrorHandling(unittest.TestCase):

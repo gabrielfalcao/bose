@@ -1,19 +1,19 @@
-from nose.exc import SkipTest
+from bose.exc import SkipTest
 from subprocess import Popen,PIPE
 import os
 import sys
 from time import sleep
 import signal
 
-import nose
+import bose
 
 support = os.path.join(os.path.dirname(__file__), 'support')
 
 PYTHONPATH = os.environ['PYTHONPATH'] if 'PYTHONPATH' in os.environ else ''
 
 def setup():
-    nose_parent_dir = os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(nose.__file__)),'..'))
-    paths = [nose_parent_dir]
+    bose_parent_dir = os.path.normpath(os.path.join(os.path.abspath(os.path.dirname(bose.__file__)),'..'))
+    paths = [bose_parent_dir]
     if PYTHONPATH:
         paths.append(PYTHONPATH)
     os.environ['PYTHONPATH'] = os.pathsep.join(paths)
@@ -33,7 +33,7 @@ def waitForKillFile(killfile):
             raise Exception('Timeout while waiting for kill file to be created')
     os.remove(killfile)
 
-runner = os.path.join(support, 'fake_nosetest.py')
+runner = os.path.join(support, 'fake_bosetest.py')
 def keyboardinterrupt(case):
     #os.setsid would create a process group so signals sent to the
     #parent process will propogates to all children processes

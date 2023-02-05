@@ -2,8 +2,8 @@
 import os
 import sys
 import unittest
-from nose.plugins.capture import Capture
-from nose.plugins import PluginTester
+from bose.plugins.capture import Capture
+from bose.plugins import PluginTester
 
 support = os.path.join(os.path.dirname(__file__), 'support')
 

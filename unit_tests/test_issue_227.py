@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-from nose.plugins.skip import SkipTest
+from bose.plugins.skip import SkipTest
 import sys
 
 

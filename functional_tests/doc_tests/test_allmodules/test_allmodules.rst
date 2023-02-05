@@ -1,7 +1,7 @@
 Finding tests in all modules
 ============================
 
-Normally, nose only looks for tests in modules whose names match testMatch. By
+Normally, bose only looks for tests in modules whose names match testMatch. By
 default that means modules with 'test' or 'Test' at the start of the name
 after an underscore (_) or dash (-) or other non-alphanumeric character.
 
@@ -11,11 +11,11 @@ command line argument to activate the :doc:`allmodules plugin
 
 .. Note ::
 
-   The function :func:`nose.plugins.plugintest.run` reformats test result
+   The function :func:`bose.plugins.plugintest.run` reformats test result
    output to remove timings, which will vary from run to run, and
    redirects the output to stdout.
 
-    >>> from nose.plugins.plugintest import run_buffered as run
+    >>> from bose.plugins.plugintest import run_buffered as run
 
 ..
 
@@ -44,7 +44,7 @@ When run without ``--all-modules``, only the test module is examined for tests.
 
 When ``--all-modules`` is active, both modules are examined.
 
-    >>> from nose.plugins.allmodules import AllModules
+    >>> from bose.plugins.allmodules import AllModules
     >>> argv = [__file__, '-v', '--all-modules', support]
     >>> run(argv=argv, plugins=[AllModules()]) # doctest: +REPORT_NDIFF
     mod.test ... ok

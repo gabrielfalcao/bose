@@ -1,2 +1,2 @@
-.. automodule :: nose.result
+.. automodule :: bose.result
    :members:

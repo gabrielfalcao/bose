@@ -6,11 +6,11 @@ import re
 import unittest
 from xml.sax import saxutils
 
-from nose.pyversion import UNICODE_STRINGS
-from nose.tools import eq_
-from nose.plugins.xunit import Xunit, escape_cdata, id_split, Tee
-from nose.exc import SkipTest
-from nose.config import Config
+from bose.pyversion import UNICODE_STRINGS
+from bose.tools import eq_
+from bose.plugins.xunit import Xunit, escape_cdata, id_split, Tee
+from bose.exc import SkipTest
+from bose.config import Config
 
 def mktest():
     class TC(unittest.TestCase):
@@ -52,7 +52,7 @@ class TestOptions(unittest.TestCase):
         x = Xunit()
         x.add_options(parser, env={})
         (options, args) = parser.parse_args([])
-        eq_(options.xunit_file, "nosetests.xml")
+        eq_(options.xunit_file, "bosetests.xml")
 
     def test_file_from_environ(self):
         parser = optparse.OptionParser()
@@ -169,7 +169,7 @@ class TestXMLOutputWithXMLAndPrefix(BaseTestXMLOutputWithXML):
             "--xunit-prefix-with-testsuite-name"
         ])
 
-        self._assert_testcase_classname('nosetests.test_xunit.TC')
+        self._assert_testcase_classname('bosetests.test_xunit.TC')
 
     def test_addSuccess_custom(self):
         custom_testsuite_name = 'eartest'
@@ -207,7 +207,7 @@ class TestXMLOutputWithXML(BaseTestXMLOutputWithXML):
 
         if self.ET:
             tree = self.ET.fromstring(result)
-            eq_(tree.attrib['name'], "nosetests")
+            eq_(tree.attrib['name'], "bosetests")
             eq_(tree.attrib['tests'], "1")
             eq_(tree.attrib['errors'], "0")
             eq_(tree.attrib['failures'], "1")
@@ -228,7 +228,7 @@ class TestXMLOutputWithXML(BaseTestXMLOutputWithXML):
         else:
             # this is a dumb test for 2.4-
             assert '<?xml version="1.0" encoding="UTF-8"?>' in result
-            assert '<testsuite name="nosetests" tests="1" errors="0" failures="1" skip="0">' in result
+            assert '<testsuite name="bosetests" tests="1" errors="0" failures="1" skip="0">' in result
             assert '<testcase classname="test_xunit.TC" name="runTest"' in result
             assert '<failure type="exceptions.AssertionError"' in result
             assert "AssertionError: one is not 'equal' to two" in result
@@ -274,7 +274,7 @@ class TestXMLOutputWithXML(BaseTestXMLOutputWithXML):
 
         if self.ET:
             tree = self.ET.fromstring(result)
-            eq_(tree.attrib['name'], "nosetests")
+            eq_(tree.attrib['name'], "bosetests")
             eq_(tree.attrib['tests'], "1")
             eq_(tree.attrib['errors'], "1")
             eq_(tree.attrib['failures'], "0")
@@ -295,14 +295,14 @@ class TestXMLOutputWithXML(BaseTestXMLOutputWithXML):
         else:
             # this is a dumb test for 2.4-
             assert '<?xml version="1.0" encoding="UTF-8"?>' in result
-            assert '<testsuite name="nosetests" tests="1" errors="1" failures="0" skip="0">' in result
+            assert '<testsuite name="bosetests" tests="1" errors="1" failures="0" skip="0">' in result
             assert '<testcase classname="test_xunit.TC" name="runTest"' in result
             assert '<error type="exceptions.RuntimeError"' in result
             assert 'RuntimeError: some error happened' in result
             assert '</error></testcase></testsuite>' in result
 
     def test_non_utf8_error(self):
-        # See http://code.google.com/p/python-nose/issues/detail?id=395
+        # See http://code.google.com/p/python-bose/issues/detail?id=395
         test = mktest()
         self.x.beforeTest(test)
         try:
@@ -363,7 +363,7 @@ class TestXMLOutputWithXML(BaseTestXMLOutputWithXML):
 
         if self.ET:
             tree = self.ET.fromstring(result)
-            eq_(tree.attrib['name'], "nosetests")
+            eq_(tree.attrib['name'], "bosetests")
             eq_(tree.attrib['tests'], "1")
             eq_(tree.attrib['errors'], "0")
             eq_(tree.attrib['failures'], "0")
@@ -377,7 +377,7 @@ class TestXMLOutputWithXML(BaseTestXMLOutputWithXML):
         else:
             # this is a dumb test for 2.4-
             assert '<?xml version="1.0" encoding="UTF-8"?>' in result
-            assert '<testsuite name="nosetests" tests="1" errors="0" failures="0" skip="0">' in result
+            assert '<testsuite name="bosetests" tests="1" errors="0" failures="0" skip="0">' in result
             assert '<testcase classname="test_xunit.TC" name="runTest"' in result
             assert '</testsuite>' in result
 

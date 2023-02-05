@@ -1,2 +1,2 @@
-.. automodule :: nose.selector
+.. automodule :: bose.selector
    :members:

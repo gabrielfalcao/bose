@@ -1,8 +1,8 @@
 import os
 import sys
 import unittest
-from nose import case
-from nose.suite import ContextSuiteFactory
+from bose import case
+from bose.suite import ContextSuiteFactory
 
 support = os.path.abspath(os.path.join(os.path.dirname(__file__), 'support'))
 

@@ -1,2 +1,2 @@
-.. automodule :: nose.commands
+.. automodule :: bose.commands
    :members:

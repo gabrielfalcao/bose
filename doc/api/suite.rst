@@ -1,2 +1,2 @@
-.. automodule :: nose.suite
+.. automodule :: bose.suite
    :members:

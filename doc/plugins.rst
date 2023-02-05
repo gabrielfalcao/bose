@@ -1,18 +1,18 @@
-Extending and customizing nose with plugins
+Extending and customizing bose with plugins
 ===========================================
 
-nose has plugin hooks for loading, running, watching and reporting on tests and
+bose has plugin hooks for loading, running, watching and reporting on tests and
 test runs. If you don't like the default collection scheme, or it doesn't suit
 the layout of your project, or you need reports in a format different from the
 unittest standard, or you need to collect some additional information about
 tests (like code coverage or profiling data), you can write a plugin to do so.
 See the section on `writing plugins`_ for more. 
 
-nose also comes with a number of built-in plugins, such as:
+bose also comes with a number of built-in plugins, such as:
 
 * Output capture
   
-  Unless called with the ``-s`` (``--nocapture``) switch, nose will capture
+  Unless called with the ``-s`` (``--nocapture``) switch, bose will capture
   stdout during each test run, and print the captured output only for tests
   that fail or have errors. The captured output is printed immediately
   following the error or failure output for the test. (Note that output in
@@ -21,7 +21,7 @@ nose also comes with a number of built-in plugins, such as:
 
 * Assert introspection
 
-  When run with the ``-d`` (``--detailed-errors``) switch, nose will try to
+  When run with the ``-d`` (``--detailed-errors``) switch, bose will try to
   output additional information about the assert expression that failed with
   each failing test. Currently, this means that names in the assert expression
   will be expanded into any values found for them in the locals or globals in

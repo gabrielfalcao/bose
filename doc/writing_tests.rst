@@ -1,14 +1,14 @@
 Writing tests
 -------------
 
-As with py.test_, nose tests need not be subclasses of
+As with py.test_, bose tests need not be subclasses of
 :class:`unittest.TestCase`. Any function or class that matches the configured
 testMatch regular expression (``(?:^|[\\b_\\.-])[Tt]est`` by default -- that
 is, has test or Test at a word boundary or following a - or _) and lives in a
 module that also matches that expression will be run as a test. For the sake
-of compatibility with legacy unittest test cases, nose will also load tests
+of compatibility with legacy unittest test cases, bose will also load tests
 from :class:`unittest.TestCase` subclasses just like unittest does. Like
-py.test, nose runs functional tests in the order in which they appear in the
+py.test, bose runs functional tests in the order in which they appear in the
 module file. TestCase-derived tests and other test classes are run in
 alphabetical order.
 
@@ -19,7 +19,7 @@ alphabetical order.
 Fixtures
 ========
 
-nose supports fixtures (setup and teardown methods) at the package,
+bose supports fixtures (setup and teardown methods) at the package,
 module, class, and test level. As with py.test or unittest fixtures,
 setup always runs before any test (or collection of tests for test
 packages and modules); teardown runs if setup has completed
@@ -29,7 +29,7 @@ on fixtures at each level, see below.
 Test packages
 =============
 
-nose allows tests to be grouped into test packages. This allows
+bose allows tests to be grouped into test packages. This allows
 package-level setup; for instance, if you need to create a test database
 or other data fixture for your tests, you may create it in package setup
 and remove it in package teardown once per test run, rather than having to
@@ -117,8 +117,8 @@ class.
 Test generators
 ===============
 
-nose supports test functions and methods that are generators. A simple
-example from nose's selftest suite is probably the best explanation::
+bose supports test functions and methods that are generators. A simple
+example from bose's selftest suite is probably the best explanation::
 
   def test_evens():
       for i in range(0, 5):
@@ -127,7 +127,7 @@ example from nose's selftest suite is probably the best explanation::
   def check_even(n, nn):
       assert n % 2 == 0 or nn % 2 == 0
 
-This will result in five tests. nose will iterate the generator, creating a
+This will result in five tests. bose will iterate the generator, creating a
 function test case wrapper for each tuple it yields. As in the example, test
 generators must yield tuples, the first element of which must be a callable
 and the remaining elements the arguments to be passed to the callable.

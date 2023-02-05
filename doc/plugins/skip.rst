@@ -1,5 +1,5 @@
 Skip: mark tests as skipped
 ===========================
 
-.. autoplugin :: nose.plugins.skip
+.. autoplugin :: bose.plugins.skip
    :plugin: Skip

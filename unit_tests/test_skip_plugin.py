@@ -1,9 +1,9 @@
 import unittest
-from nose.config import Config
-from nose.plugins.skip import Skip, SkipTest
-from nose.result import TextTestResult
+from bose.config import Config
+from bose.plugins.skip import Skip, SkipTest
+from bose.result import TextTestResult
 from StringIO import StringIO
-from nose.result import _TextTestResult
+from bose.result import _TextTestResult
 from optparse import OptionParser
 try:
     # 2.7+

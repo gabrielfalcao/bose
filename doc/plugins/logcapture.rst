@@ -1,4 +1,4 @@
 Logcapture: capture logging during tests
 ========================================
 
-.. autoplugin :: nose.plugins.logcapture
+.. autoplugin :: bose.plugins.logcapture

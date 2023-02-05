@@ -1,11 +1,11 @@
-Batteries included: builtin nose plugins
+Batteries included: builtin bose plugins
 ========================================
 
-nose includes a number of builtin plugins that can make testing faster and easier.
+bose includes a number of builtin plugins that can make testing faster and easier.
 
 .. note ::
 
-   nose 0.11.2 includes a change to default plugin loading. Now, a 3rd party
+   bose 0.11.2 includes a change to default plugin loading. Now, a 3rd party
    plugin with *the same name* as a builtin *will be loaded instead*
    of the builtin plugin.
 

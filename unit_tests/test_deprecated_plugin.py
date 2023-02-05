@@ -1,7 +1,7 @@
 import unittest
-from nose.config import Config
-from nose.plugins.deprecated import Deprecated, DeprecatedTest
-from nose.result import TextTestResult, _TextTestResult
+from bose.config import Config
+from bose.plugins.deprecated import Deprecated, DeprecatedTest
+from bose.result import TextTestResult, _TextTestResult
 from StringIO import StringIO
 from optparse import OptionParser
 try:

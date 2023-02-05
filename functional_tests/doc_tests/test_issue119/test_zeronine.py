@@ -1,8 +1,8 @@
 import os
 import unittest
-from nose.plugins import Plugin
-from nose.plugins.plugintest import PluginTester
-from nose.plugins.manager import ZeroNinePlugin
+from bose.plugins import Plugin
+from bose.plugins.plugintest import PluginTester
+from bose.plugins.manager import ZeroNinePlugin
 
 here = os.path.abspath(os.path.dirname(__file__))
 

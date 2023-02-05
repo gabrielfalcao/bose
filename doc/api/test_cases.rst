@@ -1,8 +1,8 @@
 Test Cases
 ==========
 
-.. automodule :: nose.case
+.. automodule :: bose.case
    :members:
 
-.. autoclass :: nose.failure.Failure
+.. autoclass :: bose.failure.Failure
    :members:

@@ -1,2 +1,2 @@
-.. automodule :: nose.loader
+.. automodule :: bose.loader
    :members:

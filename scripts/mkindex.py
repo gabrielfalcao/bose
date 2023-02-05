@@ -2,11 +2,11 @@
 
 from docutils.core import publish_string, publish_parts
 from docutils.readers.standalone import Reader
-from nose.config import Config
-from nose.plugins.manager import BuiltinPluginManager
-import nose
-import nose.commands
-import nose.tools
+from bose.config import Config
+from bose.plugins.manager import BuiltinPluginManager
+import bose
+import bose.commands
+import bose.tools
 import os
 import re
 import time
@@ -31,7 +31,7 @@ print "Main..."
 tpl = open(os.path.join(root, 'index.html.tpl'), 'r').read()
 
 pat = re.compile(r'^.*(Basic usage)', re.DOTALL)
-txt = nose.__doc__.replace(':: python','::')
+txt = bose.__doc__.replace(':: python','::')
 txt = pat.sub(r'\1', txt)
 
 # cut from 'about the name' down (goes to end of page)
@@ -39,16 +39,16 @@ pat = re.compile(r'^(.*?)(About the name.*$)', re.DOTALL)
 txt, coda = pat.search(txt).groups()
 
 docs = publish_parts(txt, reader=DocReader(), writer_name='html')
-docs.update({'version': nose.__version__,
+docs.update({'version': bose.__version__,
              'date': time.ctime()})
 docs['coda'] = publish_parts(coda, writer_name='html')['body']
 
 #print "Tools..."
-#tools = publish_parts(nose.tools.__doc__, writer_name='html')
+#tools = publish_parts(bose.tools.__doc__, writer_name='html')
 #docs['tools'] = tools['body']
 
 print "Commands..."
-cmds = publish_parts(nose.commands.__doc__, reader=DocReader(),
+cmds = publish_parts(bose.commands.__doc__, reader=DocReader(),
                      writer_name='html')
 docs['commands'] = cmds['body']
 
@@ -64,8 +64,8 @@ docs['news'] = news_html['body']
 
 print "Usage..."
 conf = Config(plugins=BuiltinPluginManager())
-usage_txt = conf.help(nose.main.__doc__).replace(
-    'mkindex.py', 'nosetests')
+usage_txt = conf.help(bose.main.__doc__).replace(
+    'mkindex.py', 'bosetests')
 docs['usage'] = '<pre>%s</pre>' % usage_txt
 
 out = tpl % docs
@@ -75,5 +75,5 @@ index.write(out)
 index.close()
 
 readme = open(os.path.join(root, 'README.txt'), 'w')
-readme.write(nose.__doc__)
+readme.write(bose.__doc__)
 readme.close()

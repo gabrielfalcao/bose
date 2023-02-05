@@ -1,5 +1,5 @@
 import os
-from nose import loader
+from bose import loader
 import unittest
 
 support = os.path.join(os.path.dirname(__file__), 'support')

@@ -1,9 +1,9 @@
 import os
 from unittest import TestCase
 
-from nose.plugins import PluginTester
-from nose.plugins.skip import SkipTest
-from nose.plugins.multiprocess import MultiProcess
+from bose.plugins import PluginTester
+from bose.plugins.skip import SkipTest
+from bose.plugins.multiprocess import MultiProcess
 
 support = os.path.join(os.path.dirname(__file__), 'support')
 

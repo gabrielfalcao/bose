@@ -1,7 +1,7 @@
 import sys
 import unittest
-from nose.config import Config
-from nose.plugins import debug
+from bose.config import Config
+from bose.plugins import debug
 from optparse import OptionParser
 from StringIO import StringIO
 

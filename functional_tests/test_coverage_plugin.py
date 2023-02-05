@@ -4,9 +4,9 @@ import sys
 import unittest
 import shutil
 
-from nose.exc import SkipTest
-from nose.plugins import PluginTester
-from nose.plugins.cover import Coverage
+from bose.exc import SkipTest
+from bose.plugins import PluginTester
+from bose.plugins.cover import Coverage
 
 support = os.path.join(os.path.dirname(__file__), 'support')
 

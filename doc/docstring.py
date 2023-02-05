@@ -1,6 +1,6 @@
 from docutils import nodes
 from docutils.statemachine import ViewList
-from nose.util import resolve_name
+from bose.util import resolve_name
 
 
 def docstring_directive(dirname, arguments, options, content, lineno,

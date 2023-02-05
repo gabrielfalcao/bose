@@ -3,9 +3,9 @@ Tests that plugins can override loadTestsFromTestCase
 """
 import os
 import unittest
-from nose import loader
-from nose.plugins import PluginTester
-from nose.plugins.base import Plugin
+from bose import loader
+from bose.plugins import PluginTester
+from bose.plugins.base import Plugin
 
 
 support = os.path.join(os.path.dirname(__file__), 'support')
@@ -30,7 +30,7 @@ class NoFixturePlug(Plugin):
             def tearDown(self):
                 pass
         Derived.__qualname__ = Derived.__name__
-        # must use nose loader here because the default loader in 2.3
+        # must use bose loader here because the default loader in 2.3
         # won't load tests from base classes
         l = loader.TestLoader()
         return l.loadTestsFromTestCase(Derived)

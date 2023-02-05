@@ -3,7 +3,7 @@ When Plugins Fail
 
 Plugin methods should not fail silently. When a plugin method raises
 an exception before or during the execution of a test, the exception
-will be wrapped in a :class:`nose.failure.Failure` instance and appear as a
+will be wrapped in a :class:`bose.failure.Failure` instance and appear as a
 failing test. Exceptions raised at other times, such as in the
 preparation phase with ``prepareTestLoader`` or ``prepareTestResult``,
 or after a test executes, in ``afterTest`` will stop the entire test
@@ -11,8 +11,8 @@ run.
 
     >>> import os
     >>> import sys
-    >>> from nose.plugins import Plugin
-    >>> from nose.plugins.plugintest import run_buffered as run
+    >>> from bose.plugins import Plugin
+    >>> from bose.plugins.plugintest import run_buffered as run
 
 Our first test plugins take no command-line arguments and raises
 AttributeError in beforeTest and afterTest. 
@@ -42,7 +42,7 @@ tests failing.
 
     >>> support = os.path.join(os.path.dirname(__file__), 'support')
     >>> suitepath = os.path.join(support, 'test_spam.py')
-    >>> run(argv=['nosetests', suitepath],
+    >>> run(argv=['bosetests', suitepath],
     ...     plugins=[FailBeforePlugin()])
     EE
     ======================================================================
@@ -66,7 +66,7 @@ tests failing.
 
 But with the fail-after plugin, the entire test run will fail.
 
-    >>> run(argv=['nosetests', suitepath],
+    >>> run(argv=['bosetests', suitepath],
     ...     plugins=[FailAfterPlugin()])
     Traceback (most recent call last):
     ...
@@ -80,7 +80,7 @@ of test execution, the entire test run fails when the plugin is used.
     ...     
     ...     def prepareTestLoader(self, loader):
     ...         raise TypeError("That loader is not my type")
-    >>> run(argv=['nosetests', suitepath],
+    >>> run(argv=['bosetests', suitepath],
     ...     plugins=[FailPreparationPlugin()])
     Traceback (most recent call last):
     ...
@@ -106,7 +106,7 @@ caught, but logged as a Failure.
     ...         if False:
     ...             yield None
     ...         raise TypeError("bug in plugin")
-    >>> run(argv=['nosetests', suitepath],
+    >>> run(argv=['bosetests', suitepath],
     ...     plugins=[FailLoadPlugin()])
     ..E
     ======================================================================
@@ -124,7 +124,7 @@ caught, but logged as a Failure.
 
 Also, before issue152 was resolved, .loadTestsFromFile() and
 .loadTestsFromName() didn't catch these errors at all, so the
-following test would crash nose:
+following test would crash bose:
 
     >>> class FailLoadFromNamePlugin(EnabledPlugin):
     ...     name = "fail-load-from-name"
@@ -133,7 +133,7 @@ following test would crash nose:
     ...         if False:
     ...             yield None
     ...         raise TypeError("bug in plugin")
-    >>> run(argv=['nosetests', suitepath],
+    >>> run(argv=['bosetests', suitepath],
     ...     plugins=[FailLoadFromNamePlugin()])
     E
     ======================================================================

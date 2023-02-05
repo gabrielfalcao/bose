@@ -1,10 +1,10 @@
 import unittest
-from nose import case
-from nose.config import Config
-from nose.plugins import debug
-from nose.plugins.manager import PluginManager
-from nose.plugins.skip import Skip, SkipTest
-from nose.proxy import ResultProxyFactory
+from bose import case
+from bose.config import Config
+from bose.plugins import debug
+from bose.plugins.manager import PluginManager
+from bose.plugins.skip import Skip, SkipTest
+from bose.proxy import ResultProxyFactory
 
 
 class StubPdb:

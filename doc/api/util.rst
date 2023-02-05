@@ -1,5 +1,5 @@
 Utility functions
 =================
 
-.. automodule :: nose.util
+.. automodule :: bose.util
    :members:

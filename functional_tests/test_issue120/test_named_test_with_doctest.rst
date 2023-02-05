@@ -4,12 +4,12 @@ from module doctest, losing the original failure (failure to find the
 test).
 
     >>> import os
-    >>> from nose.plugins.plugintest import run_buffered as run
-    >>> from nose.plugins.doctests import Doctest
+    >>> from bose.plugins.plugintest import run_buffered as run
+    >>> from bose.plugins.doctests import Doctest
 
     >>> support = os.path.join(os.path.dirname(__file__), 'support')
     >>> test_name = os.path.join(support, 'some_test.py') + ':nonexistent'
-    >>> run(argv=['nosetests', '--with-doctest', test_name],
+    >>> run(argv=['bosetests', '--with-doctest', test_name],
     ...     plugins=[Doctest()])
     E
     ======================================================================

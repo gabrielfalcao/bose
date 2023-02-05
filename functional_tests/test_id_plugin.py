@@ -4,9 +4,9 @@ import sys
 import tempfile
 import unittest
 
-from nose.plugins import PluginTester
-from nose.plugins.builtin import Doctest
-from nose.plugins.builtin import TestId
+from bose.plugins import PluginTester
+from bose.plugins.builtin import Doctest
+from bose.plugins.builtin import TestId
 from cPickle import dump, load
 
 support = os.path.join(os.path.dirname(__file__), 'support')
@@ -251,7 +251,7 @@ class TestWithDoctestFileTests_2(PluginTester, unittest.TestCase):
 if __name__ == '__main__':
     import logging
     logging.basicConfig()
-    l = logging.getLogger('nose.plugins.testid')
+    l = logging.getLogger('bose.plugins.testid')
     l.setLevel(logging.DEBUG)
     
     try:

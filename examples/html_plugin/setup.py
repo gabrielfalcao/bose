@@ -11,12 +11,12 @@ setup(
     name='Example html output plugin',
     version='0.1',
     author='Jason Pellerin',
-    author_email = 'jpellerin+nose@gmail.com',
-    description = 'Example nose html output plugin',
+    author_email = 'jpellerin+bose@gmail.com',
+    description = 'Example bose html output plugin',
     license = 'GNU LGPL',
     py_modules = ['htmlplug'],
     entry_points = {
-        'nose.plugins.0.10': [
+        'bose.plugins.0.10': [
             'htmlout = htmlplug:HtmlOutput'
             ]
         }

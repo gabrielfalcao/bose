@@ -4,13 +4,13 @@ handling intended to ignore the case where the method is not present.
     >>> import sys
     >>> import unittest
 
-    >>> import nose.case
-    >>> import nose.proxy
-    >>> import nose.result
-    >>> import nose.util
-    >>> import nose.plugins.doctests
+    >>> import bose.case
+    >>> import bose.proxy
+    >>> import bose.result
+    >>> import bose.util
+    >>> import bose.plugins.doctests
 
-    >>> class Result(nose.result.TextTestResult):
+    >>> class Result(bose.result.TextTestResult):
     ...
     ...     def afterTest(self, test):
     ...         raise AttributeError("bug in Result")
@@ -27,9 +27,9 @@ handling intended to ignore the case where the method is not present.
     ...         pass
 
 
-    >>> test = nose.case.Test(TestCase())
+    >>> test = bose.case.Test(TestCase())
     >>> result = Result(sys.stdout, True, 1)
-    >>> proxy = nose.proxy.ResultProxy(result, test)
+    >>> proxy = bose.proxy.ResultProxy(result, test)
     >>> proxy.beforeTest(test)
     Traceback (most recent call last):
     AttributeError: bug in Result
@@ -41,6 +41,6 @@ handling intended to ignore the case where the method is not present.
     Traceback (most recent call last):
     AttributeError: bug in TestCase
 
-    >>> nose.util.test_address(test)
+    >>> bose.util.test_address(test)
     Traceback (most recent call last):
     AttributeError: bug in TestCase

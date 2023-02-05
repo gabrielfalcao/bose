@@ -2,4 +2,4 @@
 Multiprocess: parallel testing
 ------------------------------
 
-.. autoplugin :: nose.plugins.multiprocess
+.. autoplugin :: bose.plugins.multiprocess

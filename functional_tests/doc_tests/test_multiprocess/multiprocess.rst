@@ -1,4 +1,4 @@
-Parallel Testing with nose
+Parallel Testing with bose
 --------------------------
 
 .. Note ::
@@ -9,7 +9,7 @@ Parallel Testing with nose
 
 ..
 
-Using the `nose.plugins.multiprocess` plugin, you can parallelize a
+Using the `bose.plugins.multiprocess` plugin, you can parallelize a
 test run across a configurable number of worker processes. While this can
 speed up CPU-bound test runs, it is mainly useful for IO-bound tests
 that spend most of their time waiting for data to arrive from someplace
@@ -68,7 +68,7 @@ Alternatively, if a context's fixtures may only be run once, or may not run
 concurrently, but *may* be shared by tests running in different processes
 -- for instance a package-level fixture that starts an external http server or
 initializes a shared database -- then set ``_multiprocess_shared_ = True`` in
-the context. Fixtures for contexts so marked will execute in the primary nose
+the context. Fixtures for contexts so marked will execute in the primary bose
 process, and tests in those contexts will be individually dispatched to run in
 parallel.
 
@@ -117,11 +117,11 @@ all tests pass.
 
 .. Note ::
 
-   The run() function in :mod:`nose.plugins.plugintest` reformats test result
+   The run() function in :mod:`bose.plugins.plugintest` reformats test result
    output to remove timings, which will vary from run to run, and
    redirects the output to stdout.
 
-    >>> from nose.plugins.plugintest import run_buffered as run
+    >>> from bose.plugins.plugintest import run_buffered as run
 
 ..
 
@@ -133,7 +133,7 @@ all tests pass.
 
 The module with shared fixtures passes.
 
-    >>> run(argv=['nosetests', '-v', test_shared]) #doctest: +REPORT_NDIFF
+    >>> run(argv=['bosetests', '-v', test_shared]) #doctest: +REPORT_NDIFF
     setup called
     test_shared.TestMe.test_one ... ok
     test_shared.test_a ... ok
@@ -147,7 +147,7 @@ The module with shared fixtures passes.
 
 As does the module with no fixture annotations.
 
-    >>> run(argv=['nosetests', '-v', test_not_shared]) #doctest: +REPORT_NDIFF
+    >>> run(argv=['bosetests', '-v', test_not_shared]) #doctest: +REPORT_NDIFF
     setup called
     test_not_shared.TestMe.test_one ... ok
     test_not_shared.test_a ... ok
@@ -161,7 +161,7 @@ As does the module with no fixture annotations.
 
 And the module that marks its fixtures as re-entrant.
 
-    >>> run(argv=['nosetests', '-v', test_can_split]) #doctest: +REPORT_NDIFF
+    >>> run(argv=['bosetests', '-v', test_can_split]) #doctest: +REPORT_NDIFF
     setup called
     test_can_split.TestMe.test_one ... ok
     test_can_split.test_a ... ok
@@ -176,7 +176,7 @@ And the module that marks its fixtures as re-entrant.
 However, when run with the ``--processes=2`` switch, each test module
 behaves differently.
 
-    >>> from nose.plugins.multiprocess import MultiProcess
+    >>> from bose.plugins.multiprocess import MultiProcess
 
 The module marked ``_multiprocess_shared_`` executes correctly, although as with
 any use of the multiprocess plugin, the order in which the tests execute is
@@ -190,7 +190,7 @@ First we have to reset all of the test modules.
 
 Then we can run the tests again with the multiprocess plugin active.
     
-    >>> run(argv=['nosetests', '-v', '--processes=2', test_shared],
+    >>> run(argv=['bosetests', '-v', '--processes=2', test_shared],
     ...     plugins=[MultiProcess()]) #doctest: +ELLIPSIS
     setup called
     test_shared.... ok
@@ -219,7 +219,7 @@ We have to reset all of the test modules again.
 
 Then we can run again and see the failures.
 
-    >>> run(argv=['nosetests', '-v', '--processes=2', test_can_split],
+    >>> run(argv=['bosetests', '-v', '--processes=2', test_can_split],
     ...     plugins=[MultiProcess()]) #doctest: +ELLIPSIS
     setup called
     teardown called
@@ -242,9 +242,9 @@ are a few other differences that may impact your test suite:
   normal test run. For instance, if a non-test module contains a test-like
   function, that function would be discovered as a test in a worker process
   if the entire module is dispatched to the worker. This is because worker
-  processes load tests in *directed* mode -- the same way that nose loads
+  processes load tests in *directed* mode -- the same way that bose loads
   tests when you explicitly name a module -- rather than in *discovered* mode,
-  the mode nose uses when looking for tests in a directory.
+  the mode bose uses when looking for tests in a directory.
 
 * Out-of-order output
 
@@ -255,16 +255,16 @@ are a few other differences that may impact your test suite:
 * Plugin interaction warning
 
   The multiprocess plugin does not work well with other plugins that expect to
-  wrap or gain control of the test-running process. Examples from nose's 
+  wrap or gain control of the test-running process. Examples from bose's 
   builtin plugins include coverage and profiling: a test run using
   both multiprocess and either of those is likely to fail in some
   confusing and spectacular way.
 
 * Python 2.6 warning
 
-  This is unlikely to impact you unless you are writing tests for nose itself,
+  This is unlikely to impact you unless you are writing tests for bose itself,
   but be aware that under python 2.6, the multiprocess plugin is not
-  re-entrant. For example, when running nose with the plugin active, you can't
-  use subprocess to launch another copy of nose that also uses the
+  re-entrant. For example, when running bose with the plugin active, you can't
+  use subprocess to launch another copy of bose that also uses the
   multiprocess plugin. This is why this test is skipped under python 2.6 when
   run with the ``--processes`` switch.

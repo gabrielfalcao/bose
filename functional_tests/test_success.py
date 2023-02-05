@@ -1,6 +1,6 @@
 import os
 import unittest
-from nose.plugins.plugintest import PluginTester, remove_timings
+from bose.plugins.plugintest import PluginTester, remove_timings
 
 support = os.path.join(os.path.dirname(__file__), 'support')
 
@@ -11,7 +11,7 @@ class TestSingleTestPass(PluginTester, unittest.TestCase):
     suitepath = os.path.join(support, 'pass')
 
     def test_single_test_pass(self):
-        # note that this doesn't use nose.plugins.doctests.run, in order that
+        # note that this doesn't use bose.plugins.doctests.run, in order that
         # this test fails if the final terminating newline is not present (it
         # could still be written as a doctest -- PluginTester was just closer
         # to hand)

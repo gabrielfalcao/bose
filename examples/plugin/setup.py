@@ -1,5 +1,5 @@
 """
-An example of how to create a simple nose plugin.
+An example of how to create a simple bose plugin.
 
 """
 try:
@@ -14,12 +14,12 @@ setup(
     name='Example plugin',
     version='0.1',
     author='Jason Pellerin',
-    author_email = 'jpellerin+nose@gmail.com',
-    description = 'Example nose plugin',
+    author_email = 'jpellerin+bose@gmail.com',
+    description = 'Example bose plugin',
     license = 'GNU LGPL',
     py_modules = ['plug'],
     entry_points = {
-        'nose.plugins.0.10': [
+        'bose.plugins.0.10': [
             'example = plug:ExamplePlugin'
             ]
         }

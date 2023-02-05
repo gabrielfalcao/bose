@@ -1,8 +1,8 @@
 import os
 import sys
 import unittest
-import nose.config
-import nose.importer
+import bose.config
+import bose.importer
 
 class TestImporter(unittest.TestCase):
 
@@ -17,7 +17,7 @@ class TestImporter(unittest.TestCase):
                                              'support'))
         foo = os.path.join(where, 'foo')
         foobar = os.path.join(foo, 'bar')
-        nose.importer.add_path(foobar)
+        bose.importer.add_path(foobar)
         
         assert not foobar in sys.path
         assert not foo in sys.path
@@ -30,7 +30,7 @@ class TestImporter(unittest.TestCase):
         foo = os.path.join(where, 'foo')
         foobar = os.path.join(foo, 'bar')
 
-        imp = nose.importer.Importer()
+        imp = bose.importer.Importer()
         mod = imp.importFromDir(foobar, 'buz')
         assert where in sys.path
         # buz has an intra-package import that sets boodle
@@ -45,7 +45,7 @@ class TestImporter(unittest.TestCase):
         # something that's not a real module and has no __file__
         sys.modules['buz'] = 'Whatever'
 
-        imp = nose.importer.Importer()
+        imp = bose.importer.Importer()
         mod = imp.importFromDir(foobar, 'buz')
         assert where in sys.path
         # buz has an intra-package import that sets boodle
@@ -54,11 +54,11 @@ class TestImporter(unittest.TestCase):
     def test_module_init_prefix(self):
         where = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                              'support', 'init_prefix_bug'))
-        nose.importer.add_path(where)
+        bose.importer.add_path(where)
         mod = os.path.join(where, '__init__not.py')
         fqname = 'init_prefix_bug.__init__not'
 
-        imp = nose.importer.Importer()
+        imp = bose.importer.Importer()
         mod = imp.importFromPath(mod, fqname)
         
 if __name__ == '__main__':

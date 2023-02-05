@@ -1,6 +1,6 @@
 import unittest
-from nose.config import Config
-from nose.plugins.builtin import TestId
+from bose.config import Config
+from bose.plugins.builtin import TestId
 import mock
 
 class TestTestIdPlugin(unittest.TestCase):
@@ -9,7 +9,7 @@ class TestTestIdPlugin(unittest.TestCase):
         tid = TestId()
         c = Config()
         opt = mock.Bucket()
-        opt.testIdFile = '.noseids'
+        opt.testIdFile = '.boseids'
         tid.configure(opt, c)
         print tid.idfile
         assert tid.idfile.startswith(c.workingDir), \

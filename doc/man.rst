@@ -1,5 +1,5 @@
 ===========
- nosetests
+ bosetests
 ===========
 
 ------------------------
@@ -9,7 +9,7 @@ nicer testing for python
 SYNOPSIS
 ========
 
-  nosetests [options] [names]
+  bosetests [options] [names]
 
 DESCRIPTION
 ===========

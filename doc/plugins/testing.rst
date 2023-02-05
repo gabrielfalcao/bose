@@ -1,7 +1,7 @@
-.. automodule :: nose.plugins.plugintest
+.. automodule :: bose.plugins.plugintest
 
 PluginTester methods
 --------------------
 
-.. autoclass :: nose.plugins.plugintest.PluginTester
+.. autoclass :: bose.plugins.plugintest.PluginTester
    :members:

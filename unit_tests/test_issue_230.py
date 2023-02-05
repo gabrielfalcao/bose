@@ -4,7 +4,7 @@ import unittest
 class TestIssue230(unittest.TestCase):
 
     def test_generator_yield_value(self):
-        from nose.loader import TestLoader
+        from bose.loader import TestLoader
 
         def test():
             pass

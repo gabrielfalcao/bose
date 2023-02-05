@@ -1,4 +1,4 @@
-from nose.plugins import Plugin
+from bose.plugins import Plugin
 
 class SomePlugin(Plugin):
     pass

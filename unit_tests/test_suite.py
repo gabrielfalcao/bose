@@ -1,6 +1,6 @@
-from nose.config import Config
-from nose import case
-from nose.suite import LazySuite, ContextSuite, ContextSuiteFactory, \
+from bose.config import Config
+from bose import case
+from bose.suite import LazySuite, ContextSuite, ContextSuiteFactory, \
      ContextList
 import imp
 import sys

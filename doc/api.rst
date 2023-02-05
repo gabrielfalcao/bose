@@ -1,4 +1,4 @@
-nose internals
+bose internals
 ==============
 
 .. toctree ::

@@ -1,1 +1,1 @@
-.. automodule :: nose.plugins
+.. automodule :: bose.plugins

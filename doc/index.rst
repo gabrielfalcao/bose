@@ -1,4 +1,4 @@
-.. nose documentation master file, created by sphinx-quickstart on Thu Mar 26 16:49:00 2009.
+.. bose documentation master file, created by sphinx-quickstart on Thu Mar 26 16:49:00 2009.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
@@ -8,7 +8,7 @@ Note to Users
 
 Nose has been in maintenance mode for the past several years and will likely
 cease without a new person/team to take over maintainership.  New projects
-should consider using `Nose2 <https://github.com/nose-devs/nose2>`_, `py.test
+should consider using `Nose2 <https://github.com/gabrielfalcao/bose2>`_, `py.test
 <http://pytest.org/>`_, or just plain unittest/unittest2.
 
 
@@ -18,13 +18,13 @@ Installation and quick start
 *On most UNIX-like systems, you'll probably need to run these commands as root
 or using sudo.*
 
-Install nose using setuptools/distribute::
+Install bose using setuptools/distribute::
 
-  easy_install nose
+  easy_install bose
 
 Or pip::
 
-  pip install nose
+  pip install bose
 
 Or, if you don't have setuptools/distribute installed, use the download
 link at right to download the source package, and install it in the
@@ -34,15 +34,15 @@ directory, and::
   python setup.py install
 
 However, **please note** that without setuptools/distribute installed,
-you will not be able to use third-party nose plugins.
+you will not be able to use third-party bose plugins.
 
-This will install the nose libraries, as well as the :doc:`nosetests <usage>`
+This will install the bose libraries, as well as the :doc:`bosetests <usage>`
 script, which you can use to automatically discover and run tests.
 
 Now you can run tests for your project::
 
   cd path/to/project
-  nosetests
+  bosetests
 
 You should see output something like this::
 
@@ -52,11 +52,11 @@ You should see output something like this::
 
   OK
 
-Indicating that nose found and ran your tests.
+Indicating that bose found and ran your tests.
 
-For help with nosetests' many command-line options, try::
+For help with bosetests' many command-line options, try::
 
-  nosetests -h
+  bosetests -h
 
 or visit the :doc:`usage documentation <usage>`.
 
@@ -64,19 +64,19 @@ or visit the :doc:`usage documentation <usage>`.
 Python3
 =======
 
-nose supports python3. Building from source on python3 requires
+bose supports python3. Building from source on python3 requires
 `distribute <http://packages.python.org/distribute/>`_. If you don't
 have distribute installed, ``python3 setup.py install`` will install
 it via distribute's bootstrap script.
 
 Additionally, if your project is using `2to3
-<http://docs.python.org/library/2to3.html>`_, ``python3 setup.py nosetests``
+<http://docs.python.org/library/2to3.html>`_, ``python3 setup.py bosetests``
 command will automatically convert your sources with 2to3 and then run the
 tests with python 3.
 
 .. warning ::
 
-   nose itself supports python 3, but many 3rd-party plugins do not!
+   bose itself supports python 3, but many 3rd-party plugins do not!
 
 
 .. toctree::

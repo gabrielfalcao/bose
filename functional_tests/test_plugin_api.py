@@ -5,7 +5,7 @@ test plugins that implement one or more hooks for testing.
 import os
 import sys
 import unittest
-from nose.plugins import Plugin, PluginTester
+from bose.plugins import Plugin, PluginTester
 
 support = os.path.join(os.path.dirname(__file__), 'support')
 

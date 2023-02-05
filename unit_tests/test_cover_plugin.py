@@ -1,8 +1,8 @@
 import os
 from optparse import OptionParser
-from nose.config import Config
-from nose.plugins.cover import Coverage
-from nose.tools import eq_
+from bose.config import Config
+from bose.plugins.cover import Coverage
+from bose.tools import eq_
 
 
 class TestCoveragePlugin(object):

@@ -11,8 +11,8 @@ from commands import getstatusoutput
 success = 0
 
 sys.path.insert(0, os.path.dirname(os.path.dirname(__file__)))
-import nose
-version = nose.__version__
+import bose
+version = bose.__version__
 
 SIMULATE = 'exec' not in sys.argv
 if SIMULATE:
@@ -44,10 +44,10 @@ def main():
            (version, tag))
 
     # clone a fresh copy
-    runcmd('hg clone -r %s . /tmp/nose_%s' % (tag, tag))
+    runcmd('hg clone -r %s . /tmp/bose_%s' % (tag, tag))
 
     # build release in clone
-    cd('/tmp/nose_%s' % tag)
+    cd('/tmp/bose_%s' % tag)
 
     # remove dev tag from setup
     runcmd('cp setup.cfg.release setup.cfg')

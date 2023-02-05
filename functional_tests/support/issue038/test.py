@@ -1,4 +1,4 @@
-from nose.exc import SkipTest
+from bose.exc import SkipTest
 
 
 def test_a():

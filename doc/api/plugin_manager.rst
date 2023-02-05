@@ -1,2 +1,2 @@
-.. automodule :: nose.plugins.manager
+.. automodule :: bose.plugins.manager
    :members:

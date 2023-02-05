@@ -2,7 +2,7 @@ import os
 import sys
 import unittest
 from cStringIO import StringIO
-from nose.core import TestProgram
+from bose.core import TestProgram
 from test_program import TestRunner
 
 here = os.path.dirname(__file__)

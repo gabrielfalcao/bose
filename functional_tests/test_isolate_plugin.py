@@ -1,8 +1,8 @@
 import os
 import sys
 import unittest
-from nose.plugins.isolate import IsolationPlugin
-from nose.plugins import PluginTester
+from bose.plugins.isolate import IsolationPlugin
+from bose.plugins import PluginTester
 
 support = os.path.join(os.path.dirname(__file__), 'support')
 

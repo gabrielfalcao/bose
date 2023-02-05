@@ -10,7 +10,7 @@ try:
 except ImportError:
     from StringIO import StringIO
 
-from nose.inspector import inspect_traceback, Expander, tbsource
+from bose.inspector import inspect_traceback, Expander, tbsource
 
 class TestExpander(unittest.TestCase):
 

@@ -1,27 +1,27 @@
 """
-Examples of test function/method attribute usage with patched nose
+Examples of test function/method attribute usage with patched bose
 
 Simple syntax (-a, --attr) examples:
-  * nosetests -a status=stable
+  * bosetests -a status=stable
     => only test cases with attribute "status" having value "stable"
 
-  * nosetests -a priority=2,status=stable
+  * bosetests -a priority=2,status=stable
     => both attributes must match
 
-  * nosetests -a tags=http
+  * bosetests -a tags=http
     => attribute list "tags" must contain value "http" (see test_foobar()
        below for definition)
 
-  * nosetests -a slow
+  * bosetests -a slow
     => attribute "slow" must be defined and its value cannot equal to False
        (False, [], "", etc...)
 
-  * nosetests -a !slow
+  * bosetests -a !slow
     => attribute "slow" must NOT be defined or its value must be equal to False
 
 Eval expression syntax (-A, --eval-attr) examples:
-  * nosetests -A "not slow"
-  * nosetests -A "(priority > 5) and not slow"
+  * bosetests -A "not slow"
+  * bosetests -A "(priority > 5) and not slow"
   
 This example and the accompanied patch is in public domain, free for any use.
 
@@ -69,14 +69,14 @@ class TestSomething:
 # class methods "inherit" attributes from the class but can override them
 class TestOverride:
     value = "class"
-    # run all methods with "nosetests -a value"
+    # run all methods with "bosetests -a value"
 
     @attr(value = "method")
     def test_override(self):
-        # run with "nosetests -a value=method"
+        # run with "bosetests -a value=method"
         print "override"
     
     def test_inherit(self):
-        # run with "nosetests -a value=class"
+        # run with "bosetests -a value=class"
         print "inherit"
     

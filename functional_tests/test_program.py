@@ -1,11 +1,11 @@
 import os
 import unittest
 from cStringIO import StringIO
-from nose import SkipTest
-from nose.core import TestProgram
-from nose.config import Config
-from nose.plugins.manager import DefaultPluginManager
-from nose.result import _TextTestResult
+from bose import SkipTest
+from bose.core import TestProgram
+from bose.config import Config
+from bose.plugins.manager import DefaultPluginManager
+from bose.result import _TextTestResult
 
 here = os.path.dirname(__file__)
 support = os.path.join(here, 'support')
@@ -17,7 +17,7 @@ class TestRunner(unittest.TextTestRunner):
         return self.result 
 
 # Note that all of these tests use a set config to avoid the loading
-# of plugins or settings from .noserc.
+# of plugins or settings from .boserc.
 
 class TestTestProgram(unittest.TestCase):
 

@@ -1,5 +1,5 @@
-from nose.plugins.skip import SkipTest
-from nose.plugins.multiprocess import MultiProcess
+from bose.plugins.skip import SkipTest
+from bose.plugins.multiprocess import MultiProcess
 
 _multiprocess_can_split_ = True
 

@@ -1,4 +1,4 @@
 Deprecated: mark tests as deprecated
 ====================================
 
-.. autoplugin :: nose.plugins.deprecated
+.. autoplugin :: bose.plugins.deprecated

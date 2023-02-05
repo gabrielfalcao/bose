@@ -1,4 +1,4 @@
-from nose.plugins.attrib import attr
+from bose.plugins.attrib import attr
 
 from unittest import TestCase
 

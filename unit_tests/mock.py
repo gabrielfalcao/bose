@@ -1,9 +1,9 @@
 import imp
 import sys
-from nose.config import Config
-from nose import proxy
-from nose.plugins.manager import NoPlugins
-from nose.util import odict
+from bose.config import Config
+from bose import proxy
+from bose.plugins.manager import NoPlugins
+from bose.util import odict
 
 
 def mod(name):

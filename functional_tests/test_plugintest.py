@@ -1,7 +1,7 @@
 
 import unittest, os
-from nose.plugins import PluginTester, Plugin
-from nose.tools import eq_
+from bose.plugins import PluginTester, Plugin
+from bose.tools import eq_
 from cStringIO import StringIO
 
 class StubPlugin(Plugin):

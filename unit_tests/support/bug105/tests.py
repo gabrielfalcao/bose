@@ -1,4 +1,4 @@
-from nose import tools
+from bose import tools
 
 def test_z():
     """(1) test z"""

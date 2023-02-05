@@ -2,9 +2,9 @@ Restricted Plugin Managers
 --------------------------
 
 In some cases, such as running under the ``python setup.py test`` command,
-nose is not able to use all available plugins. In those cases, a
-`nose.plugins.manager.RestrictedPluginManager` is used to exclude plugins that
-implement API methods that nose is unable to call.
+bose is not able to use all available plugins. In those cases, a
+`bose.plugins.manager.RestrictedPluginManager` is used to exclude plugins that
+implement API methods that bose is unable to call.
 
 Support files for this test are in the support directory.
 
@@ -14,19 +14,19 @@ Support files for this test are in the support directory.
 For this test, we'll use a simple plugin that implements the ``startTest``
 method.
 
-    >>> from nose.plugins.base import Plugin
-    >>> from nose.plugins.manager import RestrictedPluginManager
+    >>> from bose.plugins.base import Plugin
+    >>> from bose.plugins.manager import RestrictedPluginManager
     >>> class StartPlugin(Plugin):
     ...     def startTest(self, test):
     ...         print "started %s" % test
 
 .. Note ::
 
-   The run() function in :mod:`nose.plugins.plugintest` reformats test result
+   The run() function in :mod:`bose.plugins.plugintest` reformats test result
    output to remove timings, which will vary from run to run, and
    redirects the output to stdout.
 
-    >>> from nose.plugins.plugintest import run_buffered as run
+    >>> from bose.plugins.plugintest import run_buffered as run
 
 ..
 
@@ -43,7 +43,7 @@ When run with a normal plugin manager, the plugin executes.
     OK
 
 However, when run with a restricted plugin manager configured to exclude
-plugins implementing `startTest`, an exception is raised and nose exits.
+plugins implementing `startTest`, an exception is raised and bose exits.
 
     >>> restricted = RestrictedPluginManager(
     ...     plugins=[StartPlugin()], exclude=('startTest',), load=False)
@@ -78,7 +78,7 @@ command line, a warning is raised instead of an exception.
     OK
 
 However, if an option appears in a configuration file that is not recognized
-either as an option defined by nose, or by an active or excluded plugin, an
+either as an option defined by bose, or by an active or excluded plugin, an
 error is raised.
 
     >>> argv = ['plugintest', '-v', '-c', os.path.join(support, 'bad.cfg'),

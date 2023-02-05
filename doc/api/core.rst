@@ -1,5 +1,5 @@
 Test runner and main()
 ======================
 
-.. automodule :: nose.core
+.. automodule :: bose.core
    :members:

@@ -2,7 +2,7 @@
     >>> import tempfile
     >>> import shutil
 
-    >>> from nose.util import ls_tree
+    >>> from bose.util import ls_tree
 
     >>> dir_path = tempfile.mkdtemp()
 

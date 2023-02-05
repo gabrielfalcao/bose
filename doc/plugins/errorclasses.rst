@@ -1,7 +1,7 @@
-.. automodule :: nose.plugins.errorclass
+.. automodule :: bose.plugins.errorclass
 
 Error class methods
 -------------------
 
-.. autoclass :: nose.plugins.errorclass.ErrorClassPlugin
+.. autoclass :: bose.plugins.errorclass.ErrorClassPlugin
    :members:

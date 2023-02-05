@@ -1,7 +1,7 @@
 import logging
 import unittest
-from nose.config import Config
-#from nose.core import configure_logging
+from bose.config import Config
+#from bose.core import configure_logging
 from mock import *
 
 
@@ -28,13 +28,13 @@ class TestLoggingConfig(unittest.TestCase):
         """root logger settings ignored"""
 
         root = logging.getLogger('')
-        nose = logging.getLogger('nose')
+        bose = logging.getLogger('bose')
 
         config = Config()
         config.configureLogging()
         
         root.setLevel(logging.DEBUG)
-        self.assertEqual(nose.level, logging.WARN)
+        self.assertEqual(bose.level, logging.WARN)
     
 if __name__ == '__main__':
     unittest.main()

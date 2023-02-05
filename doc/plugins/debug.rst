@@ -1,4 +1,4 @@
 Debug: drop into pdb on errors or failures
 ==========================================
 
-.. autoplugin :: nose.plugins.debug
+.. autoplugin :: bose.plugins.debug

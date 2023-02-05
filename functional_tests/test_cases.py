@@ -1,7 +1,7 @@
 import unittest
-from nose.config import Config
-from nose import case
-from nose.plugins import Plugin, PluginManager
+from bose.config import Config
+from bose import case
+from bose.plugins import Plugin, PluginManager
 
 class TestTestCasePluginCalls(unittest.TestCase):
 

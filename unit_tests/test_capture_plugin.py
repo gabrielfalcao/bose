@@ -2,8 +2,8 @@
 import sys
 import unittest
 from optparse import OptionParser
-from nose.config import Config
-from nose.plugins.capture import Capture
+from bose.config import Config
+from bose.plugins.capture import Capture
 
 class TestCapturePlugin(unittest.TestCase):
 

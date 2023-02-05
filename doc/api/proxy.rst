@@ -1,2 +1,2 @@
-.. automodule :: nose.proxy
+.. automodule :: bose.proxy
    :members:

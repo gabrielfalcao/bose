@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from nose.plugins import PluginTester
+from bose.plugins import PluginTester
 
 support = os.path.join(os.path.dirname(__file__), 'support', 'issue513')
 

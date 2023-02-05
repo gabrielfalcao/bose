@@ -1,6 +1,6 @@
 import os
 import sys
-from nose.exc import SkipTest
+from bose.exc import SkipTest
 
 try:
     from pkg_resources import EntryPoint

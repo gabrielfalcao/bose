@@ -1,4 +1,4 @@
-Doctests: run doctests with nose
+Doctests: run doctests with bose
 ================================
 
-.. autoplugin :: nose.plugins.doctests
+.. autoplugin :: bose.plugins.doctests

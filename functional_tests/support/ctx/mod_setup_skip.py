@@ -1,4 +1,4 @@
-from nose import SkipTest
+from bose import SkipTest
 
 def setup():
     raise SkipTest("no thanks")

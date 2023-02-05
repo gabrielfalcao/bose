@@ -1,2 +1,2 @@
-.. automodule :: nose.twistedtools
+.. automodule :: bose.twistedtools
    :members:

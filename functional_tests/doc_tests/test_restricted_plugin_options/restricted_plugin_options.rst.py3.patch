@@ -5,5 +5,5 @@
      Traceback (most recent call last):
      ...
 -    ConfigError: Error reading config file '...bad.cfg': no such option 'with-meltedcheese'
-+    nose.config.ConfigError: Error reading config file '...bad.cfg': no such option 'with-meltedcheese'
++    bose.config.ConfigError: Error reading config file '...bad.cfg': no such option 'with-meltedcheese'
  

@@ -1,5 +1,5 @@
 Traceback inspector
 ===================
 
-.. automodule :: nose.inspector
+.. automodule :: bose.inspector
    :members:

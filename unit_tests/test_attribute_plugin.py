@@ -1,6 +1,6 @@
 # There are more attribute plugin unit tests in unit_tests/test_plugins.py
-from nose.tools import eq_
-from nose.plugins.attrib import attr
+from bose.tools import eq_
+from bose.plugins.attrib import attr
 
 def test_flags():
     # @attr('one','two')

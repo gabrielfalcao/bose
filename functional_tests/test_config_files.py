@@ -1,7 +1,7 @@
 import logging
 import os
 import unittest
-from nose.config import Config
+from bose.config import Config
 
 support = os.path.join(os.path.dirname(__file__), 'support')
 

@@ -2,9 +2,9 @@ import os
 import sys
 import unittest
 from cStringIO import StringIO
-from nose.config import Config
-from nose.core import TestProgram
-from nose.plugins.manager import PluginManager
+from bose.config import Config
+from bose.core import TestProgram
+from bose.plugins.manager import PluginManager
 
 
 support = os.path.join(os.path.dirname(__file__), 'support')
