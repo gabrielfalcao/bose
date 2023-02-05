@@ -1,5 +1,5 @@
 import os
-from bose import loader
+from psychoacoustics import loader
 import unittest
 
 support = os.path.join(os.path.dirname(__file__), 'support')

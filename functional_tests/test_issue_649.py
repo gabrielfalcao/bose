@@ -2,8 +2,8 @@
 import os
 import sys
 import unittest
-from bose.plugins.capture import Capture
-from bose.plugins import PluginTester
+from psychoacoustics.plugins.capture import Capture
+from psychoacoustics.plugins import PluginTester
 
 support = os.path.join(os.path.dirname(__file__), 'support')
 

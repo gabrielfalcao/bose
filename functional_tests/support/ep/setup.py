@@ -4,7 +4,7 @@ setup(
     name='Some plugin',
     packages = find_packages(),
     entry_points = {
-    'bose.plugins.0.10': [
+    'psychoacoustics.plugins.0.10': [
     'someplugin = someplugin:SomePlugin'
     ]
     })

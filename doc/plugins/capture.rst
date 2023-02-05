@@ -1,5 +1,5 @@
 Capture: capture stdout during tests
 ====================================
 
-.. autoplugin :: bose.plugins.capture
+.. autoplugin :: psychoacoustics.plugins.capture
 

@@ -1,6 +1,6 @@
-from bose.exc import SkipTest
-from bose.tools import *
-from bose.twistedtools import *
+from psychoacoustics.exc import SkipTest
+from psychoacoustics.tools import *
+from psychoacoustics.twistedtools import *
 try:    
     from twisted.internet.defer import Deferred
     from twisted.internet.error import DNSLookupError
@@ -89,5 +89,5 @@ test_timeout_expired = raises(TimeExpired)(
 
 
 if __name__ == '__main__':
-    from bose import runmodule
+    from psychoacoustics import runmodule
     runmodule()

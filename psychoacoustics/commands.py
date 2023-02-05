@@ -2,13 +2,13 @@
 psytests setuptools command
 ----------------------------
 
-The easiest way to run tests with bose is to use the `psytests` setuptools
+The easiest way to run tests with psychoacoustics is to use the `psytests` setuptools
 command::
 
   python setup.py psytests
 
 This command has one *major* benefit over the standard `test` command: *all
-bose plugins are supported*.
+psychoacoustics plugins are supported*.
 
 To configure the `psytests` command, add a [psytests] section to your
 setup.cfg. The [psytests] section can contain any command line arguments that
@@ -25,8 +25,8 @@ Here's an example [psytests] setup.cfg section::
   verbosity=1
   detailed-errors=1
   with-coverage=1
-  cover-package=bose
-  debug=bose.loader
+  cover-package=psychoacoustics
+  debug=psychoacoustics.loader
   pdb=1
   pdb-failures=1
 
@@ -47,15 +47,15 @@ Bootstrapping
 -------------
 
 If you are distributing your project and want users to be able to run tests
-without having to install bose themselves, add bose to the setup_requires
+without having to install psychoacoustics themselves, add psychoacoustics to the setup_requires
 section of your setup()::
 
   setup(
       # ...
-      setup_requires=['bose>=1.0']
+      setup_requires=['psychoacoustics>=1.0']
       )
 
-This will direct setuptools to download and activate bose during the setup
+This will direct setuptools to download and activate psychoacoustics during the setup
 process, making the ``psytests`` command available.
 
 """
@@ -64,10 +64,10 @@ try:
 except ImportError:
     Command = psytests = None
 else:
-    from bose.config import Config, option_blacklist, user_config_files, \
+    from psychoacoustics.config import Config, option_blacklist, user_config_files, \
         flag, _bool
-    from bose.core import TestProgram
-    from bose.plugins import DefaultPluginManager
+    from psychoacoustics.core import TestProgram
+    from psychoacoustics.plugins import DefaultPluginManager
 
 
     def get_user_options(parser):
@@ -112,7 +112,7 @@ else:
 
         def run(self):
             """ensure tests are capable of being run, then
-            run bose.main with a reconstructed argument list"""
+            run psychoacoustics.main with a reconstructed argument list"""
             if getattr(self.distribution, 'use_2to3', False):
                 # If we run 2to3 we can not do this inplace:
 

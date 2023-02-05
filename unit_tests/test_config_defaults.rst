@@ -2,7 +2,7 @@
     >>> import os
     >>> from cStringIO import StringIO
 
-    >>> import bose.config
+    >>> import psychoacoustics.config
 
 All commandline options to fall back to values configured in
 configuration files.  The configuration lives in a single section
@@ -17,13 +17,13 @@ configuration files.  The configuration lives in a single section
     >>> def get_parser():
     ...     parser = OptionParser()
     ...     parser.add_option(
-    ...         "-v", "--verbose",
+    ...         "-v", "--verpsychoacoustics",
     ...         action="count", dest="verbosity",
     ...         default=1)
     ...     parser.add_option(
     ...         "--verbosity", action="store", dest="verbosity",
     ...         type="int")
-    ...     return bose.config.ConfiguredDefaultsOptionParser(parser,
+    ...     return psychoacoustics.config.ConfiguredDefaultsOptionParser(parser,
     ...                                                       "psytests",
     ...                                                       error)
 

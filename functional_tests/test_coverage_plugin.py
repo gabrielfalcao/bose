@@ -4,9 +4,9 @@ import sys
 import unittest
 import shutil
 
-from bose.exc import SkipTest
-from bose.plugins import PluginTester
-from bose.plugins.cover import Coverage
+from psychoacoustics.exc import SkipTest
+from psychoacoustics.plugins import PluginTester
+from psychoacoustics.plugins.cover import Coverage
 
 support = os.path.join(os.path.dirname(__file__), 'support')
 

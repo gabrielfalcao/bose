@@ -44,7 +44,7 @@ execute concurrently and multiple times, typically once per test.
 If a context's fixtures can be shared by tests running in different processes
 -- such as a package-level fixture that starts an external http server or
 initializes a shared database -- then set ``_multiprocess_shared_ = True`` in
-the context. These fixtures will then execute in the primary bose process, and
+the context. These fixtures will then execute in the primary psychoacoustics process, and
 tests in those contexts will be individually dispatched to run in parallel.
 
 How results are collected and reported
@@ -53,7 +53,7 @@ How results are collected and reported
 As each test or suite executes in a worker process, results (failures, errors,
 and specially handled exceptions like SkipTest) are collected in that
 process. When the worker process finishes, it returns results to the main
-bose process. There, any progress output is printed (dots!), and the
+psychoacoustics process. There, any progress output is printed (dots!), and the
 results from the test run are combined into a consolidated result
 set. When results have been received for all dispatched tests, or all
 workers have died, the result summary is output as normal.
@@ -101,15 +101,15 @@ import traceback
 import unittest
 import pickle
 import signal
-import bose.case
-from bose.core import TextTestRunner
-from bose import failure
-from bose import loader
-from bose.plugins.base import Plugin
-from bose.pyversion import bytes_
-from bose.result import TextTestResult
-from bose.suite import ContextSuite
-from bose.util import test_address
+import psychoacoustics.case
+from psychoacoustics.core import TextTestRunner
+from psychoacoustics import failure
+from psychoacoustics import loader
+from psychoacoustics.plugins.base import Plugin
+from psychoacoustics.pyversion import bytes_
+from psychoacoustics.result import TextTestResult
+from psychoacoustics.suite import ContextSuite
+from psychoacoustics.util import test_address
 try:
     # 2.7+
     from unittest.runner import _WritelnDecorator
@@ -287,7 +287,7 @@ class MultiProcessTestRunner(TextTestRunner):
         # put indexes only on queue because tests aren't picklable
         for case in self.nextBatch(test):
             log.debug("Next batch %s (%s)", case, type(case))
-            if (isinstance(case, bose.case.Test) and
+            if (isinstance(case, psychoacoustics.case.Test) and
                 isinstance(case.test, failure.Failure)):
                 log.debug("Case is a Failure")
                 case(result) # run here to capture the failure
@@ -528,7 +528,7 @@ class MultiProcessTestRunner(TextTestRunner):
 
     def addtask(testQueue,tasks,case):
         arg = None
-        if isinstance(case,bose.case.Test) and hasattr(case.test,'arg'):
+        if isinstance(case,psychoacoustics.case.Test) and hasattr(case.test,'arg'):
             # this removes the top level descriptor and allows real function
             # name to be returned
             case.test.descriptor = None
@@ -794,7 +794,7 @@ class NoSharedFixtureContextSuite(ContextSuite):
             return
         try:
             for test in self._tests:
-                if (isinstance(test,bose.case.Test)
+                if (isinstance(test,psychoacoustics.case.Test)
                     and self.arg is not None):
                     test.test.arg = self.arg
                 else:
@@ -804,7 +804,7 @@ class NoSharedFixtureContextSuite(ContextSuite):
                 if result.shouldStop:
                     log.debug("stopping")
                     break
-                # each bose.case.Test will create its own result proxy
+                # each psychoacoustics.case.Test will create its own result proxy
                 # so the cases need the original result, to avoid proxy
                 # chains
                 #log.debug('running test %s in suite %s', test, self);

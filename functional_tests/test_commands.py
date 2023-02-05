@@ -1,8 +1,8 @@
 import os
 import sys
 import unittest
-from bose.plugins.skip import SkipTest
-from bose import commands
+from psychoacoustics.plugins.skip import SkipTest
+from psychoacoustics import commands
 from StringIO import StringIO
 
 support = os.path.join(

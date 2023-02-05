@@ -1,4 +1,4 @@
 Logcapture: capture logging during tests
 ========================================
 
-.. autoplugin :: bose.plugins.logcapture
+.. autoplugin :: psychoacoustics.plugins.logcapture

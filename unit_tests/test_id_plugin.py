@@ -1,6 +1,6 @@
 import unittest
-from bose.config import Config
-from bose.plugins.builtin import TestId
+from psychoacoustics.config import Config
+from psychoacoustics.plugins.builtin import TestId
 import mock
 
 class TestTestIdPlugin(unittest.TestCase):
@@ -9,7 +9,7 @@ class TestTestIdPlugin(unittest.TestCase):
         tid = TestId()
         c = Config()
         opt = mock.Bucket()
-        opt.testIdFile = '.boseids'
+        opt.testIdFile = '.psychoacousticsids'
         tid.configure(opt, c)
         print tid.idfile
         assert tid.idfile.startswith(c.workingDir), \

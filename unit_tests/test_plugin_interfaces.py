@@ -1,12 +1,12 @@
 import unittest
-from bose.plugins.base import IPluginInterface
+from psychoacoustics.plugins.base import IPluginInterface
 
 class TestPluginInterfaces(unittest.TestCase):
 
     def test_api_methods_present(self):
 
-        from bose.loader import TestLoader
-        from bose.selector import Selector
+        from psychoacoustics.loader import TestLoader
+        from psychoacoustics.selector import Selector
 
         
         exclude = [ 'loadTestsFromGenerator',

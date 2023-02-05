@@ -1,10 +1,10 @@
 import unittest
-from bose import case
-from bose.config import Config
-from bose.plugins import debug
-from bose.plugins.manager import PluginManager
-from bose.plugins.skip import Skip, SkipTest
-from bose.proxy import ResultProxyFactory
+from psychoacoustics import case
+from psychoacoustics.config import Config
+from psychoacoustics.plugins import debug
+from psychoacoustics.plugins.manager import PluginManager
+from psychoacoustics.plugins.skip import Skip, SkipTest
+from psychoacoustics.proxy import ResultProxyFactory
 
 
 class StubPdb:

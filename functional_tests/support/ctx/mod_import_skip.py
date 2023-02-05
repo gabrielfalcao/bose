@@ -1,4 +1,4 @@
-from bose import SkipTest
+from psychoacoustics import SkipTest
 
 raise SkipTest("Don't run me")
 

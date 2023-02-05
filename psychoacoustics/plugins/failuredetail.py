@@ -6,9 +6,9 @@ substitution is also performed in the context output to provide more
 debugging information.
 """
     
-from bose.plugins import Plugin
-from bose.pyversion import exc_to_unicode, force_unicode
-from bose.inspector import inspect_traceback
+from psychoacoustics.plugins import Plugin
+from psychoacoustics.pyversion import exc_to_unicode, force_unicode
+from psychoacoustics.inspector import inspect_traceback
 
 class FailureDetail(Plugin):
     """

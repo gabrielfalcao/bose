@@ -1,8 +1,8 @@
 import os
 from optparse import OptionParser
-from bose.config import Config
-from bose.plugins.cover import Coverage
-from bose.tools import eq_
+from psychoacoustics.config import Config
+from psychoacoustics.plugins.cover import Coverage
+from psychoacoustics.tools import eq_
 
 
 class TestCoveragePlugin(object):

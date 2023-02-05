@@ -1,7 +1,7 @@
 
 import unittest, os
-from bose.plugins import PluginTester, Plugin
-from bose.tools import eq_
+from psychoacoustics.plugins import PluginTester, Plugin
+from psychoacoustics.tools import eq_
 from cStringIO import StringIO
 
 class StubPlugin(Plugin):

@@ -14,8 +14,8 @@ import logging
 import re
 import sys
 import StringIO
-from bose.plugins.base import Plugin
-from bose.util import src, tolist
+from psychoacoustics.plugins.base import Plugin
+from psychoacoustics.util import src, tolist
 
 log = logging.getLogger(__name__)
 

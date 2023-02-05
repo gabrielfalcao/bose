@@ -1,7 +1,7 @@
 import sys
 import unittest
-from bose.config import Config
-from bose.plugins import debug
+from psychoacoustics.config import Config
+from psychoacoustics.plugins import debug
 from optparse import OptionParser
 from StringIO import StringIO
 

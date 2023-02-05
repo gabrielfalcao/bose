@@ -1,17 +1,17 @@
-Developing with bose
+Developing with psychoacoustics
 ====================
 
 Get the code
 ------------
 
-bose is hosted at `GitHub
-<http://github.com/gabrielfalcao/bose/>`__. You should clone this
-repository if you're developing a plugin or working on bug fixes for bose::
+psychoacoustics is hosted at `GitHub
+<http://github.com/gabrielfalcao/psychoacoustics/>`__. You should clone this
+repository if you're developing a plugin or working on bug fixes for psychoacoustics::
 
-  git clone https://github.com/gabrielfalcao/bose
+  git clone https://github.com/gabrielfalcao/psychoacoustics
 
 You should **fork** this repository if you are developing new features for
-bose. Then submit your changes as a pull request.
+psychoacoustics. Then submit your changes as a pull request.
 
 
 Read

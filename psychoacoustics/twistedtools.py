@@ -9,7 +9,7 @@ You must import this module *before* importing anything from Twisted itself!
 
 Example::
 
-  from bose.twistedtools import reactor, deferred
+  from psychoacoustics.twistedtools import reactor, deferred
   
   @deferred()
   def test_resolve():
@@ -30,7 +30,7 @@ Or, more realistically::
 
 import sys
 from Queue import Queue, Empty
-from bose.tools import make_decorator, TimeExpired
+from psychoacoustics.tools import make_decorator, TimeExpired
 
 __all__ = [
     'threaded_reactor', 'reactor', 'deferred', 'TimeExpired',

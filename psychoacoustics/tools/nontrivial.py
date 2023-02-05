@@ -14,7 +14,7 @@ class TimeExpired(AssertionError):
 def make_decorator(func):
     """
     Wraps a test decorator so as to properly replicate metadata
-    of the decorated function, including bose's additional stuff
+    of the decorated function, including psychoacoustics's additional stuff
     (namely, setup and teardown).
     """
     def decorate(newfunc):

@@ -1,4 +1,4 @@
 Prof: enable profiling using the hotshot profiler
 =================================================
 
-.. autoplugin :: bose.plugins.prof
+.. autoplugin :: psychoacoustics.plugins.prof

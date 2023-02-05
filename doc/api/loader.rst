@@ -1,2 +1,2 @@
-.. automodule :: bose.loader
+.. automodule :: psychoacoustics.loader
    :members:

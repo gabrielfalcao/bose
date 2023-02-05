@@ -3,9 +3,9 @@ import sys
 import unittest
 from cStringIO import StringIO
 from optparse import OptionParser
-import bose.core
-from bose.config import Config, all_config_files
-from bose.tools import set_trace
+import psychoacoustics.core
+from psychoacoustics.config import Config, all_config_files
+from psychoacoustics.tools import set_trace
 from mock import Bucket, MockOptParser
 
 
@@ -23,7 +23,7 @@ class TestAPI_run(unittest.TestCase):
         conf = Config(stream=s)
         # set_trace()
         print "About to run"
-        res = bose.core.run(
+        res = psychoacoustics.core.run(
             testLoader=NullLoader(), argv=['test_run'], env={}, config=conf)
         print "Done running"
         stdout_after = sys.stdout
@@ -35,14 +35,14 @@ class Undefined(object):
 class TestUsage(unittest.TestCase):
 
     def test_from_directory(self):
-        usage_txt = bose.core.TestProgram.usage()
-        assert usage_txt.startswith('bose collects tests automatically'), (
+        usage_txt = psychoacoustics.core.TestProgram.usage()
+        assert usage_txt.startswith('psychoacoustics collects tests automatically'), (
                 "Unexpected usage: '%s...'" % usage_txt[0:50].replace("\n", '\n'))
 
     def test_from_zip(self):
         requested_data = []
 
-        # simulates importing bose from a zip archive
+        # simulates importing psychoacoustics from a zip archive
         # with a zipimport.zipimporter instance
         class fake_zipimporter(object):
 
@@ -51,21 +51,21 @@ class TestUsage(unittest.TestCase):
                 # Return as str in Python 2, bytes in Python 3.
                 return '<usage>'.encode('utf-8')
 
-        existing_loader = getattr(bose, '__loader__', Undefined)
+        existing_loader = getattr(psychoacoustics, '__loader__', Undefined)
         try:
-            bose.__loader__ = fake_zipimporter()
-            usage_txt = bose.core.TestProgram.usage()
+            psychoacoustics.__loader__ = fake_zipimporter()
+            usage_txt = psychoacoustics.core.TestProgram.usage()
             self.assertEqual(usage_txt, '<usage>')
             self.assertEqual(requested_data, [os.path.join(
-                os.path.dirname(bose.__file__), 'usage.txt')])
+                os.path.dirname(psychoacoustics.__file__), 'usage.txt')])
         finally:
             if existing_loader is not Undefined:
-                bose.__loader__ = existing_loader
+                psychoacoustics.__loader__ = existing_loader
             else:
-                del bose.__loader__
+                del psychoacoustics.__loader__
 
 
-class DummyTestProgram(bose.core.TestProgram):
+class DummyTestProgram(psychoacoustics.core.TestProgram):
     def __init__(self, *args, **kwargs):
         pass
 

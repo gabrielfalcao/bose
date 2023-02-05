@@ -1,4 +1,4 @@
-from bose.tools import eq_
+from psychoacoustics.tools import eq_
 called = []
 
 def outer_setup():

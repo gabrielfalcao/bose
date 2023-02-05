@@ -4,7 +4,7 @@ Running Initialization Code Before the Test Run
 Many applications, especially those using web frameworks like Pylons_
 or Django_, can't be tested without first being configured or
 otherwise initialized. Plugins can fulfill this requirement by
-implementing :meth:`begin() <bose.plugins.base.IPluginInterface.begin>`.
+implementing :meth:`begin() <psychoacoustics.plugins.base.IPluginInterface.begin>`.
 
 In this example, we'll use a very simple example: a widget class that
 can't be tested without a configuration.
@@ -53,11 +53,11 @@ the tests fail.
 
 .. Note ::
 
-   The function :func:`bose.plugins.plugintest.run` reformats test result
+   The function :func:`psychoacoustics.plugins.plugintest.run` reformats test result
    output to remove timings, which will vary from run to run, and
    redirects the output to stdout.
 
-    >>> from bose.plugins.plugintest import run_buffered as run
+    >>> from psychoacoustics.plugins.plugintest import run_buffered as run
 
 ..
 
@@ -86,12 +86,12 @@ the tests fail.
     FAILED (errors=2)
 
 To configure the widget system before running tests, write a plugin
-that implements :meth:`begin() <bose.plugins.base.IPluginInterface.begin>`
+that implements :meth:`begin() <psychoacoustics.plugins.base.IPluginInterface.begin>`
 and initializes the system with a hard-coded configuration. (Later, we'll
 write a better plugin that accepts a command-line argument specifying the
 configuration file.)
 
-    >>> from bose.plugins import Plugin
+    >>> from psychoacoustics.plugins import Plugin
     >>> class ConfiguringPlugin(Plugin):
     ...     enabled = True
     ...     def configure(self, options, conf):

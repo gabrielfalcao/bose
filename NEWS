@@ -5,10 +5,10 @@
 package notation, using the coverage plugin with multiprocessing, and several
 others.  See the CHANGELOG for more details.
 
-Also note that bose 1.x is in maintenance mode.  We will not be
+Also note that psychoacoustics 1.x is in maintenance mode.  We will not be
 looking to add any features, and you should seriously consider
-looking at bose2 as the way forward.
+looking at psychoacoustics2 as the way forward.
 
-If you're interested in the future of bose, please take a look at the
-bose2 project on github (https://github.com/gabrielfalcao/bose2) or pypi
-(http://pypi.python.org/pypi/bose2/0.5.0).
+If you're interested in the future of psychoacoustics, please take a look at the
+psychoacoustics2 project on github (https://github.com/gabrielfalcao/psychoacoustics2) or pypi
+(http://pypi.python.org/pypi/psychoacoustics2/0.5.0).

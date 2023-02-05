@@ -1,8 +1,8 @@
 import sys
 import unittest
 import warnings
-from bose.plugins.errorclass import ErrorClass, ErrorClassPlugin
-from bose.exc import SkipTest
+from psychoacoustics.plugins.errorclass import ErrorClass, ErrorClassPlugin
+from psychoacoustics.exc import SkipTest
 
 class TestErrorClassWithStringException(unittest.TestCase):
 

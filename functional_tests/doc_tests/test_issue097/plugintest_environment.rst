@@ -1,8 +1,8 @@
-bose.plugins.plugintest, os.environ and sys.argv
+psychoacoustics.plugins.plugintest, os.environ and sys.argv
 ------------------------------------------------
 
-:class:`bose.plugins.plugintest.PluginTester` and
-:func:`bose.plugins.plugintest.run` are utilities for testing bose
+:class:`psychoacoustics.plugins.plugintest.PluginTester` and
+:func:`psychoacoustics.plugins.plugintest.run` are utilities for testing psychoacoustics
 plugins.  When testing plugins, it should be possible to control the
 environment seen plugins under test, and that environment should never
 be affected by ``os.environ`` or ``sys.argv``.
@@ -10,13 +10,13 @@ be affected by ``os.environ`` or ``sys.argv``.
     >>> import os
     >>> import sys
     >>> import unittest
-    >>> import bose.config
-    >>> from bose.plugins import Plugin
-    >>> from bose.plugins.builtin import FailureDetail, Capture
-    >>> from bose.plugins.plugintest import PluginTester
+    >>> import psychoacoustics.config
+    >>> from psychoacoustics.plugins import Plugin
+    >>> from psychoacoustics.plugins.builtin import FailureDetail, Capture
+    >>> from psychoacoustics.plugins.plugintest import PluginTester
 
 Our test plugin takes no command-line arguments and simply prints the
-environment it's given by bose.
+environment it's given by psychoacoustics.
 
     >>> class PrintEnvPlugin(Plugin):
     ...     name = "print-env"
@@ -32,16 +32,16 @@ environment it's given by bose.
     ...         print "env:", env
 
 To test the argv, we use a config class that prints the argv it's
-given by bose.  We need to monkeypatch bose.config.Config, so that we
+given by psychoacoustics.  We need to monkeypatch psychoacoustics.config.Config, so that we
 can test the cases where that is used as the default.
 
-    >>> old_config = bose.config.Config
+    >>> old_config = psychoacoustics.config.Config
     >>> class PrintArgvConfig(old_config):
     ...
     ...     def configure(self, argv=None, doc=None):
     ...         print "argv:", argv
     ...         old_config.configure(self, argv, doc)
-    >>> bose.config.Config = PrintArgvConfig
+    >>> psychoacoustics.config.Config = PrintArgvConfig
 
 The class under test, PluginTester, is designed to be used by
 subclassing.
@@ -91,9 +91,9 @@ An empty ``env`` is respected...
     env: {'foo': 'bar'}
 
 
-``bose.plugins.plugintest.run()`` should work analogously.
+``psychoacoustics.plugins.plugintest.run()`` should work analogously.
 
-    >>> from bose.plugins.plugintest import run_buffered as run
+    >>> from psychoacoustics.plugins.plugintest import run_buffered as run
     >>> run(suite=unittest.TestSuite(tests=[]),
     ...     plugins=[PrintEnvPlugin()]) # doctest: +REPORT_NDIFF
     argv: ['psytests', '-v']
@@ -139,7 +139,7 @@ An explicit argv parameter is honoured:
 
 An explicit config parameter with an env is honoured:
 
-    >>> from bose.plugins.manager import PluginManager
+    >>> from psychoacoustics.plugins.manager import PluginManager
     >>> manager = PluginManager(plugins=[PrintEnvPlugin()])
     >>> config = PrintArgvConfig(env={"foo": "bar"}, plugins=manager)
     >>> run(config=config,
@@ -157,4 +157,4 @@ Clean up.
 
     >>> os.environ = old_environ
     >>> sys.argv = old_argv
-    >>> bose.config.Config = old_config
+    >>> psychoacoustics.config.Config = old_config

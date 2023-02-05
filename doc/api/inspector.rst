@@ -1,5 +1,5 @@
 Traceback inspector
 ===================
 
-.. automodule :: bose.inspector
+.. automodule :: psychoacoustics.inspector
    :members:

@@ -1,8 +1,8 @@
 import unittest
-import bose.selector
-from bose.config import Config
-from bose.plugins.base import Plugin
-from bose.plugins.manager import PluginManager
+import psychoacoustics.selector
+from psychoacoustics.config import Config
+from psychoacoustics.plugins.base import Plugin
+from psychoacoustics.plugins.manager import PluginManager
 
 class TestSelectorPlugins(unittest.TestCase):
 
@@ -14,8 +14,8 @@ class TestSelectorPlugins(unittest.TestCase):
                 return None
 
         c = Config(plugins=PluginManager(plugins=[EvilSelector()]))
-        s = bose.selector.Selector(c)
-        s2 = bose.selector.Selector(Config())
+        s = psychoacoustics.selector.Selector(c)
+        s2 = psychoacoustics.selector.Selector(Config())
         
         assert s.wantFile('test_neutral.py')
         assert s2.wantFile('test_neutral.py')

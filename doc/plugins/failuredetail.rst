@@ -1,4 +1,4 @@
 Failure Detail: introspect asserts
 ==================================
 
-.. autoplugin :: bose.plugins.failuredetail
+.. autoplugin :: psychoacoustics.plugins.failuredetail

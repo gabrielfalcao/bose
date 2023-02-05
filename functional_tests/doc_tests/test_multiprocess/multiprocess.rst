@@ -1,4 +1,4 @@
-Parallel Testing with bose
+Parallel Testing with psychoacoustics
 --------------------------
 
 .. Note ::
@@ -9,7 +9,7 @@ Parallel Testing with bose
 
 ..
 
-Using the `bose.plugins.multiprocess` plugin, you can parallelize a
+Using the `psychoacoustics.plugins.multiprocess` plugin, you can parallelize a
 test run across a configurable number of worker processes. While this can
 speed up CPU-bound test runs, it is mainly useful for IO-bound tests
 that spend most of their time waiting for data to arrive from someplace
@@ -68,7 +68,7 @@ Alternatively, if a context's fixtures may only be run once, or may not run
 concurrently, but *may* be shared by tests running in different processes
 -- for instance a package-level fixture that starts an external http server or
 initializes a shared database -- then set ``_multiprocess_shared_ = True`` in
-the context. Fixtures for contexts so marked will execute in the primary bose
+the context. Fixtures for contexts so marked will execute in the primary psychoacoustics
 process, and tests in those contexts will be individually dispatched to run in
 parallel.
 
@@ -117,11 +117,11 @@ all tests pass.
 
 .. Note ::
 
-   The run() function in :mod:`bose.plugins.plugintest` reformats test result
+   The run() function in :mod:`psychoacoustics.plugins.plugintest` reformats test result
    output to remove timings, which will vary from run to run, and
    redirects the output to stdout.
 
-    >>> from bose.plugins.plugintest import run_buffered as run
+    >>> from psychoacoustics.plugins.plugintest import run_buffered as run
 
 ..
 
@@ -176,7 +176,7 @@ And the module that marks its fixtures as re-entrant.
 However, when run with the ``--processes=2`` switch, each test module
 behaves differently.
 
-    >>> from bose.plugins.multiprocess import MultiProcess
+    >>> from psychoacoustics.plugins.multiprocess import MultiProcess
 
 The module marked ``_multiprocess_shared_`` executes correctly, although as with
 any use of the multiprocess plugin, the order in which the tests execute is
@@ -242,9 +242,9 @@ are a few other differences that may impact your test suite:
   normal test run. For instance, if a non-test module contains a test-like
   function, that function would be discovered as a test in a worker process
   if the entire module is dispatched to the worker. This is because worker
-  processes load tests in *directed* mode -- the same way that bose loads
+  processes load tests in *directed* mode -- the same way that psychoacoustics loads
   tests when you explicitly name a module -- rather than in *discovered* mode,
-  the mode bose uses when looking for tests in a directory.
+  the mode psychoacoustics uses when looking for tests in a directory.
 
 * Out-of-order output
 
@@ -255,16 +255,16 @@ are a few other differences that may impact your test suite:
 * Plugin interaction warning
 
   The multiprocess plugin does not work well with other plugins that expect to
-  wrap or gain control of the test-running process. Examples from bose's 
+  wrap or gain control of the test-running process. Examples from psychoacoustics's 
   builtin plugins include coverage and profiling: a test run using
   both multiprocess and either of those is likely to fail in some
   confusing and spectacular way.
 
 * Python 2.6 warning
 
-  This is unlikely to impact you unless you are writing tests for bose itself,
+  This is unlikely to impact you unless you are writing tests for psychoacoustics itself,
   but be aware that under python 2.6, the multiprocess plugin is not
-  re-entrant. For example, when running bose with the plugin active, you can't
-  use subprocess to launch another copy of bose that also uses the
+  re-entrant. For example, when running psychoacoustics with the plugin active, you can't
+  use subprocess to launch another copy of psychoacoustics that also uses the
   multiprocess plugin. This is why this test is skipped under python 2.6 when
   run with the ``--processes`` switch.

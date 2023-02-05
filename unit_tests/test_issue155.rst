@@ -4,13 +4,13 @@ handling intended to ignore the case where the method is not present.
     >>> import sys
     >>> import unittest
 
-    >>> import bose.case
-    >>> import bose.proxy
-    >>> import bose.result
-    >>> import bose.util
-    >>> import bose.plugins.doctests
+    >>> import psychoacoustics.case
+    >>> import psychoacoustics.proxy
+    >>> import psychoacoustics.result
+    >>> import psychoacoustics.util
+    >>> import psychoacoustics.plugins.doctests
 
-    >>> class Result(bose.result.TextTestResult):
+    >>> class Result(psychoacoustics.result.TextTestResult):
     ...
     ...     def afterTest(self, test):
     ...         raise AttributeError("bug in Result")
@@ -27,9 +27,9 @@ handling intended to ignore the case where the method is not present.
     ...         pass
 
 
-    >>> test = bose.case.Test(TestCase())
+    >>> test = psychoacoustics.case.Test(TestCase())
     >>> result = Result(sys.stdout, True, 1)
-    >>> proxy = bose.proxy.ResultProxy(result, test)
+    >>> proxy = psychoacoustics.proxy.ResultProxy(result, test)
     >>> proxy.beforeTest(test)
     Traceback (most recent call last):
     AttributeError: bug in Result
@@ -41,6 +41,6 @@ handling intended to ignore the case where the method is not present.
     Traceback (most recent call last):
     AttributeError: bug in TestCase
 
-    >>> bose.util.test_address(test)
+    >>> psychoacoustics.util.test_address(test)
     Traceback (most recent call last):
     AttributeError: bug in TestCase

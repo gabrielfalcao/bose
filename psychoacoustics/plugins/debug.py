@@ -5,7 +5,7 @@ drop into pdb on failure, use ``--pdb-failures``.
 """
 
 import pdb
-from bose.plugins.base import Plugin
+from psychoacoustics.plugins.base import Plugin
 
 class Pdb(Plugin):
     """

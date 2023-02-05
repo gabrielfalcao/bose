@@ -1,9 +1,9 @@
 import unittest
-from bose.config import Config
-from bose.plugins.skip import Skip, SkipTest
-from bose.result import TextTestResult
+from psychoacoustics.config import Config
+from psychoacoustics.plugins.skip import Skip, SkipTest
+from psychoacoustics.result import TextTestResult
 from StringIO import StringIO
-from bose.result import _TextTestResult
+from psychoacoustics.result import _TextTestResult
 from optparse import OptionParser
 try:
     # 2.7+
@@ -90,7 +90,7 @@ class TestSkipPlugin(unittest.TestCase):
         assert out.strip() == "S"
         assert res.wasSuccessful()
 
-    def test_skip_output_verbose(self):
+    def test_skip_output_verpsychoacoustics(self):
 
         class TC(unittest.TestCase):
             def test(self):

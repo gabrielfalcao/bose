@@ -10,8 +10,8 @@ run individual tests by index number.
 This plugin is also useful for counting tests in a test suite, and making
 people watching your demo think all of your tests pass.
 """
-from bose.plugins.base import Plugin
-from bose.case import Test
+from psychoacoustics.plugins.base import Plugin
+from psychoacoustics.case import Test
 import logging
 import unittest
 
@@ -75,7 +75,7 @@ class TestSuiteFactory:
 class TestSuite(unittest.TestSuite):
     """
     Basic test suite that bypasses most proxy and plugin calls, but does
-    wrap tests in a bose.case.Test so prepareTestCase will be called.
+    wrap tests in a psychoacoustics.case.Test so prepareTestCase will be called.
     """
     def __init__(self, tests=(), conf=None):
         self.conf = conf

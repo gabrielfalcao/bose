@@ -2,8 +2,8 @@ Minimal plugin
 --------------
 
 Plugins work as long as they implement the minimal interface required
-by bose.plugins.base. They do not have to derive from
-bose.plugins.Plugin.
+by psychoacoustics.plugins.base. They do not have to derive from
+psychoacoustics.plugins.Plugin.
 
     >>> class NullPlugin(object):
     ...
@@ -17,7 +17,7 @@ bose.plugins.Plugin.
     ...     def configure(self, options, conf):
     ...         pass
     >>> import unittest
-    >>> from bose.plugins.plugintest import run_buffered as run
+    >>> from psychoacoustics.plugins.plugintest import run_buffered as run
     >>> run(suite=unittest.TestSuite(tests=[]),
     ...     plugins=[NullPlugin()]) # doctest: +REPORT_NDIFF
     ----------------------------------------------------------------------
@@ -25,11 +25,11 @@ bose.plugins.Plugin.
     <BLANKLINE>
     OK
 
-Plugins can derive from bose.plugins.base and do nothing except set a
+Plugins can derive from psychoacoustics.plugins.base and do nothing except set a
 name.
 
     >>> import os
-    >>> from bose.plugins import Plugin
+    >>> from psychoacoustics.plugins import Plugin
     >>> class DerivedNullPlugin(Plugin):
     ...
     ...     name = "derived-null"

@@ -1,4 +1,4 @@
-.. bose documentation master file, created by sphinx-quickstart on Thu Mar 26 16:49:00 2009.
+.. psychoacoustics documentation master file, created by sphinx-quickstart on Thu Mar 26 16:49:00 2009.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
@@ -8,7 +8,7 @@ Note to Users
 
 Nose has been in maintenance mode for the past several years and will likely
 cease without a new person/team to take over maintainership.  New projects
-should consider using `Nose2 <https://github.com/gabrielfalcao/bose2>`_, `py.test
+should consider using `Nose2 <https://github.com/gabrielfalcao/psychoacoustics2>`_, `py.test
 <http://pytest.org/>`_, or just plain unittest/unittest2.
 
 
@@ -18,13 +18,13 @@ Installation and quick start
 *On most UNIX-like systems, you'll probably need to run these commands as root
 or using sudo.*
 
-Install bose using setuptools/distribute::
+Install psychoacoustics using setuptools/distribute::
 
-  easy_install bose
+  easy_install psychoacoustics
 
 Or pip::
 
-  pip install bose
+  pip install psychoacoustics
 
 Or, if you don't have setuptools/distribute installed, use the download
 link at right to download the source package, and install it in the
@@ -34,9 +34,9 @@ directory, and::
   python setup.py install
 
 However, **please note** that without setuptools/distribute installed,
-you will not be able to use third-party bose plugins.
+you will not be able to use third-party psychoacoustics plugins.
 
-This will install the bose libraries, as well as the :doc:`psytests <usage>`
+This will install the psychoacoustics libraries, as well as the :doc:`psytests <usage>`
 script, which you can use to automatically discover and run tests.
 
 Now you can run tests for your project::
@@ -52,7 +52,7 @@ You should see output something like this::
 
   OK
 
-Indicating that bose found and ran your tests.
+Indicating that psychoacoustics found and ran your tests.
 
 For help with psytests' many command-line options, try::
 
@@ -64,7 +64,7 @@ or visit the :doc:`usage documentation <usage>`.
 Python3
 =======
 
-bose supports python3. Building from source on python3 requires
+psychoacoustics supports python3. Building from source on python3 requires
 `distribute <http://packages.python.org/distribute/>`_. If you don't
 have distribute installed, ``python3 setup.py install`` will install
 it via distribute's bootstrap script.
@@ -76,7 +76,7 @@ tests with python 3.
 
 .. warning ::
 
-   bose itself supports python 3, but many 3rd-party plugins do not!
+   psychoacoustics itself supports python 3, but many 3rd-party plugins do not!
 
 
 .. toctree::

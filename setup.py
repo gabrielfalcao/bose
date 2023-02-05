@@ -4,7 +4,7 @@ import os
 VERSION = '1.3.7'
 py_vers_tag = '-%s.%s' % sys.version_info[:2]
 
-test_dirs = ['functional_tests', 'unit_tests', os.path.join('doc','doc_tests'), 'bose']
+test_dirs = ['functional_tests', 'unit_tests', os.path.join('doc','doc_tests'), 'psychoacoustics']
 
 if sys.version_info >= (3,):
     try:
@@ -29,14 +29,14 @@ try:
         packages = find_packages(),
         entry_points = {
         'console_scripts': [
-            'psytests = bose:run_exit',
-            'psytests%s = bose:run_exit' % py_vers_tag,
+            'psytests = psychoacoustics:run_exit',
+            'psytests%s = psychoacoustics:run_exit' % py_vers_tag,
             ],
         'distutils.commands': [
-            ' psytests = bose.commands:psytests',
+            ' psytests = psychoacoustics.commands:psytests',
             ],
         },
-        test_suite = 'bose.collector',
+        test_suite = 'psychoacoustics.collector',
         )
     addl_args.update(extra)
 
@@ -71,41 +71,41 @@ try:
 except ImportError:
     from distutils.core import setup
     addl_args = dict(
-        packages = ['bose', 'bose.ext', 'bose.plugins', 'bose.sphinx',
-                    'bose.tools'],
+        packages = ['psychoacoustics', 'psychoacoustics.ext', 'psychoacoustics.plugins', 'psychoacoustics.sphinx',
+                    'psychoacoustics.tools'],
         scripts = ['bin/psytests'],
         )
 
 setup(
-    name = 'bose',
+    name = 'psychoacoustics',
     version = VERSION,
     author = 'Gabriel Falcao',
     author_email = 'gabriel@nacaolivre.org',
-    description = ('bose is a fork of nose mostly for the sake of maintenance, sorta like nose, it extends unittest to make testing sounder'),
+    description = ('psychoacoustics is a fork of nose mostly for the sake of maintenance, sorta like nose, it extends unittest to make testing sounder'),
     long_description = \
-    """bose is a fork of nose, just like its original source, it extends the test loading and running features of unittest, making
+    """psychoacoustics is a fork of nose, just like its original source, it extends the test loading and running features of unittest, making
     it easier to write, find and run tests.
 
-    By default, bose will run tests in files or directories under the current
+    By default, psychoacoustics will run tests in files or directories under the current
     working directory whose names include "test" or "Test" at a word boundary
     (like "test_this" or "functional_test" or "TestClass" but not
     "libtest"). Test output is similar to that of unittest, but also includes
     captured stdout output from failing tests, for easy print-style debugging.
 
     These features, and many more, are customizable through the use of
-    plugins. Plugins included with bose provide support for doctest, code
+    plugins. Plugins included with psychoacoustics provide support for doctest, code
     coverage and profiling, flexible attribute-based test selection,
     output capture and more. More information about writing plugins may be
-    found on in the bose API documentation, here:
-    http://readthedocs.org/docs/bose/
+    found on in the psychoacoustics API documentation, here:
+    http://readthedocs.org/docs/psychoacoustics/
 
     If you have recently reported a bug marked as fixed, or have a craving for
     the very latest, you may want the development version instead:
-    https://github.com/gabrielfalcao/bose/tarball/master#egg=bose-dev
+    https://github.com/gabrielfalcao/psychoacoustics/tarball/master#egg=psychoacoustics-dev
     """,
     license = 'GNU LGPL',
     keywords = 'test unittest doctest automatic discovery',
-    url = 'http://readthedocs.org/docs/bose/',
+    url = 'http://readthedocs.org/docs/psychoacoustics/',
     data_files = [('man/man1', ['psytests.1'])],
     package_data = {'': ['*.txt',
                          'examples/*.py',

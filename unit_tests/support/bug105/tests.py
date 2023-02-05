@@ -1,4 +1,4 @@
-from bose import tools
+from psychoacoustics import tools
 
 def test_z():
     """(1) test z"""

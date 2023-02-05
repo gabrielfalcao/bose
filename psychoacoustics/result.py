@@ -14,10 +14,10 @@ try:
     from unittest.runner import _TextTestResult
 except ImportError:
     from unittest import _TextTestResult
-from bose.config import Config
-from bose.util import isclass, ln as _ln # backwards compat
+from psychoacoustics.config import Config
+from psychoacoustics.util import isclass, ln as _ln # backwards compat
 
-log = logging.getLogger('bose.result')
+log = logging.getLogger('psychoacoustics.result')
 
 
 def _exception_detail(exc):
@@ -45,7 +45,7 @@ class TextTestResult(_TextTestResult):
 
     def addSkip(self, test, reason):
         # 2.7 skip compat
-        from bose.plugins.skip import SkipTest
+        from psychoacoustics.plugins.skip import SkipTest
         if SkipTest in self.errorClasses:
             storage, label, isfail = self.errorClasses[SkipTest]
             storage.append((test, reason))
@@ -64,7 +64,7 @@ class TextTestResult(_TextTestResult):
             exc_info = self._exc_info_to_string(err)
         for cls, (storage, label, isfail) in self.errorClasses.items():
             #if 'Skip' in cls.__name__ or 'Skip' in ec.__name__:
-            #    from bose.tools import set_trace
+            #    from psychoacoustics.tools import set_trace
             #    set_trace()
             if isclass(ec) and issubclass(ec, cls):
                 if isfail:
@@ -179,7 +179,7 @@ class TextTestResult(_TextTestResult):
 
     def _exc_info_to_string(self, err, test=None):
         # 2.7 skip compat
-        from bose.plugins.skip import SkipTest
+        from psychoacoustics.plugins.skip import SkipTest
         if isclass(err[0]) and issubclass(err[0], SkipTest):
             return str(err[1])
         # 2.3/2.4 -- 2.4 passes test, 2.3 does not
@@ -192,8 +192,8 @@ class TextTestResult(_TextTestResult):
 
 def ln(*arg, **kw):
     from warnings import warn
-    warn("ln() has moved to bose.util from bose.result and will be removed "
-         "from bose.result in a future release. Please update your imports ",
+    warn("ln() has moved to psychoacoustics.util from psychoacoustics.result and will be removed "
+         "from psychoacoustics.result in a future release. Please update your imports ",
          DeprecationWarning)
     return _ln(*arg, **kw)
 

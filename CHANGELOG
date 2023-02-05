@@ -626,8 +626,8 @@
 - Added isolation plugin. Use this plugin to automatically restore sys.modules
   after each test module or package. Thanks to Michal Kwiatkowski for the
   feature request.
-- Fixed bug where -vvvv turned off verbose logging instead of making it even
-  more verbose. Thanks to Ian Bicking for the bug report.
+- Fixed bug where -vvvv turned off verpsychoacoustics logging instead of making it even
+  more verpsychoacoustics. Thanks to Ian Bicking for the bug report.
 - Fixed bug where assert inspection would fail when the trailing """ of a
   docstring was one of the inspected lines. Thanks to cito at online dot de
   for the bug report.
@@ -765,7 +765,7 @@
 - All-new import path handling. You can even turn it off! (If you don't,
   nose will ensure that all directories from which it imports anything are on
   sys.path before the import.)
-- Logging package used for verbose logging.
+- Logging package used for verpsychoacoustics logging.
 - Support for skipped and deprecated tests.
 - Configuration is no longer global.
 
@@ -796,7 +796,7 @@
 
 0.8.5
 
-- Output capture and verbose assertion errors now work when run like
+- Output capture and verpsychoacoustics assertion errors now work when run like
   'python setup.py test', as advertised.
 - Code coverage improvements: now coverage will be output for all modules
   imported by any means that were not in sys.modules at the start of the test

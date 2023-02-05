@@ -1,9 +1,9 @@
 import imp
 import sys
-from bose.config import Config
-from bose import proxy
-from bose.plugins.manager import NoPlugins
-from bose.util import odict
+from psychoacoustics.config import Config
+from psychoacoustics import proxy
+from psychoacoustics.plugins.manager import NoPlugins
+from psychoacoustics.util import odict
 
 
 def mod(name):

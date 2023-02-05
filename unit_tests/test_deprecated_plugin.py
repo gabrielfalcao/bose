@@ -1,7 +1,7 @@
 import unittest
-from bose.config import Config
-from bose.plugins.deprecated import Deprecated, DeprecatedTest
-from bose.result import TextTestResult, _TextTestResult
+from psychoacoustics.config import Config
+from psychoacoustics.plugins.deprecated import Deprecated, DeprecatedTest
+from psychoacoustics.result import TextTestResult, _TextTestResult
 from StringIO import StringIO
 from optparse import OptionParser
 try:
@@ -90,7 +90,7 @@ class TestDeprecatedPlugin(unittest.TestCase):
         assert out.strip() == "D"
         assert res.wasSuccessful()
 
-    def test_deprecated_output_verbose(self):
+    def test_deprecated_output_verpsychoacoustics(self):
 
         class TC(unittest.TestCase):
             def test(self):

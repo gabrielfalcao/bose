@@ -1,5 +1,5 @@
 from errorclass_failure_plugin import Todo
-from bose import SkipTest, DeprecatedTest
+from psychoacoustics import SkipTest, DeprecatedTest
 
 def test_todo():
     raise Todo('fix me')

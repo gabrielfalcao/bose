@@ -1,8 +1,8 @@
 import os
 import sys
 import unittest
-from bose import case
-from bose.suite import ContextSuiteFactory
+from psychoacoustics import case
+from psychoacoustics.suite import ContextSuiteFactory
 
 support = os.path.abspath(os.path.join(os.path.dirname(__file__), 'support'))
 

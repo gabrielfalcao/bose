@@ -1,12 +1,12 @@
 """
-This module contains fixups for using bose under different versions of Python.
+This module contains fixups for using psychoacoustics under different versions of Python.
 """
 import sys
 import os
 import traceback
 import types
 import inspect
-import bose.util
+import psychoacoustics.util
 
 __all__ = ['make_instancemethod', 'cmp_to_key', 'sort_list', 'ClassType',
            'TypeType', 'UNICODE_STRINGS', 'unbound_method', 'ismethod',
@@ -100,7 +100,7 @@ class UnboundMethod:
         filename = getattr(module, '__file__', None)
         if filename is not None:
             filename = os.path.abspath(filename)
-        return (bose.util.src(filename), modname, "%s.%s" % (cls.__name__,
+        return (psychoacoustics.util.src(filename), modname, "%s.%s" % (cls.__name__,
                                                         self._func.__name__))
 
     def __call__(self, *args, **kwargs):

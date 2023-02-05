@@ -2,10 +2,10 @@ import os
 import textwrap
 from optparse import OptionConflictError
 from warnings import warn
-from bose.util import tolist
+from psychoacoustics.util import tolist
 
 class Plugin(object):
-    """Base class for bose plugins. It's recommended but not *necessary* to
+    """Base class for psychoacoustics plugins. It's recommended but not *necessary* to
     subclass this class to create a plugin, but all plugins *must* implement
     `options(self, parser, env)` and `configure(self, options, conf)`, and
     must have the attributes `enabled`, `name` and `score`.  The `name`
@@ -46,7 +46,7 @@ class Plugin(object):
                       all default option handling behavior, including
                       warnings for conflicting options. Implement
                       :meth:`options
-                      <bose.plugins.base.IPluginInterface.options>`
+                      <psychoacoustics.plugins.base.IPluginInterface.options>`
                       instead.
         """
         self.add_options(parser, env)
@@ -57,7 +57,7 @@ class Plugin(object):
         .. warning ::
 
            DEPRECATED: Do not use this method,
-           use :meth:`options <bose.plugins.base.IPluginInterface.options>`
+           use :meth:`options <psychoacoustics.plugins.base.IPluginInterface.options>`
            instead.
 
         """
@@ -112,7 +112,7 @@ class Plugin(object):
 
     # Compatiblity shim
     def tolist(self, val):
-        warn("Plugin.tolist is deprecated. Use bose.util.tolist instead",
+        warn("Plugin.tolist is deprecated. Use psychoacoustics.util.tolist instead",
              DeprecationWarning)
         return tolist(val)
 
@@ -133,7 +133,7 @@ class IPluginInterface(object):
         .. warning ::
 
            DEPRECATED -- implement
-           :meth:`options <bose.plugins.base.IPluginInterface.options>` instead.
+           :meth:`options <psychoacoustics.plugins.base.IPluginInterface.options>` instead.
         """
         pass
     add_options = addOptions
@@ -155,7 +155,7 @@ class IPluginInterface(object):
         test has raised an error.
 
         :param test: the test case
-        :type test: :class:`bose.case.Test`            
+        :type test: :class:`psychoacoustics.case.Test`            
         :param err: sys.exc_info() tuple
         :type err: 3-tuple
         """
@@ -167,7 +167,7 @@ class IPluginInterface(object):
         want to stop other plugins from seeing that the test has failed.
 
         :param test: the test case
-        :type test: :class:`bose.case.Test`
+        :type test: :class:`psychoacoustics.case.Test`
         :param err: 3-tuple
         :type err: sys.exc_info() tuple
         """
@@ -188,7 +188,7 @@ class IPluginInterface(object):
         want to stop other plugins from seeing the passing test.
 
         :param test: the test case
-        :type test: :class:`bose.case.Test`
+        :type test: :class:`psychoacoustics.case.Test`
         """
         pass
     addSuccess.changed = True
@@ -228,7 +228,7 @@ class IPluginInterface(object):
         (after stopTest).
 
         :param test: the test case
-        :type test: :class:`bose.case.Test`
+        :type test: :class:`psychoacoustics.case.Test`
         """
         pass
     afterTest._new = True
@@ -271,7 +271,7 @@ class IPluginInterface(object):
         """Called before the test is run (before startTest).
 
         :param test: the test case
-        :type test: :class:`bose.case.Test`
+        :type test: :class:`psychoacoustics.case.Test`
         """
         pass
     beforeTest._new = True
@@ -303,7 +303,7 @@ class IPluginInterface(object):
         :param result: test result object
         
         .. Note:: When tests are run under a test runner other than
-           :class:`bose.core.TextTestRunner`, such as
+           :class:`psychoacoustics.core.TextTestRunner`, such as
            via ``python setup.py test``, this method may be called
            **before** the default report output is sent.
         """
@@ -312,10 +312,10 @@ class IPluginInterface(object):
     def describeTest(self, test):
         """Return a test description.
 
-        Called by :meth:`bose.case.Test.shortDescription`.
+        Called by :meth:`psychoacoustics.case.Test.shortDescription`.
 
         :param test: the test case
-        :type test: :class:`bose.case.Test`
+        :type test: :class:`psychoacoustics.case.Test`
         """
         pass
     describeTest._new = True
@@ -326,7 +326,7 @@ class IPluginInterface(object):
         tuple, otherwise return err, the original error tuple.
         
         :param test: the test case
-        :type test: :class:`bose.case.Test`
+        :type test: :class:`psychoacoustics.case.Test`
         :param err: sys.exc_info() tuple
         :type err: 3-tuple
         """
@@ -342,7 +342,7 @@ class IPluginInterface(object):
         tuple, otherwise return err, the original error tuple.
         
         :param test: the test case
-        :type test: :class:`bose.case.Test`
+        :type test: :class:`psychoacoustics.case.Test`
         :param err: sys.exc_info() tuple
         :type err: 3-tuple
         """
@@ -357,7 +357,7 @@ class IPluginInterface(object):
         error processing, return a true value.
 
         :param test: the test case
-        :type test: :class:`bose.case.Test`
+        :type test: :class:`psychoacoustics.case.Test`
         :param err: sys.exc_info() tuple
         :type err: 3-tuple
         """
@@ -369,7 +369,7 @@ class IPluginInterface(object):
         prevent normal failure processing, return a true value.
 
         :param test: the test case
-        :type test: :class:`bose.case.Test`
+        :type test: :class:`psychoacoustics.case.Test`
         :param err: sys.exc_info() tuple
         :type err: 3-tuple
         """
@@ -403,7 +403,7 @@ class IPluginInterface(object):
 
             .. note::
 
-               NEW. The ``path`` parameter will only be passed by bose 0.11
+               NEW. The ``path`` parameter will only be passed by psychoacoustics 0.11
                or above.
         """
         pass
@@ -527,25 +527,25 @@ class IPluginInterface(object):
         instead.
 
         :param test: the test case
-        :type test: :class:`bose.case.Test`
+        :type test: :class:`psychoacoustics.case.Test`
         """
         pass
 
     def prepareTestCase(self, test):
         """Prepare or wrap an individual test case. Called before
         execution of the test. The test passed here is a
-        bose.case.Test instance; the case to be executed is in the
+        psychoacoustics.case.Test instance; the case to be executed is in the
         test attribute of the passed case. To modify the test to be
         run, you should return a callable that takes one argument (the
         test result object) -- it is recommended that you *do not*
-        side-effect the bose.case.Test instance you have been passed.
+        side-effect the psychoacoustics.case.Test instance you have been passed.
 
         Keep in mind that when you replace the test callable you are
         replacing the run() method of the test case -- including the
         exception handling and result calls, etc.
 
         :param test: the test case
-        :type test: :class:`bose.case.Test`
+        :type test: :class:`psychoacoustics.case.Test`
         """
         pass
     prepareTestCase._new = True
@@ -554,9 +554,9 @@ class IPluginInterface(object):
         """Called before tests are loaded. To replace the test loader,
         return a test loader. To allow other plugins to process the
         test loader, return None. Only one plugin may replace the test
-        loader. Only valid when using bose.TestProgram.
+        loader. Only valid when using psychoacoustics.TestProgram.
 
-        :param loader: :class:`bose.loader.TestLoader` 
+        :param loader: :class:`psychoacoustics.loader.TestLoader` 
              (or other loader) instance
         """
         pass
@@ -567,7 +567,7 @@ class IPluginInterface(object):
         test result handler for all tests than the given result,
         return a test result handler. NOTE however that this handler
         will only be seen by tests, that is, inside of the result
-        proxy system. The TestRunner and TestProgram -- whether bose's
+        proxy system. The TestRunner and TestProgram -- whether psychoacoustics's
         or other -- will continue to see the original result
         handler. For this reason, it is usually better to monkeypatch
         the result (for instance, if you want to handle some
@@ -576,7 +576,7 @@ class IPluginInterface(object):
         monkeypatch and stop other plugins from doing so, monkeypatch
         and return the patched result.
 
-        :param result: :class:`bose.result.TextTestResult` 
+        :param result: :class:`psychoacoustics.result.TextTestResult` 
              (or other result) instance
         """
         pass
@@ -585,9 +585,9 @@ class IPluginInterface(object):
     def prepareTestRunner(self, runner):
         """Called before tests are run. To replace the test runner,
         return a test runner. To allow other plugins to process the
-        test runner, return None. Only valid when using bose.TestProgram.
+        test runner, return None. Only valid when using psychoacoustics.TestProgram.
 
-        :param runner: :class:`bose.core.TextTestRunner` 
+        :param runner: :class:`psychoacoustics.core.TextTestRunner` 
              (or other runner) instance
         """
         pass
@@ -629,7 +629,7 @@ class IPluginInterface(object):
         you want to stop other plugins from seeing the test start.
 
         :param test: the test case
-        :type test: :class:`bose.case.Test`
+        :type test: :class:`psychoacoustics.case.Test`
         """
         pass
 
@@ -648,15 +648,15 @@ class IPluginInterface(object):
         you want to stop other plugins from seeing that the test has stopped.
 
         :param test: the test case
-        :type test: :class:`bose.case.Test`
+        :type test: :class:`psychoacoustics.case.Test`
         """
         pass
 
     def testName(self, test):
-        """Return a short test name. Called by `bose.case.Test.__str__`.
+        """Return a short test name. Called by `psychoacoustics.case.Test.__str__`.
 
         :param test: the test case
-        :type test: :class:`bose.case.Test`
+        :type test: :class:`psychoacoustics.case.Test`
         """
         pass
     testName._new = True

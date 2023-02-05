@@ -2,7 +2,7 @@
 Test Loader
 -----------
 
-bose's test loader implements the same basic functionality as its
+psychoacoustics's test loader implements the same basic functionality as its
 superclass, unittest.TestLoader, but extends it by more liberal
 interpretations of what may be a test and how a test may be named.
 """
@@ -14,17 +14,17 @@ import sys
 import unittest
 import types
 from inspect import isfunction
-from bose.pyversion import unbound_method, ismethod
-from bose.case import FunctionTestCase, MethodTestCase
-from bose.failure import Failure
-from bose.config import Config
-from bose.importer import Importer, add_path, remove_path
-from bose.selector import defaultSelector, TestAddress
-from bose.util import func_lineno, getpackage, isclass, isgenerator, \
+from psychoacoustics.pyversion import unbound_method, ismethod
+from psychoacoustics.case import FunctionTestCase, MethodTestCase
+from psychoacoustics.failure import Failure
+from psychoacoustics.config import Config
+from psychoacoustics.importer import Importer, add_path, remove_path
+from psychoacoustics.selector import defaultSelector, TestAddress
+from psychoacoustics.util import func_lineno, getpackage, isclass, isgenerator, \
     ispackage, regex_last_key, resolve_name, src, transplant_func, \
     transplant_class, test_address
-from bose.suite import ContextSuiteFactory, ContextList, LazySuite
-from bose.pyversion import sort_list, cmp_to_key
+from psychoacoustics.suite import ContextSuiteFactory, ContextList, LazySuite
+from psychoacoustics.pyversion import sort_list, cmp_to_key
 
 
 log = logging.getLogger(__name__)
@@ -62,18 +62,18 @@ class TestLoader(unittest.TestLoader):
 
         Parameters (all optional):
 
-        * config: provide a `bose.config.Config`_ or other config class
-          instance; if not provided a `bose.config.Config`_ with
+        * config: provide a `psychoacoustics.config.Config`_ or other config class
+          instance; if not provided a `psychoacoustics.config.Config`_ with
           default values is used.
         * importer: provide an importer instance that implements
           `importFromPath`. If not provided, a
-          `bose.importer.Importer`_ is used.
+          `psychoacoustics.importer.Importer`_ is used.
         * workingDir: the directory to which file and module names are
           relative. If not provided, assumed to be the current working
           directory.
         * selector: a selector class or instance. If a class is
           provided, it will be instantiated with one argument, the
-          current config. If not provided, a `bose.selector.Selector`_
+          current config. If not provided, a `psychoacoustics.selector.Selector`_
           is used.
         """
         if config is None:
@@ -150,7 +150,7 @@ class TestLoader(unittest.TestLoader):
         sort_list(entries, regex_last_key(self.config.testMatch))
         for entry in entries:
             # this hard-coded initial-dot test will be removed:
-            # http://code.google.com/p/python-bose/issues/detail?id=82
+            # http://code.google.com/p/python-psychoacoustics/issues/detail?id=82
             if entry.startswith('.'):
                 continue
             if src(entry) == '__init__.py':
@@ -165,7 +165,7 @@ class TestLoader(unittest.TestLoader):
                 is_dir = op_isdir(entry_path)
                 if is_dir:
                     # this hard-coded initial-underscore test will be removed:
-                    # http://code.google.com/p/python-bose/issues/detail?id=82
+                    # http://code.google.com/p/python-psychoacoustics/issues/detail?id=82
                     if entry.startswith('_'):
                         continue
                     wanted = self.selector.wantDirectory(entry_path)
@@ -364,7 +364,7 @@ class TestLoader(unittest.TestLoader):
         """Load tests from the entity with the given name.
 
         The name may indicate a file, directory, module, or any object
-        within a module. See `bose.util.split_test_name` for details on
+        within a module. See `psychoacoustics.util.split_test_name` for details on
         test name parsing.
         """
         # FIXME refactor this method into little bites?

@@ -1,10 +1,10 @@
 import os
 import sys
 
-import bose
-from bose.plugins.multiprocess import MultiProcess
-from bose.config import Config
-from bose.plugins.manager import PluginManager
+import psychoacoustics
+from psychoacoustics.plugins.multiprocess import MultiProcess
+from psychoacoustics.config import Config
+from psychoacoustics.plugins.manager import PluginManager
 
 if __name__ == '__main__':
     if len(sys.argv) < 3:
@@ -12,6 +12,6 @@ if __name__ == '__main__':
         sys.exit(1)
     os.environ['PSY_ECHOS_TICKS_MP_LOG']=sys.argv[2]
     os.environ['PSY_ECHOS_TICKS_MP_KILL']=sys.argv[3]
-    bose.main(
+    psychoacoustics.main(
             defaultTest=sys.argv[1], argv=[sys.argv[0],'--processes=1','-v'],
             config=Config(plugins=PluginManager(plugins=[MultiProcess()])))

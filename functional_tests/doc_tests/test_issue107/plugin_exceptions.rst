@@ -3,7 +3,7 @@ When Plugins Fail
 
 Plugin methods should not fail silently. When a plugin method raises
 an exception before or during the execution of a test, the exception
-will be wrapped in a :class:`bose.failure.Failure` instance and appear as a
+will be wrapped in a :class:`psychoacoustics.failure.Failure` instance and appear as a
 failing test. Exceptions raised at other times, such as in the
 preparation phase with ``prepareTestLoader`` or ``prepareTestResult``,
 or after a test executes, in ``afterTest`` will stop the entire test
@@ -11,8 +11,8 @@ run.
 
     >>> import os
     >>> import sys
-    >>> from bose.plugins import Plugin
-    >>> from bose.plugins.plugintest import run_buffered as run
+    >>> from psychoacoustics.plugins import Plugin
+    >>> from psychoacoustics.plugins.plugintest import run_buffered as run
 
 Our first test plugins take no command-line arguments and raises
 AttributeError in beforeTest and afterTest. 
@@ -124,7 +124,7 @@ caught, but logged as a Failure.
 
 Also, before issue152 was resolved, .loadTestsFromFile() and
 .loadTestsFromName() didn't catch these errors at all, so the
-following test would crash bose:
+following test would crash psychoacoustics:
 
     >>> class FailLoadFromNamePlugin(EnabledPlugin):
     ...     name = "fail-load-from-name"

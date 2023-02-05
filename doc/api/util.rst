@@ -1,5 +1,5 @@
 Utility functions
 =================
 
-.. automodule :: bose.util
+.. automodule :: psychoacoustics.util
    :members:

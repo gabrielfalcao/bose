@@ -1,11 +1,11 @@
 import os
 import unittest
 from cStringIO import StringIO
-from bose import SkipTest
-from bose.core import TestProgram
-from bose.config import Config
-from bose.plugins.manager import DefaultPluginManager
-from bose.result import _TextTestResult
+from psychoacoustics import SkipTest
+from psychoacoustics.core import TestProgram
+from psychoacoustics.config import Config
+from psychoacoustics.plugins.manager import DefaultPluginManager
+from psychoacoustics.result import _TextTestResult
 
 here = os.path.dirname(__file__)
 support = os.path.join(here, 'support')
@@ -17,7 +17,7 @@ class TestRunner(unittest.TextTestRunner):
         return self.result 
 
 # Note that all of these tests use a set config to avoid the loading
-# of plugins or settings from .boserc.
+# of plugins or settings from .psychoacousticsrc.
 
 class TestTestProgram(unittest.TestCase):
 

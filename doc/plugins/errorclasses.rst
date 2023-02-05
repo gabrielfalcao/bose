@@ -1,7 +1,7 @@
-.. automodule :: bose.plugins.errorclass
+.. automodule :: psychoacoustics.plugins.errorclass
 
 Error class methods
 -------------------
 
-.. autoclass :: bose.plugins.errorclass.ErrorClassPlugin
+.. autoclass :: psychoacoustics.plugins.errorclass.ErrorClassPlugin
    :members:

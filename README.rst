@@ -6,7 +6,7 @@ Use the psytests script (after installation by setuptools):
    psytests [options] [(optional) test files or directories]
 
 In addition to passing command-line options, you may also put
-configuration options in a .boserc or bose.cfg file in your home
+configuration options in a .psychoacousticsrc or psychoacoustics.cfg file in your home
 directory. These are standard .ini-style config files. Put your
 psytests configuration in a [psytests] section, with the -- prefix
 removed:
@@ -16,37 +16,37 @@ removed:
    with-doctest=1
 
 There is also possiblity to disable configuration files loading (might
-be useful when runnig i.e. tox and you don't want your global bose
+be useful when runnig i.e. tox and you don't want your global psychoacoustics
 config file to be used by tox). In order to ignore those configuration
 files simply set an environment variable "PSY_ECHOS_TICKS_IGNORE_CONFIG_FILES".
 
-There are several other ways to use the bose test runner besides the
-*psytests* script. You may use bose in a test script:
+There are several other ways to use the psychoacoustics test runner besides the
+*psytests* script. You may use psychoacoustics in a test script:
 
-   import bose
-   bose.main()
+   import psychoacoustics
+   psychoacoustics.main()
 
 If you don't want the test script to exit with 0 on success and 1 on
-failure (like unittest.main), use bose.run() instead:
+failure (like unittest.main), use psychoacoustics.run() instead:
 
-   import bose
-   result = bose.run()
+   import psychoacoustics
+   result = psychoacoustics.run()
 
 *result* will be true if the test run succeeded, or false if any test
-failed or raised an uncaught exception. Lastly, you can run bose.core
-directly, which will run bose.main():
+failed or raised an uncaught exception. Lastly, you can run psychoacoustics.core
+directly, which will run psychoacoustics.main():
 
-   python /path/to/bose/core.py
+   python /path/to/psychoacoustics/core.py
 
 Please see the usage message for the psytests script for information
-about how to control which tests bose runs, which plugins are loaded,
+about how to control which tests psychoacoustics runs, which plugins are loaded,
 and the test output.
 
 
 Extended usage
 ==============
 
-bose collects tests automatically from python source files,
+psychoacoustics collects tests automatically from python source files,
 directories and packages found in its working directory (which
 defaults to the current working directory). Any python source file,
 directory or package that matches the testMatch regular expression (by
@@ -65,7 +65,7 @@ may use the assert keyword or raise AssertionErrors to indicate test
 failure. TestCase subclasses may do the same or use the various
 TestCase methods available.
 
-**It is important to note that the default behavior of bose is to not
+**It is important to note that the default behavior of psychoacoustics is to not
 include tests from files which are executable.**  To include tests
 from such files, remove their executable bit or use the --exe flag
 (see 'Options' section below).
@@ -88,13 +88,13 @@ absolute. Examples:
    psytests a.test:TestCase
    psytests /path/to/test/file.py:test_function
 
-You may also change the working directory where bose looks for tests
+You may also change the working directory where psychoacoustics looks for tests
 by using the -w switch:
 
    psytests -w /path/to/tests
 
 Note, however, that support for multiple -w arguments is now
-deprecated and will be removed in a future release. As of bose 0.10,
+deprecated and will be removed in a future release. As of psychoacoustics 0.10,
 you can get the same behavior by specifying the target directories
 *without* the -w switch:
 
@@ -113,8 +113,8 @@ Configuration
 -------------
 
 In addition to passing command-line options, you may also put
-configuration options in your project's *setup.cfg* file, or a .boserc
-or bose.cfg file in your home directory. In any of these standard ini-
+configuration options in your project's *setup.cfg* file, or a .psychoacousticsrc
+or psychoacoustics.cfg file in your home directory. In any of these standard ini-
 style config files, you put your psytests configuration in a
 "[psytests]" section. Options are the same as on the command line,
 with the -- prefix removed. For options that are simple switches, you
@@ -132,7 +132,7 @@ with the "-c" option.
 Using Plugins
 -------------
 
-There are numerous bose plugins available via easy_install and
+There are numerous psychoacoustics plugins available via easy_install and
 elsewhere. To use a plugin, just install it. The plugin will add
 command line options to psytests. To verify that the plugin is
 installed, run:
@@ -142,7 +142,7 @@ installed, run:
 You can add -v or -vv to that command to show more information about
 each plugin.
 
-If you are running bose.main() or bose.run() from a script, you can
+If you are running psychoacoustics.main() or psychoacoustics.run() from a script, you can
 specify a list of plugins to use by passing a list of plugins with the
 plugins keyword argument.
 
@@ -150,10 +150,10 @@ plugins keyword argument.
 0.9 plugins
 -----------
 
-bose 1.0 can use SOME plugins that were written for bose 0.9. The
+psychoacoustics 1.0 can use SOME plugins that were written for psychoacoustics 0.9. The
 default plugin manager inserts a compatibility wrapper around 0.9
 plugins that adapts the changed plugin api calls. However, plugins
-that access bose internals are likely to fail, especially if they
+that access psychoacoustics internals are likely to fail, especially if they
 attempt to access test case or test suite classes. For example,
 plugins that try to determine if a test passed to startTest is an
 individual test or a suite will fail, partly because suites are no
@@ -165,7 +165,7 @@ that no longer exists.
 0.10 and 0.11 plugins
 ---------------------
 
-All plugins written for bose 0.10 and 0.11 should work with bose 1.0.
+All plugins written for psychoacoustics 0.10 and 0.11 should work with psychoacoustics 1.0.
 
 
 Options
@@ -173,16 +173,16 @@ Options
 
 -V, --version
 
-   Output bose version and exit
+   Output psychoacoustics version and exit
 
 -p, --plugins
 
    Output list of available plugins and exit. Combine with higher
    verbosity for greater detail
 
--v=DEFAULT, --verbose=DEFAULT
+-v=DEFAULT, --verpsychoacoustics=DEFAULT
 
-   Be more verbose. [PSY_ECHOS_TICKS_VERPSY_ECHOS_TICKS]
+   Be more verpsychoacoustics. [PSY_ECHOS_TICKS_VERPSY_ECHOS_TICKS]
 
 --verbosity=VERBOSITY
 
@@ -190,7 +190,7 @@ Options
 
 -q=DEFAULT, --quiet=DEFAULT
 
-   Be less verbose
+   Be less verpsychoacoustics
 
 -c=FILES, --config=FILES
 
@@ -227,8 +227,8 @@ Options
 -l=DEFAULT, --debug=DEFAULT
 
    Activate debug logging for one or more systems. Available debug
-   loggers: bose, bose.importer, bose.inspector, bose.plugins,
-   bose.result and bose.selector. Separate multiple names with a
+   loggers: psychoacoustics, psychoacoustics.importer, psychoacoustics.inspector, psychoacoustics.plugins,
+   psychoacoustics.result and psychoacoustics.selector. Separate multiple names with a
    comma.
 
 --debug-log=FILE
@@ -283,14 +283,14 @@ Options
 
 --first-package-wins, --first-pkg-wins, --1st-pkg-wins
 
-   bose's importer will normally evict a package from sys.modules if
+   psychoacoustics's importer will normally evict a package from sys.modules if
    it sees a package with the same name in a different location. Set
    this option to disable that behavior.
 
 --no-byte-compile
 
-   Prevent bose from byte-compiling the source into .pyc files while
-   bose is scanning for and running tests.
+   Prevent psychoacoustics from byte-compiling the source into .pyc files while
+   psychoacoustics is scanning for and running tests.
 
 -a=ATTR, --attr=ATTR
 
@@ -324,13 +324,13 @@ Options
 --logging-filter=FILTER
 
    Specify which statements to filter in/out. By default, everything
-   is captured. If the output is too verbose, use this option to
+   is captured. If the output is too verpsychoacoustics, use this option to
    filter out needless output. Example: filter=foo will capture
    statements issued ONLY to  foo or foo.what.ever.sub but not foobar
    or other logger. Specify multiple loggers with comma:
    filter=foo,bar,baz. If any logger name is prefixed with a minus, eg
    filter=-foo, it will be excluded rather than included. Default:
-   exclude logging messages from bose itself (-bose). [PSY_ECHOS_TICKS_LOGFILTER]
+   exclude logging messages from psychoacoustics itself (-psychoacoustics). [PSY_ECHOS_TICKS_LOGFILTER]
 
 --logging-clear-handlers
 
@@ -490,7 +490,7 @@ Options
 --id-file=FILE
 
    Store test ids found in test runs in this file. Default is the file
-   .boseids in the working directory.
+   .psychoacousticsids in the working directory.
 
 --failed
 

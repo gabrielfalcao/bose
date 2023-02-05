@@ -1,6 +1,6 @@
-from bose.config import Config
-from bose import case
-from bose.suite import LazySuite, ContextSuite, ContextSuiteFactory, \
+from psychoacoustics.config import Config
+from psychoacoustics import case
+from psychoacoustics.suite import LazySuite, ContextSuite, ContextSuiteFactory, \
      ContextList
 import imp
 import sys

@@ -1,6 +1,6 @@
 .\" Man page generated from reStructuredText.
 .
-.TH "PSY_ECHOS_TICKSTESTS" "1" "November 11, 2015" "1.3" "bose"
+.TH "PSY_ECHOS_TICKSTESTS" "1" "November 11, 2015" "1.3" "psychoacoustics"
 .SH NAME
 psytests \- Nicer testing for Python
 .
@@ -39,7 +39,7 @@ psytests [options] [names]
 .UNINDENT
 .SS DESCRIPTION
 .sp
-bose collects tests automatically from python source files,
+psychoacoustics collects tests automatically from python source files,
 directories and packages found in its working directory (which
 defaults to the current working directory). Any python source file,
 directory or package that matches the testMatch regular expression
@@ -58,7 +58,7 @@ may use the assert keyword or raise AssertionErrors to indicate test
 failure. TestCase subclasses may do the same or use the various
 TestCase methods available.
 .sp
-\fBIt is important to note that the default behavior of bose is to
+\fBIt is important to note that the default behavior of psychoacoustics is to
 not include tests from files which are executable.\fP  To include
 tests from such files, remove their executable bit or use
 the \-\-exe flag (see \(aqOptions\(aq section below).
@@ -94,7 +94,7 @@ psytests /path/to/test/file.py:test_function
 .UNINDENT
 .UNINDENT
 .sp
-You may also change the working directory where bose looks for tests
+You may also change the working directory where psychoacoustics looks for tests
 by using the \-w switch:
 .INDENT 0.0
 .INDENT 3.5
@@ -108,7 +108,7 @@ psytests \-w /path/to/tests
 .UNINDENT
 .sp
 Note, however, that support for multiple \-w arguments is now deprecated
-and will be removed in a future release. As of bose 0.10, you can get
+and will be removed in a future release. As of psychoacoustics 0.10, you can get
 the same behavior by specifying the target directories \fIwithout\fP
 the \-w switch:
 .INDENT 0.0
@@ -132,8 +132,8 @@ in the options below.
 .SS Configuration
 .sp
 In addition to passing command\-line options, you may also put
-configuration options in your project\(aqs \fIsetup.cfg\fP file, or a .boserc
-or bose.cfg file in your home directory. In any of these standard
+configuration options in your project\(aqs \fIsetup.cfg\fP file, or a .psychoacousticsrc
+or psychoacoustics.cfg file in your home directory. In any of these standard
 ini\-style config files, you put your psytests configuration in a
 \fB[psytests]\fP section. Options are the same as on the command line,
 with the \-\- prefix removed. For options that are simple switches, you
@@ -156,7 +156,7 @@ options combined. You can override the standard config file loading
 with the \fB\-c\fP option.
 .SS Using Plugins
 .sp
-There are numerous bose plugins available via easy_install and
+There are numerous psychoacoustics plugins available via easy_install and
 elsewhere. To use a plugin, just install it. The plugin will add
 command line options to psytests. To verify that the plugin is installed,
 run:
@@ -174,15 +174,15 @@ psytests \-\-plugins
 You can add \-v or \-vv to that command to show more information
 about each plugin.
 .sp
-If you are running bose.main() or bose.run() from a script, you
+If you are running psychoacoustics.main() or psychoacoustics.run() from a script, you
 can specify a list of plugins to use by passing a list of plugins
 with the plugins keyword argument.
 .SS 0.9 plugins
 .sp
-bose 1.0 can use SOME plugins that were written for bose 0.9. The
+psychoacoustics 1.0 can use SOME plugins that were written for psychoacoustics 0.9. The
 default plugin manager inserts a compatibility wrapper around 0.9
 plugins that adapts the changed plugin api calls. However, plugins
-that access bose internals are likely to fail, especially if they
+that access psychoacoustics internals are likely to fail, especially if they
 attempt to access test case or test suite classes. For example,
 plugins that try to determine if a test passed to startTest is an
 individual test or a suite will fail, partly because suites are no
@@ -191,12 +191,12 @@ plugin is trying to find out if the test is an instance of a class
 that no longer exists.
 .SS 0.10 and 0.11 plugins
 .sp
-All plugins written for bose 0.10 and 0.11 should work with bose 1.0.
+All plugins written for psychoacoustics 0.10 and 0.11 should work with psychoacoustics 1.0.
 .SS Options
 .INDENT 0.0
 .TP
 .B \-V, \-\-version
-Output bose version and exit
+Output psychoacoustics version and exit
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -205,8 +205,8 @@ Output list of available plugins and exit. Combine with higher verbosity for gre
 .UNINDENT
 .INDENT 0.0
 .TP
-.B \-v=DEFAULT, \-\-verbose=DEFAULT
-Be more verbose. [PSY_ECHOS_TICKS_VERPSY_ECHOS_TICKS]
+.B \-v=DEFAULT, \-\-verpsychoacoustics=DEFAULT
+Be more verpsychoacoustics. [PSY_ECHOS_TICKS_VERPSY_ECHOS_TICKS]
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -216,7 +216,7 @@ Set verbosity; \-\-verbosity=2 is the same as \-v
 .INDENT 0.0
 .TP
 .B \-q=DEFAULT, \-\-quiet=DEFAULT
-Be less verbose
+Be less verpsychoacoustics
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -246,7 +246,7 @@ Run these tests (comma\-separated list). This argument is useful mainly from con
 .INDENT 0.0
 .TP
 .B \-l=DEFAULT, \-\-debug=DEFAULT
-Activate debug logging for one or more systems. Available debug loggers: bose, bose.importer, bose.inspector, bose.plugins, bose.result and bose.selector. Separate multiple names with a comma.
+Activate debug logging for one or more systems. Available debug loggers: psychoacoustics, psychoacoustics.importer, psychoacoustics.inspector, psychoacoustics.plugins, psychoacoustics.result and psychoacoustics.selector. Separate multiple names with a comma.
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -301,12 +301,12 @@ Traverse through all path entries of a namespace package
 .INDENT 0.0
 .TP
 .B \-\-first\-package\-wins, \-\-first\-pkg\-wins, \-\-1st\-pkg\-wins
-bose\(aqs importer will normally evict a package from sys.modules if it sees a package with the same name in a different location. Set this option to disable that behavior.
+psychoacoustics\(aqs importer will normally evict a package from sys.modules if it sees a package with the same name in a different location. Set this option to disable that behavior.
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-no\-byte\-compile
-Prevent bose from byte\-compiling the source into .pyc files while bose is scanning for and running tests.
+Prevent psychoacoustics from byte\-compiling the source into .pyc files while psychoacoustics is scanning for and running tests.
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -341,13 +341,13 @@ Specify custom date/time format to print statements. Uses the same format as use
 .INDENT 0.0
 .TP
 .B \-\-logging\-filter=FILTER
-Specify which statements to filter in/out. By default, everything is captured. If the output is too verbose,
+Specify which statements to filter in/out. By default, everything is captured. If the output is too verpsychoacoustics,
 use this option to filter out needless output.
 Example: filter=foo will capture statements issued ONLY to
  foo or foo.what.ever.sub but not foobar or other logger.
 Specify multiple loggers with comma: filter=foo,bar,baz.
 If any logger name is prefixed with a minus, eg filter=\-foo,
-it will be excluded rather than included. Default: exclude logging messages from bose itself (\-bose). [PSY_ECHOS_TICKS_LOGFILTER]
+it will be excluded rather than included. Default: exclude logging messages from psychoacoustics itself (\-psychoacoustics). [PSY_ECHOS_TICKS_LOGFILTER]
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -523,7 +523,7 @@ with \-\-failed to rerun failing tests only.
 .INDENT 0.0
 .TP
 .B \-\-id\-file=FILE
-Store test ids found in test runs in this file. Default is the file .boseids in the working directory.
+Store test ids found in test runs in this file. Default is the file .psychoacousticsids in the working directory.
 .UNINDENT
 .INDENT 0.0
 .TP

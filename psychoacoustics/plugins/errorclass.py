@@ -53,13 +53,13 @@ Now define a test case that raises a Todo.
     >>> case = TestTodo()
 
 Prepare the result using our plugin. Normally this happens during the
-course of test execution within bose -- you won't be doing this
+course of test execution within psychoacoustics -- you won't be doing this
 yourself. For the purposes of this testing document, I'm stepping
-through the internal process of bose so you can see what happens at
+through the internal process of psychoacoustics so you can see what happens at
 each step.
 
     >>> plugin = TodoError()
-    >>> from bose.result import _TextTestResult
+    >>> from psychoacoustics.result import _TextTestResult
     >>> result = _TextTestResult(stream=buf, descriptions=0, verbosity=2)
     >>> plugin.prepareTestResult(result)
 
@@ -92,10 +92,10 @@ Since we defined a Todo as a failure, the run was not successful.
     False
 """
 
-from bose.pyversion import make_instancemethod
-from bose.plugins.base import Plugin
-from bose.result import TextTestResult
-from bose.util import isclass
+from psychoacoustics.pyversion import make_instancemethod
+from psychoacoustics.plugins.base import Plugin
+from psychoacoustics.result import TextTestResult
+from psychoacoustics.util import isclass
 
 class MetaErrorClass(type):
     """Metaclass for ErrorClassPlugins that allows error classes to be

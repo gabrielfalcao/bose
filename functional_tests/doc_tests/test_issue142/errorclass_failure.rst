@@ -6,9 +6,9 @@ represent test failures.
 
     >>> import os
     >>> import sys
-    >>> from bose.plugins.plugintest import run_buffered as run
-    >>> from bose.plugins.skip import Skip
-    >>> from bose.plugins.deprecated import Deprecated
+    >>> from psychoacoustics.plugins.plugintest import run_buffered as run
+    >>> from psychoacoustics.plugins.skip import Skip
+    >>> from psychoacoustics.plugins.deprecated import Deprecated
     >>> support = os.path.join(os.path.dirname(__file__), 'support')
     >>> sys.path.insert(0, support)
     >>> from errorclass_failure_plugin import Todo, TodoPlugin, \
@@ -16,7 +16,7 @@ represent test failures.
     >>> todo_test = os.path.join(support, 'errorclass_failing_test.py')
     >>> misc_test = os.path.join(support, 'errorclass_tests.py')
 
-bose.plugins.errorclass.ErrorClass has an argument ``isfailure``. With a
+psychoacoustics.plugins.errorclass.ErrorClass has an argument ``isfailure``. With a
 true isfailure, when the errorclass' exception is raised by a test,
 tracebacks are printed.
 

@@ -3,12 +3,12 @@ Adds a sphinx directive that can be used to automatically document a plugin.
 
 this::
 
- .. autoplugin :: bose.plugins.foo
+ .. autoplugin :: psychoacoustics.plugins.foo
     :plugin: Pluggy
     
 produces::
 
-  .. automodule :: bose.plugins.foo
+  .. automodule :: psychoacoustics.plugins.foo
   
   Options
   -------
@@ -20,13 +20,13 @@ produces::
   Plugin
   ------
 
-  .. autoclass :: bose.plugins.foo.Pluggy
+  .. autoclass :: psychoacoustics.plugins.foo.Pluggy
      :members:
 
   Source
   ------
 
-  .. include :: path/to/bose/plugins/foo.py
+  .. include :: path/to/psychoacoustics/plugins/foo.py
      :literal:
 
 """
@@ -38,11 +38,11 @@ try:
 except ImportError:
     pass # won't run anyway
 
-from bose.util import resolve_name
-from bose.plugins.base import Plugin
-from bose.plugins.manager import BuiltinPluginManager
-from bose.config import Config
-from bose.core import TestProgram
+from psychoacoustics.util import resolve_name
+from psychoacoustics.plugins.base import Plugin
+from psychoacoustics.plugins.manager import BuiltinPluginManager
+from psychoacoustics.config import Config
+from psychoacoustics.core import TestProgram
 from inspect import isclass
 
 
@@ -115,7 +115,7 @@ def autoplugin_directive(dirname, arguments, options, content, lineno,
 
 def autohelp_directive(dirname, arguments, options, content, lineno,
                        content_offset, block_text, state, state_machine):
-    """produces rst from bose help"""
+    """produces rst from psychoacoustics help"""
     config = Config(parserClass=OptBucket,
                     plugins=BuiltinPluginManager())
     parser = config.getParser(TestProgram.usage())

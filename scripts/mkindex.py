@@ -2,11 +2,11 @@
 
 from docutils.core import publish_string, publish_parts
 from docutils.readers.standalone import Reader
-from bose.config import Config
-from bose.plugins.manager import BuiltinPluginManager
-import bose
-import bose.commands
-import bose.tools
+from psychoacoustics.config import Config
+from psychoacoustics.plugins.manager import BuiltinPluginManager
+import psychoacoustics
+import psychoacoustics.commands
+import psychoacoustics.tools
 import os
 import re
 import time
@@ -31,7 +31,7 @@ print "Main..."
 tpl = open(os.path.join(root, 'index.html.tpl'), 'r').read()
 
 pat = re.compile(r'^.*(Basic usage)', re.DOTALL)
-txt = bose.__doc__.replace(':: python','::')
+txt = psychoacoustics.__doc__.replace(':: python','::')
 txt = pat.sub(r'\1', txt)
 
 # cut from 'about the name' down (goes to end of page)
@@ -39,16 +39,16 @@ pat = re.compile(r'^(.*?)(About the name.*$)', re.DOTALL)
 txt, coda = pat.search(txt).groups()
 
 docs = publish_parts(txt, reader=DocReader(), writer_name='html')
-docs.update({'version': bose.__version__,
+docs.update({'version': psychoacoustics.__version__,
              'date': time.ctime()})
 docs['coda'] = publish_parts(coda, writer_name='html')['body']
 
 #print "Tools..."
-#tools = publish_parts(bose.tools.__doc__, writer_name='html')
+#tools = publish_parts(psychoacoustics.tools.__doc__, writer_name='html')
 #docs['tools'] = tools['body']
 
 print "Commands..."
-cmds = publish_parts(bose.commands.__doc__, reader=DocReader(),
+cmds = publish_parts(psychoacoustics.commands.__doc__, reader=DocReader(),
                      writer_name='html')
 docs['commands'] = cmds['body']
 
@@ -64,7 +64,7 @@ docs['news'] = news_html['body']
 
 print "Usage..."
 conf = Config(plugins=BuiltinPluginManager())
-usage_txt = conf.help(bose.main.__doc__).replace(
+usage_txt = conf.help(psychoacoustics.main.__doc__).replace(
     'mkindex.py', 'psytests')
 docs['usage'] = '<pre>%s</pre>' % usage_txt
 
@@ -75,5 +75,5 @@ index.write(out)
 index.close()
 
 readme = open(os.path.join(root, 'README.txt'), 'w')
-readme.write(bose.__doc__)
+readme.write(psychoacoustics.__doc__)
 readme.close()

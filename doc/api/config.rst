@@ -1,5 +1,5 @@
 Configuration
 =============
 
-.. automodule :: bose.config
+.. automodule :: psychoacoustics.config
    :members:

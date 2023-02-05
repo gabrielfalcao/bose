@@ -1,9 +1,9 @@
 import os
 from unittest import TestCase
 
-from bose.plugins import PluginTester
-from bose.plugins.skip import SkipTest
-from bose.plugins.multiprocess import MultiProcess
+from psychoacoustics.plugins import PluginTester
+from psychoacoustics.plugins.skip import SkipTest
+from psychoacoustics.plugins.multiprocess import MultiProcess
 
 support = os.path.join(os.path.dirname(__file__), 'support')
 

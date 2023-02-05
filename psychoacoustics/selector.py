@@ -9,8 +9,8 @@ thinks may be a test.
 import logging
 import os
 import unittest
-from bose.config import Config
-from bose.util import split_test_name, src, getfilename, getpackage, ispackage, is_executable
+from psychoacoustics.config import Config
+from psychoacoustics.util import split_test_name, src, getfilename, getpackage, ispackage, is_executable
 
 log = logging.getLogger(__name__)
 

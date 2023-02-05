@@ -1,11 +1,11 @@
-Batteries included: builtin bose plugins
+Batteries included: builtin psychoacoustics plugins
 ========================================
 
-bose includes a number of builtin plugins that can make testing faster and easier.
+psychoacoustics includes a number of builtin plugins that can make testing faster and easier.
 
 .. note ::
 
-   bose 0.11.2 includes a change to default plugin loading. Now, a 3rd party
+   psychoacoustics 0.11.2 includes a change to default plugin loading. Now, a 3rd party
    plugin with *the same name* as a builtin *will be loaded instead*
    of the builtin plugin.
 

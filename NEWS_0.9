@@ -4,7 +4,7 @@ New in version 0.9
 0.9 Final is here!
 ==================
 
-bose 0.9 includes a host of new features, as well as numerous
+psychoacoustics 0.9 includes a host of new features, as well as numerous
 backwards-incompatible changes to interfaces and implementation. 
 
 Thanks to the many folks who have contributed patches and ideas and made bug
@@ -16,22 +16,22 @@ Here's a quick rundown of what's new in 0.9
 - Plugins
   
   The most important new feature is support for plugins using setuptools
-  entrypoints. bose plugins can select and load tests (like the builtin
+  entrypoints. psychoacoustics plugins can select and load tests (like the builtin
   doctest plugin), reject tests (like the builtin attrib plugin, contributed
   by Mika Eloranta, that allows users to select tests by attribute),
   watch and report on tests (like the builtin coverage and profiler plugins),
   completely replace test result output (like the html result plugin in the
   examples directory) or any combination of the above. Writing plugins is
-  simple: subclass bose.plugins.Plugin and implement any of the methods in
-  bose.plugins.IPluginInterface.
+  simple: subclass psychoacoustics.plugins.Plugin and implement any of the methods in
+  psychoacoustics.plugins.IPluginInterface.
 
 - Better compatibility with unittest
 
   Test loading has been consolidated into a test loader class that is drop-in
   compatible with unittest.TestLoader. Likewise test result output, including
   output capture, assert introspection, and support for skipped and deprecated
-  tests, in bose.result.TextTestResult. If you want those features and not the
-  rest of bose, you can use just those classes. bose.main() has also been
+  tests, in psychoacoustics.result.TextTestResult. If you want those features and not the
+  rest of psychoacoustics, you can use just those classes. psychoacoustics.main() has also been
   rewritten to have the same signature as unittest.main().
 
 - Better command line interface
@@ -54,6 +54,6 @@ Here's a quick rundown of what's new in 0.9
     
 - More!
 
-  Helpful test decorators and functions in bose.tools. Support for generators
+  Helpful test decorators and functions in psychoacoustics.tools. Support for generators
   in test classes. Better import path handling -- that you can shut off!
-  Detailed verbose logging using the logging package. And more...
+  Detailed verpsychoacoustics logging using the logging package. And more...

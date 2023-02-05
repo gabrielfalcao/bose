@@ -1,8 +1,8 @@
 Test Cases
 ==========
 
-.. automodule :: bose.case
+.. automodule :: psychoacoustics.case
    :members:
 
-.. autoclass :: bose.failure.Failure
+.. autoclass :: psychoacoustics.failure.Failure
    :members:

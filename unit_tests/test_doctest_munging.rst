@@ -1,8 +1,8 @@
 doctest output normalization for plugin testing support
 =======================================================
 
-bose.plugins.plugintest.run() is used for testing bose plugins in
-doctests, so it needs to normalise bose output to remove information
+psychoacoustics.plugins.plugintest.run() is used for testing psychoacoustics plugins in
+doctests, so it needs to normalise psychoacoustics output to remove information
 that is not of interest to most plugin tests.
 
 We strip stack trace from formatted exceptions, using a regexp copied
@@ -10,7 +10,7 @@ from ``doctest.py``.  That regexp always matches to the end of a
 string, so we split on blank lines before running the regexp on each
 resulting block.
 
-    >>> from bose.plugins.plugintest import blankline_separated_blocks
+    >>> from psychoacoustics.plugins.plugintest import blankline_separated_blocks
     >>> list(blankline_separated_blocks("spam\neggs\n\nfoo\nbar\n\n"))
     ['spam\neggs\n\n', 'foo\nbar\n\n']
     >>> list(blankline_separated_blocks("spam\neggs\n\nfoo\nbar\n"))
@@ -27,7 +27,7 @@ an ellipsis.  Note the first line here is chosen not to be "Traceback
 (most recent...", since doctest would interpret that as meaning that
 the example should raise an exception!
 
-    >>> from bose.plugins.plugintest import remove_stack_traces
+    >>> from psychoacoustics.plugins.plugintest import remove_stack_traces
     >>> print remove_stack_traces("""\
     ... Ceci n'est pas une traceback.
     ... Traceback (most recent call last):
@@ -65,12 +65,12 @@ separated by blank lines.
     <BLANKLINE>
 
 
-Putting it together, ``munge_bose_output_for_doctest()`` removes stack
+Putting it together, ``munge_psychoacoustics_output_for_doctest()`` removes stack
 traces, removes test timings from "Ran n test(s)" output, and strips
 trailing blank lines.
 
-    >>> from bose.plugins.plugintest import munge_bose_output_for_doctest
-    >>> print munge_bose_output_for_doctest("""\
+    >>> from psychoacoustics.plugins.plugintest import munge_psychoacoustics_output_for_doctest
+    >>> print munge_psychoacoustics_output_for_doctest("""\
     ... runTest (foomodule.PassingTest) ... ok
     ... runTest (foomodule.FailingTest) ... FAIL
     ...

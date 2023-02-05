@@ -2,9 +2,9 @@ import os
 import sys
 import unittest
 from cStringIO import StringIO
-from bose.config import Config
-from bose.core import TestProgram
-from bose.plugins.manager import PluginManager
+from psychoacoustics.config import Config
+from psychoacoustics.core import TestProgram
+from psychoacoustics.plugins.manager import PluginManager
 
 
 support = os.path.join(os.path.dirname(__file__), 'support')

@@ -1,2 +1,2 @@
-.. automodule :: bose.plugins.manager
+.. automodule :: psychoacoustics.plugins.manager
    :members:

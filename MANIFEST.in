@@ -10,7 +10,7 @@ include distribute_setup.py
 include selftest.py
 include setup3lib.py
 include patch.py
-include bose/usage.txt
+include psychoacoustics/usage.txt
 graft doc
 graft examples
 graft unit_tests

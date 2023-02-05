@@ -1,7 +1,7 @@
     >>> import os
     >>> import sys
-    >>> from bose.plugins.plugintest import run_buffered as run
-    >>> from bose.plugins.testid import TestId
+    >>> from psychoacoustics.plugins.plugintest import run_buffered as run
+    >>> from psychoacoustics.plugins.testid import TestId
     >>> import tempfile
     >>> idfile = tempfile.mktemp()
     >>> support = os.path.join(os.path.dirname(__file__), 'support', 'id_fails')

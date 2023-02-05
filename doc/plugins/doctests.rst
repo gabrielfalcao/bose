@@ -1,4 +1,4 @@
-Doctests: run doctests with bose
+Doctests: run doctests with psychoacoustics
 ================================
 
-.. autoplugin :: bose.plugins.doctests
+.. autoplugin :: psychoacoustics.plugins.doctests

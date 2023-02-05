@@ -38,10 +38,10 @@ fewest possible times for a given set of names.
 import logging
 import sys
 
-from bose.plugins import Plugin
+from psychoacoustics.plugins import Plugin
 
 
-log = logging.getLogger('bose.plugins.isolation')
+log = logging.getLogger('psychoacoustics.plugins.isolation')
 
 class IsolationPlugin(Plugin):
     """

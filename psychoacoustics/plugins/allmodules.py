@@ -1,6 +1,6 @@
 """Use the AllModules plugin by passing ``--all-modules`` or setting the
 PSY_ECHOS_TICKS_ALL_MODULES environment variable to enable collection and execution of
-tests in all python modules. Normal bose behavior is to look for tests only in
+tests in all python modules. Normal psychoacoustics behavior is to look for tests only in
 modules that match testMatch.
 
 More information: :doc:`../doc_tests/test_allmodules/test_allmodules`
@@ -8,17 +8,17 @@ More information: :doc:`../doc_tests/test_allmodules/test_allmodules`
 .. warning ::
 
    This plugin can have surprising interactions with plugins that load tests
-   from what bose normally considers non-test modules, such as
+   from what psychoacoustics normally considers non-test modules, such as
    the :doc:`doctest plugin <doctests>`. This is because any given
-   object in a module can't be loaded both by a plugin and the normal bose
-   :class:`test loader <bose.loader.TestLoader>`. Also, if you have functions
+   object in a module can't be loaded both by a plugin and the normal psychoacoustics
+   :class:`test loader <psychoacoustics.loader.TestLoader>`. Also, if you have functions
    or classes in non-test modules that look like tests but aren't, you will
-   likely see errors as bose attempts to run them as tests.
+   likely see errors as psychoacoustics attempts to run them as tests.
 
 """
 
 import os
-from bose.plugins.base import Plugin
+from psychoacoustics.plugins.base import Plugin
 
 class AllModules(Plugin):
     """Collect tests from all python modules.

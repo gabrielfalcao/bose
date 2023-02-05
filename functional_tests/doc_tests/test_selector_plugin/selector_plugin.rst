@@ -1,10 +1,10 @@
 Using a Custom Selector
 -----------------------
 
-By default, bose uses a `bose.selector.Selector` instance to decide
+By default, psychoacoustics uses a `psychoacoustics.selector.Selector` instance to decide
 what is and is not a test. The default selector is fairly simple: for
 the most part, if an object's name matches the ``testMatch`` regular
-expression defined in the active `bose.config.Config` instance, the
+expression defined in the active `psychoacoustics.config.Config` instance, the
 object is selected as a test. 
 
 This behavior is fine for new projects, but may be undesireable for
@@ -18,7 +18,7 @@ a plugin.
 In this example, the project to be tested consists of a module and
 package and associated tests, laid out like this::
 
-    >>> from bose.util import ls_tree
+    >>> from psychoacoustics.util import ls_tree
     >>> print ls_tree(support)
     |-- mymodule.py
     |-- mypackage
@@ -37,15 +37,15 @@ package and associated tests, laid out like this::
             `-- cat.py
 
 Because the test modules do not include ``test`` in their names,
-bose's default selector is unable to discover this project's tests.
+psychoacoustics's default selector is unable to discover this project's tests.
 
 .. Note ::
 
-   The run() function in :mod:`bose.plugins.plugintest` reformats test result
+   The run() function in :mod:`psychoacoustics.plugins.plugintest` reformats test result
    output to remove timings, which will vary from run to run, and
    redirects the output to stdout.
 
-    >>> from bose.plugins.plugintest import run_buffered as run
+    >>> from psychoacoustics.plugins.plugintest import run_buffered as run
 
 ..
 
@@ -69,7 +69,7 @@ The tests for the example project follow a few basic conventions:
 
 We can codify those conventions in a selector class.
 
-    >>> from bose.selector import Selector
+    >>> from psychoacoustics.selector import Selector
     >>> import unittest
     >>> class MySelector(Selector):
     ...     def wantDirectory(self, dirname):
@@ -96,7 +96,7 @@ We can codify those conventions in a selector class.
 To use our selector class, we need a plugin that can inject it into
 the test loader.
 
-    >>> from bose.plugins import Plugin
+    >>> from psychoacoustics.plugins import Plugin
     >>> class UseMySelector(Plugin):
     ...     enabled = True
     ...     def configure(self, options, conf):

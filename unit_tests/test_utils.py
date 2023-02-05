@@ -1,11 +1,11 @@
 import os
 import sys
 import unittest
-import bose
-from bose import case
-from bose.pyversion import unbound_method
+import psychoacoustics
+from psychoacoustics import case
+from psychoacoustics.pyversion import unbound_method
 # don't import * -- some util functions look testlike
-from bose import util
+from psychoacoustics import util
 
 np = os.path.normpath
 
@@ -98,8 +98,8 @@ class TestUtils(unittest.TestCase):
                                                               'Foo.bar')
         assert test_address(f) == (me, __name__, 'Foo')
         assert test_address(f.bar) == (me, __name__, 'Foo.bar')
-        assert test_address(bose) == (
-            util.src(absfile(bose.__file__)), 'bose', None)
+        assert test_address(psychoacoustics) == (
+            util.src(absfile(psychoacoustics.__file__)), 'psychoacoustics', None)
 
         # test passing the actual test callable, as the
         # missed test plugin must do

@@ -19,10 +19,10 @@ import logging
 import os
 import sys
 import tempfile
-from bose.plugins.base import Plugin
-from bose.util import tolist
+from psychoacoustics.plugins.base import Plugin
+from psychoacoustics.util import tolist
 
-log = logging.getLogger('bose.plugins')
+log = logging.getLogger('psychoacoustics.plugins')
 
 class Profile(Plugin):
     """

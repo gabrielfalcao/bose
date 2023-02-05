@@ -1,8 +1,8 @@
 import sys
 import unittest
 from inspect import ismethod
-from bose.config import Config
-from bose.proxy import ResultProxyFactory, ResultProxy
+from psychoacoustics.config import Config
+from psychoacoustics.proxy import ResultProxyFactory, ResultProxy
 from mock import RecordingPluginManager
 
 class TestResultProxy(unittest.TestCase):
@@ -17,7 +17,7 @@ class TestResultProxy(unittest.TestCase):
             m = getattr(proxy, method)
             assert ismethod(m), "%s is not a method" % method
             
-    def test_proxy_has_bose_methods(self):
+    def test_proxy_has_psychoacoustics_methods(self):
         res = unittest.TestResult()
         proxy = ResultProxy(res, test=None)
 
@@ -27,7 +27,7 @@ class TestResultProxy(unittest.TestCase):
             assert ismethod(m), "%s is not a method" % method
 
     def test_proxy_proxies(self):
-        from bose.case import Test
+        from psychoacoustics.case import Test
         class Dummy:
             def __init__(self):
                 self.__dict__['called'] = []
@@ -72,7 +72,7 @@ class TestResultProxy(unittest.TestCase):
         proxy.testsRun
 
     def test_test_cases_can_access_result_attributes(self):
-        from bose.case import Test
+        from psychoacoustics.case import Test
         class TC(unittest.TestCase):
             def run(self, result):
                 unittest.TestCase.run(self, result)
@@ -87,7 +87,7 @@ class TestResultProxy(unittest.TestCase):
         case(proxy)
 
     def test_proxy_handles_missing_methods(self):
-        from bose.case import Test
+        from psychoacoustics.case import Test
         class TC(unittest.TestCase):
             def runTest(self):
                 pass
@@ -99,7 +99,7 @@ class TestResultProxy(unittest.TestCase):
         proxy.afterTest(test)
         
     def test_proxy_calls_plugins(self):
-        from bose.case import Test
+        from psychoacoustics.case import Test
         res = unittest.TestResult()
         class TC(unittest.TestCase):
             def test_error(self):
@@ -147,7 +147,7 @@ class TestResultProxy(unittest.TestCase):
         plugs.reset()
 
     def test_stop_on_error(self):
-        from bose.case import Test
+        from psychoacoustics.case import Test
         class TC(unittest.TestCase):
             def runTest(self):
                 raise Exception("Enough!")
@@ -161,7 +161,7 @@ class TestResultProxy(unittest.TestCase):
         assert res.shouldStop
 
     def test_coercion_of_custom_exception(self):
-        from bose.case import Test
+        from psychoacoustics.case import Test
 
         class CustomException(Exception):
             def __init__(self, message, two, three):

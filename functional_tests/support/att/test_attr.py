@@ -1,4 +1,4 @@
-from bose.plugins.attrib import attr
+from psychoacoustics.plugins.attrib import attr
 import unittest
 
 def test_one():

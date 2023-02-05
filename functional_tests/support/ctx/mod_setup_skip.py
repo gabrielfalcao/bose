@@ -1,4 +1,4 @@
-from bose import SkipTest
+from psychoacoustics import SkipTest
 
 def setup():
     raise SkipTest("no thanks")

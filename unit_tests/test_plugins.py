@@ -2,20 +2,20 @@ import logging
 import os
 import sys
 import unittest
-import bose.plugins
+import psychoacoustics.plugins
 from optparse import OptionParser
 import tempfile
 from warnings import warn, filterwarnings, resetwarnings
 
-from bose import SkipTest
-from bose.pyversion import unbound_method
-from bose.config import Config
-from bose.plugins.attrib import AttributeSelector
-from bose.plugins.base import Plugin
-from bose.plugins.cover import Coverage
-from bose.plugins.doctests import Doctest
-from bose.plugins.failuredetail import FailureDetail
-from bose.plugins.prof import Profile
+from psychoacoustics import SkipTest
+from psychoacoustics.pyversion import unbound_method
+from psychoacoustics.config import Config
+from psychoacoustics.plugins.attrib import AttributeSelector
+from psychoacoustics.plugins.base import Plugin
+from psychoacoustics.plugins.cover import Coverage
+from psychoacoustics.plugins.doctests import Doctest
+from psychoacoustics.plugins.failuredetail import FailureDetail
+from psychoacoustics.plugins.prof import Profile
 
 from mock import *
 
@@ -198,7 +198,7 @@ class TestDoctestPlugin(unittest.TestCase):
             assert test.address(), "Test %s has no address"
         
     def test_collect_no_collect(self):
-        # bug http://bose.python-hosting.com/ticket/55 
+        # bug http://psychoacoustics.python-hosting.com/ticket/55 
         # we got "iteration over non-sequence" when no files match
         here = os.path.abspath(os.path.dirname(__file__))
         support = os.path.join(here, 'support')

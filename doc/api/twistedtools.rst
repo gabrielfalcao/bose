@@ -1,2 +1,2 @@
-.. automodule :: bose.twistedtools
+.. automodule :: psychoacoustics.twistedtools
    :members:

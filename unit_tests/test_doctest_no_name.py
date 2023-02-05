@@ -1,8 +1,8 @@
 import os
 import sys
 import unittest
-from bose.config import Config
-from bose.plugins import doctests
+from psychoacoustics.config import Config
+from psychoacoustics.plugins import doctests
 from mock import Bucket
 
 class TestDoctestErrorHandling(unittest.TestCase):

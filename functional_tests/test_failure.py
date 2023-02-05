@@ -1,7 +1,7 @@
 import os
 import unittest
 
-from bose.plugins import PluginTester
+from psychoacoustics.plugins import PluginTester
 
 support = os.path.join(os.path.dirname(__file__), 'support', 'issue513')
 

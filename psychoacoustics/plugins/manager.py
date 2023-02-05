@@ -5,14 +5,14 @@ Plugin Manager
 A plugin manager class is used to load plugins, manage the list of
 loaded plugins, and proxy calls to those plugins.
 
-The plugin managers provided with bose are:
+The plugin managers provided with psychoacoustics are:
 
 :class:`PluginManager`
     This manager doesn't implement loadPlugins, so it can only work
     with a static list of plugins.
 
 :class:`BuiltinPluginManager`
-    This manager loads plugins referenced in ``bose.plugins.builtin``.
+    This manager loads plugins referenced in ``psychoacoustics.plugins.builtin``.
 
 :class:`EntryPointPluginManager`
     This manager uses setuptools entrypoints to load plugins.
@@ -38,7 +38,7 @@ Writing a plugin manager
 
 If you want to load plugins via some other means, you can write a
 plugin manager and pass an instance of your plugin manager class when
-instantiating the :class:`bose.config.Config` instance that you pass to
+instantiating the :class:`psychoacoustics.config.Config` instance that you pass to
 :class:`TestProgram` (or :func:`main` or :func:`run`).
 
 To implement your plugin loading scheme, implement ``loadPlugins()``,
@@ -54,10 +54,10 @@ import os
 import sys
 from itertools import chain as iterchain
 from warnings import warn
-import bose.config
-from bose.failure import Failure
-from bose.plugins.base import IPluginInterface
-from bose.pyversion import sort_list
+import psychoacoustics.config
+from psychoacoustics.failure import Failure
+from psychoacoustics.plugins.base import IPluginInterface
+from psychoacoustics.pyversion import sort_list
 
 try:
     import cPickle as pickle
@@ -319,7 +319,7 @@ class ZeroNinePlugin:
         if not hasattr(self.plugin, 'addError'):
             return
         # switch off to addSkip, addDeprecated if those types
-        from bose.exc import SkipTest, DeprecatedTest
+        from psychoacoustics.exc import SkipTest, DeprecatedTest
         ec, ev, tb = err
         if issubclass(ec, SkipTest):
             if not hasattr(self.plugin, 'addSkip'):
@@ -366,14 +366,14 @@ class ZeroNinePlugin:
 
 
 class EntryPointPluginManager(PluginManager):
-    """Plugin manager that loads plugins from the `bose.plugins` and
-    `bose.plugins.0.10` entry points.
+    """Plugin manager that loads plugins from the `psychoacoustics.plugins` and
+    `psychoacoustics.plugins.0.10` entry points.
     """
-    entry_points = (('bose.plugins.0.10', None),
-                    ('bose.plugins', ZeroNinePlugin))
+    entry_points = (('psychoacoustics.plugins.0.10', None),
+                    ('psychoacoustics.plugins', ZeroNinePlugin))
 
     def loadPlugins(self):
-        """Load plugins by iterating the `bose.plugins` entry point.
+        """Load plugins by iterating the `psychoacoustics.plugins` entry point.
         """
         from pkg_resources import iter_entry_points
         loaded = {}
@@ -404,12 +404,12 @@ class EntryPointPluginManager(PluginManager):
 
 class BuiltinPluginManager(PluginManager):
     """Plugin manager that loads plugins from the list in
-    `bose.plugins.builtin`.
+    `psychoacoustics.plugins.builtin`.
     """
     def loadPlugins(self):
-        """Load plugins in bose.plugins.builtin
+        """Load plugins in psychoacoustics.plugins.builtin
         """
-        from bose.plugins import builtin
+        from psychoacoustics.plugins import builtin
         for plug in builtin.plugins:
             self.addPlugin(plug())
         super(BuiltinPluginManager, self).loadPlugins()

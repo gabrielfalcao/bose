@@ -4,8 +4,8 @@ Multiprocess test collection from packages
 Tests that the multiprocess plugin correctly collects tests from packages
 
     >>> import os
-    >>> from bose.plugins.plugintest import run_buffered as run
-    >>> from bose.plugins.multiprocess import MultiProcess
+    >>> from psychoacoustics.plugins.plugintest import run_buffered as run
+    >>> from psychoacoustics.plugins.multiprocess import MultiProcess
     >>> support = os.path.join(os.path.dirname(__file__), 'support')
     >>> issue270 = os.path.join(support, 'issue270')
 
