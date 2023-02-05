@@ -10,7 +10,7 @@ test plugins in their native runtime environment.
 Here's a simple example with a do-nothing plugin and a composed suite.
 
     >>> import unittest
-    >>> from bose.plugins import Plugin, PluginTester
+    >>> from psychoacoustics.plugins import Plugin, PluginTester
     >>> class FooPlugin(Plugin):
     ...     pass
     >>> class TestPluginFoo(PluginTester, unittest.TestCase):
@@ -45,7 +45,7 @@ And here is a more complex example of testing a plugin that has extra
 arguments and reads environment variables.
 
     >>> import unittest, os
-    >>> from bose.plugins import Plugin, PluginTester
+    >>> from psychoacoustics.plugins import Plugin, PluginTester
     >>> class FancyOutputter(Plugin):
     ...     name = "fancy"
     ...     def configure(self, options, conf):
@@ -177,7 +177,7 @@ except ImportError:
     Buffer = StringIO
 
 class PluginTester(object):
-    """A mixin for testing bose plugins in their runtime environment.
+    """A mixin for testing psychoacoustics plugins in their runtime environment.
 
     Subclass this and mix in unittest.TestCase to run integration/functional
     tests on your plugin.  When setUp() is called, the stub test suite is
@@ -241,9 +241,9 @@ class PluginTester(object):
     def _execPlugin(self):
         """execute the plugin on the internal test suite.
         """
-        from bose.config import Config
-        from bose.core import TestProgram
-        from bose.plugins.manager import PluginManager
+        from psychoacoustics.config import Config
+        from psychoacoustics.core import TestProgram
+        from psychoacoustics.plugins.manager import PluginManager
 
         suite = None
         stream = Buffer()
@@ -255,7 +255,7 @@ class PluginTester(object):
         if not self.suitepath:
             suite = self.makeSuite()
 
-        self.bose = TestProgram(argv=self.argv, config=conf, suite=suite,
+        self.psychoacoustics = TestProgram(argv=self.argv, config=conf, suite=suite,
                                 exit=False)
         self.output = AccessDecorator(stream)
 
@@ -339,8 +339,8 @@ def remove_timings(out):
         r"Ran (\d+ tests?) in [0-9.]+s", r"Ran \1 in ...s", out)
 
 
-def munge_bose_output_for_doctest(out):
-    """Modify bose output to make it easy to use in doctests."""
+def munge_psychoacoustics_output_for_doctest(out):
+    """Modify psychoacoustics output to make it easy to use in doctests."""
     out = remove_stack_traces(out)
     out = simplify_warnings(out)
     out = remove_timings(out)
@@ -349,7 +349,7 @@ def munge_bose_output_for_doctest(out):
 
 def run(*arg, **kw):
     """
-    Specialized version of bose.run for use inside of doctests that
+    Specialized version of psychoacoustics.run for use inside of doctests that
     test test runs.
 
     This version of run() prints the result output to stdout.  Before
@@ -358,16 +358,16 @@ def run(*arg, **kw):
     removing trailing whitespace.
 
     Use this version of run wherever you are writing a doctest that
-    tests bose (or unittest) test result output.
+    tests psychoacoustics (or unittest) test result output.
 
-    Note: do not use doctest: +ELLIPSIS when testing bose output,
+    Note: do not use doctest: +ELLIPSIS when testing psychoacoustics output,
     since ellipses ("test_foo ... ok") in your expected test runner
     output may match multiple lines of output, causing spurious test
     passes!
     """
-    from bose import run
-    from bose.config import Config
-    from bose.plugins.manager import PluginManager
+    from psychoacoustics import run
+    from psychoacoustics.config import Config
+    from psychoacoustics.plugins.manager import PluginManager
 
     buffer = Buffer()
     if 'config' not in kw:
@@ -391,8 +391,8 @@ def run(*arg, **kw):
         restore = True
     else:
         restore = False
-        warn("The behavior of bose.plugins.plugintest.run() will change in "
-             "the next release of bose. The current behavior does not "
+        warn("The behavior of psychoacoustics.plugins.plugintest.run() will change in "
+             "the next release of psychoacoustics. The current behavior does not "
              "correctly account for output to stdout and stderr. To enable "
              "correct behavior, use run_buffered() instead, or pass "
              "the keyword argument buffer_all=True to run().",
@@ -404,7 +404,7 @@ def run(*arg, **kw):
             sys.stderr = stderr
             sys.stdout = stdout
     out = buffer.getvalue()
-    print munge_bose_output_for_doctest(out)
+    print munge_psychoacoustics_output_for_doctest(out)
 
 
 def run_buffered(*arg, **kw):

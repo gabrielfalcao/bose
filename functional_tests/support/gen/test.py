@@ -1,6 +1,6 @@
 """This test will fail if generators bind too early."""
     
-from bose.tools import eq_
+from psychoacoustics.tools import eq_
 
 def test1():
 

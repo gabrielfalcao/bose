@@ -1,6 +1,6 @@
 # There are more attribute plugin unit tests in unit_tests/test_plugins.py
-from bose.tools import eq_
-from bose.plugins.attrib import attr
+from psychoacoustics.tools import eq_
+from psychoacoustics.plugins.attrib import attr
 
 def test_flags():
     # @attr('one','two')

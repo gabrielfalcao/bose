@@ -1,6 +1,6 @@
 import os
 import unittest
-from bose.selector import Selector, TestAddress
+from psychoacoustics.selector import Selector, TestAddress
 
 support = os.path.abspath(os.path.join(os.path.dirname(__file__), 'support'))
 

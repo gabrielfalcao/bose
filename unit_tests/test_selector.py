@@ -2,16 +2,16 @@ import logging
 import os
 import re
 import unittest
-import bose.selector
-from bose.config import Config
-from bose.selector import log, Selector
-from bose.util import absdir
+import psychoacoustics.selector
+from psychoacoustics.config import Config
+from psychoacoustics.selector import log, Selector
+from psychoacoustics.util import absdir
 from mock import mod
 
 class TestSelector(unittest.TestCase):
 
     def tearDown(self):
-        logging.getLogger('bose.selector').setLevel(logging.WARN)
+        logging.getLogger('psychoacoustics.selector').setLevel(logging.WARN)
     
     def test_ignore_files_default(self):
         """A default configuration should always skip some 'hidden' files."""
@@ -111,7 +111,7 @@ class TestSelector(unittest.TestCase):
         
     def test_want_file(self):
 
-        #logging.getLogger('bose.selector').setLevel(logging.DEBUG)
+        #logging.getLogger('psychoacoustics.selector').setLevel(logging.DEBUG)
         #logging.basicConfig()
         
         c = Config()

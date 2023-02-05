@@ -3,8 +3,8 @@ import unittest
 
 class TestIssue006(unittest.TestCase):
     def test_load_nested_generator(self):
-        from bose.config import Config
-        from bose.loader import TestLoader
+        from psychoacoustics.config import Config
+        from psychoacoustics.loader import TestLoader
 
         where = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                              'support', 'issue006'))

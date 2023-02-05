@@ -2,7 +2,7 @@ Doctest Fixtures
 ----------------
 
 Doctest files, like other tests, can be made more efficient or meaningful or
-at least easier to write by judicious use of fixtures. bose supports limited
+at least easier to write by judicious use of fixtures. psychoacoustics supports limited
 fixtures for use with doctest files. 
 
 Module-level fixtures
@@ -39,7 +39,7 @@ Example::
       module.done = True
 
 Module-level setup executes **before any tests are loaded** from the doctest
-file. This is the right place to raise :class:`bose.plugins.skip.SkipTest`,
+file. This is the right place to raise :class:`psychoacoustics.plugins.skip.SkipTest`,
 for example.
       
 Test-level fixtures

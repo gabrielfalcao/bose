@@ -1,5 +1,5 @@
 Skip: mark tests as skipped
 ===========================
 
-.. autoplugin :: bose.plugins.skip
+.. autoplugin :: psychoacoustics.plugins.skip
    :plugin: Skip

@@ -12,9 +12,9 @@ the options ``-s`` or ``--nocapture``.
 import logging
 import os
 import sys
-from bose.plugins.base import Plugin
-from bose.pyversion import exc_to_unicode, force_unicode
-from bose.util import ln
+from psychoacoustics.plugins.base import Plugin
+from psychoacoustics.pyversion import exc_to_unicode, force_unicode
+from psychoacoustics.util import ln
 from StringIO import StringIO
 
 

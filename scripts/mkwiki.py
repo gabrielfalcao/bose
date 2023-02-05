@@ -5,11 +5,11 @@ from docutils.core import publish_string, publish_parts
 from docutils.nodes import SparseNodeVisitor
 from docutils.readers.standalone import Reader
 from docutils.writers import Writer
-from bose.config import Config
-import bose.plugins
-from bose.plugins.manager import BuiltinPluginManager
-from bose.plugins import errorclass
-import bose
+from psychoacoustics.config import Config
+import psychoacoustics.plugins
+from psychoacoustics.plugins.manager import BuiltinPluginManager
+from psychoacoustics.plugins import errorclass
+import psychoacoustics
 import os
 import pudge.browser
 import re
@@ -50,7 +50,7 @@ def wiki_word(node):
     else:
         if '.' in text:
             parts = text.split('.')
-            link = 'http://python-bose.googlecode.com/svn/trunk'
+            link = 'http://python-psychoacoustics.googlecode.com/svn/trunk'
             for p in parts:
                 # stop at class names
                 if p[0].upper() == p[0]:
@@ -209,9 +209,9 @@ def wikirst(doc):
 
 def plugin_interface():
     """use pudge browser to generate interface docs
-    from bose.plugins.base.PluginInterface
+    from psychoacoustics.plugins.base.PluginInterface
     """
-    b = pudge.browser.Browser(['bose.plugins.base'], None)
+    b = pudge.browser.Browser(['psychoacoustics.plugins.base'], None)
     m = b.modules()[0]
     intf = list([ c for c in m.classes() if c.name ==
                   'IPluginInterface'])[0]
@@ -243,8 +243,8 @@ def example_plugin():
 
 
 def tools():
-    top = wikirst(bose.tools.__doc__)
-    b = pudge.browser.Browser(['bose.tools'], None)
+    top = wikirst(psychoacoustics.tools.__doc__)
+    b = pudge.browser.Browser(['psychoacoustics.tools'], None)
     m = b.modules()[0]
     funcs = [ (f.name, f.formatargs().replace('(self, ', '('), f.doc())
               for f in m.routines() ]
@@ -259,7 +259,7 @@ def tools():
 
 def usage():
     conf = Config(plugins=BuiltinPluginManager())
-    usage_text = conf.help(bose.main.__doc__).replace('mkwiki.py', 'psytests')
+    usage_text = conf.help(psychoacoustics.main.__doc__).replace('mkwiki.py', 'psytests')
     out = '{{{\n%s\n}}}\n' % usage_text
     return out
 
@@ -269,15 +269,15 @@ def mkwiki(path):
     # Pages to publish and the docstring(s) to load for that page
     #
 
-    pages = {  #'SandBox': wikirst(section(bose.__doc__, 'Writing tests'))
-        'WritingTests': wikirst(section(bose.__doc__, 'Writing tests')),
-        'NoseFeatures': wikirst(section(bose.__doc__, 'Features')),
-        'WritingPlugins': wikirst(bose.plugins.__doc__),
+    pages = {  #'SandBox': wikirst(section(psychoacoustics.__doc__, 'Writing tests'))
+        'WritingTests': wikirst(section(psychoacoustics.__doc__, 'Writing tests')),
+        'NoseFeatures': wikirst(section(psychoacoustics.__doc__, 'Features')),
+        'WritingPlugins': wikirst(psychoacoustics.plugins.__doc__),
         'PluginInterface': plugin_interface(),
         'ErrorClassPlugin': wikirst(errorclass.__doc__),
         'TestingTools': tools(),
         'FindingAndRunningTests': wikirst(
-            section(bose.__doc__, 'Finding and running tests')),
+            section(psychoacoustics.__doc__, 'Finding and running tests')),
         # FIXME finish example plugin doc... add some explanation
         'ExamplePlugin': example_plugin(),
         

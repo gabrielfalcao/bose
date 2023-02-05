@@ -1,4 +1,4 @@
 AllModules: collect tests in all modules
 ========================================
 
-.. autoplugin :: bose.plugins.allmodules
+.. autoplugin :: psychoacoustics.plugins.allmodules

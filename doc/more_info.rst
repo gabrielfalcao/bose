@@ -1,28 +1,28 @@
 About the name
 ==============
 
-* bose is the least silly short synonym for discover in the dictionary.com
+* psychoacoustics is the least silly short synonym for discover in the dictionary.com
   thesaurus that does not contain the word 'spy.'
-* Pythons have boses
-* The bose knows where to find your tests
+* Pythons have psychoacousticss
+* The psychoacoustics knows where to find your tests
 * Nose Obviates Suite Employment
 
 Contact the author
 ==================
 
-You can email me at jpellerin+bose at gmail dot com.
+You can email me at jpellerin+psychoacoustics at gmail dot com.
 
 To report bugs, ask questions, or request features, please use the *issues*
-tab at the Google code site: http://code.google.com/p/python-bose/issues/list.
+tab at the Google code site: http://code.google.com/p/python-psychoacoustics/issues/list.
 Patches are welcome!
 
 Similar test runners
 ====================
 
-bose was inspired mainly by py.test_, which is a great test runner, but
+psychoacoustics was inspired mainly by py.test_, which is a great test runner, but
 formerly was not all that easy to install, and is not based on unittest.
 
-Test suites written for use with bose should work equally well with py.test,
+Test suites written for use with psychoacoustics should work equally well with py.test,
 and vice versa, except for the differences in output capture and command line
 arguments for the respective tools.
 
@@ -31,7 +31,7 @@ arguments for the respective tools.
 License and copyright
 =====================
 
-bose is copyright Jason Pellerin 2005-2009
+psychoacoustics is copyright Jason Pellerin 2005-2009
 
 This program is free software; you can redistribute it and/or modify it
 under the terms of the GNU Lesser General Public License as published by

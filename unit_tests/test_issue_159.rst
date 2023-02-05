@@ -1,4 +1,4 @@
-    >>> from bose.plugins.errorclass import ErrorClass, ErrorClassPlugin
+    >>> from psychoacoustics.plugins.errorclass import ErrorClass, ErrorClassPlugin
     >>> class X(Exception):
     ...     pass
     >>> xes = ErrorClass(X, label='XXX')

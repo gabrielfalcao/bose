@@ -1,12 +1,12 @@
 """
 This plugin installs a DEPRECATED error class for the :class:`DeprecatedTest`
 exception. When :class:`DeprecatedTest` is raised, the exception will be logged
-in the deprecated attribute of the result, ``D`` or ``DEPRECATED`` (verbose)
+in the deprecated attribute of the result, ``D`` or ``DEPRECATED`` (verpsychoacoustics)
 will be output, and the exception will not be counted as an error or failure.
 It is enabled by default, but can be turned off by using ``--no-deprecated``.
 """
 
-from bose.plugins.errorclass import ErrorClass, ErrorClassPlugin
+from psychoacoustics.plugins.errorclass import ErrorClass, ErrorClassPlugin
 
 
 class DeprecatedTest(Exception):

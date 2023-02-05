@@ -1,1 +1,1 @@
-test = 'the bose knows'
+test = 'the psychoacoustics knows'

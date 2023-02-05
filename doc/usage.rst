@@ -6,7 +6,7 @@ Use the psytests script (after installation by setuptools)::
   psytests [options] [(optional) test files or directories]
 
 In addition to passing command-line options, you may also put configuration
-options in a .boserc or bose.cfg file in your home directory. These are
+options in a .psychoacousticsrc or psychoacoustics.cfg file in your home directory. These are
 standard .ini-style config files. Put your psytests configuration in a
 [psytests] section, with the -- prefix removed::
 
@@ -15,30 +15,30 @@ standard .ini-style config files. Put your psytests configuration in a
    with-doctest=1
 
 There is also possiblity to disable configuration files loading (might be
-useful when runnig i.e. tox and you don't want your global bose config file to
+useful when runnig i.e. tox and you don't want your global psychoacoustics config file to
 be used by tox). In order to ignore those configuration files simply set an
 environment variable ``PSY_ECHOS_TICKS_IGNORE_CONFIG_FILES``.
   
-There are several other ways to use the bose test runner besides the
-`psytests` script. You may use bose in a test script::
+There are several other ways to use the psychoacoustics test runner besides the
+`psytests` script. You may use psychoacoustics in a test script::
 
-  import bose
-  bose.main()
+  import psychoacoustics
+  psychoacoustics.main()
 
 If you don't want the test script to exit with 0 on success and 1 on failure
-(like unittest.main), use bose.run() instead::
+(like unittest.main), use psychoacoustics.run() instead::
 
-  import bose
-  result = bose.run()
+  import psychoacoustics
+  result = psychoacoustics.run()
   
 `result` will be true if the test run succeeded, or false if any test failed
-or raised an uncaught exception. Lastly, you can run bose.core directly, which
-will run bose.main()::
+or raised an uncaught exception. Lastly, you can run psychoacoustics.core directly, which
+will run psychoacoustics.main()::
 
-  python /path/to/bose/core.py
+  python /path/to/psychoacoustics/core.py
   
 Please see the usage message for the psytests script for information
-about how to control which tests bose runs, which plugins are loaded,
+about how to control which tests psychoacoustics runs, which plugins are loaded,
 and the test output.
 
 Extended usage

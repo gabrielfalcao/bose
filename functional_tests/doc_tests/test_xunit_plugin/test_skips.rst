@@ -2,11 +2,11 @@ XUnit output supports skips
 ---------------------------
 
 >>> import os
->>> from bose.plugins.xunit import Xunit
->>> from bose.plugins.skip import SkipTest, Skip
+>>> from psychoacoustics.plugins.xunit import Xunit
+>>> from psychoacoustics.plugins.skip import SkipTest, Skip
 >>> support = os.path.join(os.path.dirname(__file__), 'support')
 >>> outfile = os.path.join(support, 'psytests.xml')
->>> from bose.plugins.plugintest import run_buffered as run
+>>> from psychoacoustics.plugins.plugintest import run_buffered as run
 >>> argv = [__file__, '-v', '--with-xunit', support,
 ...         '--xunit-file=%s' % outfile]
 >>> run(argv=argv, plugins=[Xunit(), Skip()]) # doctest: +ELLIPSIS

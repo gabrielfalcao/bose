@@ -4,13 +4,13 @@ import unittest
 from difflib import ndiff
 from cStringIO import StringIO
 
-from bose.config import Config
-from bose.plugins.allmodules import AllModules
-from bose.plugins.manager import PluginManager
-from bose.plugins.skip import Skip
-from bose import loader
-from bose import suite
-from bose.result import _TextTestResult
+from psychoacoustics.config import Config
+from psychoacoustics.plugins.allmodules import AllModules
+from psychoacoustics.plugins.manager import PluginManager
+from psychoacoustics.plugins.skip import Skip
+from psychoacoustics import loader
+from psychoacoustics import suite
+from psychoacoustics.result import _TextTestResult
 try:
     # 2.7+
     from unittest.runner import _WritelnDecorator
@@ -503,5 +503,5 @@ class TreePrintContextSuite(suite.ContextSuite):
 if __name__ == '__main__':
     #import logging
     #logging.basicConfig() #level=logging.DEBUG)
-    #logging.getLogger('bose.suite').setLevel(logging.DEBUG)
+    #logging.getLogger('psychoacoustics.suite').setLevel(logging.DEBUG)
     unittest.main()

@@ -1,2 +1,2 @@
-.. automodule :: bose.commands
+.. automodule :: psychoacoustics.commands
    :members:

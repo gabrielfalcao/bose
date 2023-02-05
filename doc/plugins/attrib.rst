@@ -1,4 +1,4 @@
 Attrib: tag and select tests with attributes
 ============================================
 
-.. autoplugin :: bose.plugins.attrib
+.. autoplugin :: psychoacoustics.plugins.attrib

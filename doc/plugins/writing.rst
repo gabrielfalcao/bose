@@ -1,1 +1,1 @@
-.. automodule :: bose.plugins
+.. automodule :: psychoacoustics.plugins

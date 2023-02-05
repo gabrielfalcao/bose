@@ -1,14 +1,14 @@
-"""bose unittest.TestCase subclasses. It is not necessary to subclass these
-classes when writing tests; they are used internally by bose.loader.TestLoader
+"""psychoacoustics unittest.TestCase subclasses. It is not necessary to subclass these
+classes when writing tests; they are used internally by psychoacoustics.loader.TestLoader
 to create test cases from test functions and methods in test classes.
 """
 import logging
 import sys
 import unittest
 from inspect import isfunction
-from bose.config import Config
-from bose.failure import Failure # for backwards compatibility
-from bose.util import resolve_name, test_address, try_run
+from psychoacoustics.config import Config
+from psychoacoustics.failure import Failure # for backwards compatibility
+from psychoacoustics.util import resolve_name, test_address, try_run
 
 log = logging.getLogger(__name__)
 
@@ -21,13 +21,13 @@ class Test(unittest.TestCase):
 
     When a plugin sees a test, it will always see an instance of this
     class. To access the actual test case that will be run, access the
-    test property of the bose.case.Test instance.
+    test property of the psychoacoustics.case.Test instance.
     """
     __test__ = False # do not collect
     def __init__(self, test, config=None, resultProxy=None):
         # sanity check
         if not callable(test):
-            raise TypeError("bose.case.Test called with argument %r that "
+            raise TypeError("psychoacoustics.case.Test called with argument %r that "
                             "is not callable. A callable is required."
                             % test)
         self.test = test
@@ -92,7 +92,7 @@ class Test(unittest.TestCase):
         if hasattr(self.test, 'address'):
             return self.test.address()
         else:
-            # not a bose case
+            # not a psychoacoustics case
             return test_address(self.test)
 
     def _context(self):
@@ -209,7 +209,7 @@ class TestBase(unittest.TestCase):
 class FunctionTestCase(TestBase):
     """TestCase wrapper for test functions.
 
-    Don't use this class directly; it is used internally in bose to
+    Don't use this class directly; it is used internally in psychoacoustics to
     create test cases for test functions.
     """
     __test__ = False # do not collect
@@ -303,7 +303,7 @@ class FunctionTestCase(TestBase):
 class MethodTestCase(TestBase):
     """Test case wrapper for test methods.
 
-    Don't use this class directly; it is used internally in bose to
+    Don't use this class directly; it is used internally in psychoacoustics to
     create test cases for test methods.
     """
     __test__ = False # do not collect

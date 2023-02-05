@@ -1,2 +1,2 @@
-.. automodule :: bose.suite
+.. automodule :: psychoacoustics.suite
    :members:

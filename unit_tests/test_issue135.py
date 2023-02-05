@@ -1,6 +1,6 @@
 import unittest
 import os
-from bose import main
+from psychoacoustics import main
 import sys
 import re
 try:

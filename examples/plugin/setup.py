@@ -1,5 +1,5 @@
 """
-An example of how to create a simple bose plugin.
+An example of how to create a simple psychoacoustics plugin.
 
 """
 try:
@@ -14,12 +14,12 @@ setup(
     name='Example plugin',
     version='0.1',
     author='Jason Pellerin',
-    author_email = 'jpellerin+bose@gmail.com',
-    description = 'Example bose plugin',
+    author_email = 'jpellerin+psychoacoustics@gmail.com',
+    description = 'Example psychoacoustics plugin',
     license = 'GNU LGPL',
     py_modules = ['plug'],
     entry_points = {
-        'bose.plugins.0.10': [
+        'psychoacoustics.plugins.0.10': [
             'example = plug:ExamplePlugin'
             ]
         }

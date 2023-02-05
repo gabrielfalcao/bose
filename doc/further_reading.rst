@@ -23,12 +23,12 @@ Further reading
 Articles, etc
 -------------
 
-* `An Extended Introduction to the bose Unit Testing Framework`_:
+* `An Extended Introduction to the psychoacoustics Unit Testing Framework`_:
   Titus Brown's excellent article provides a great overview of
-  bose and its uses.
+  psychoacoustics and its uses.
 * `My blog`_
 * `Tweets`_
 
-.. _`An Extended Introduction to the bose Unit Testing Framework` : http://ivory.idyll.org/articles/bose-intro.html
+.. _`An Extended Introduction to the psychoacoustics Unit Testing Framework` : http://ivory.idyll.org/articles/psychoacoustics-intro.html
 .. _`My blog` : http://somethingaboutorange.com/mrl/
 .. _`Tweets` : http://twitter.com/jpellerin

@@ -3,10 +3,10 @@ import codecs
 import os
 import sys
 import unittest
-from bose.plugins.capture import Capture
-from bose.plugins.xunit import Xunit
-from bose.plugins.skip import Skip
-from bose.plugins import PluginTester
+from psychoacoustics.plugins.capture import Capture
+from psychoacoustics.plugins.xunit import Xunit
+from psychoacoustics.plugins.skip import Skip
+from psychoacoustics.plugins import PluginTester
 
 support = os.path.join(os.path.dirname(__file__), 'support')
 xml_results_filename = os.path.join(support, "xunit.xml")

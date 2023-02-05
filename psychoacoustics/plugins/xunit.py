@@ -56,9 +56,9 @@ from StringIO import StringIO
 from time import time
 from xml.sax import saxutils
 
-from bose.plugins.base import Plugin
-from bose.exc import SkipTest
-from bose.pyversion import force_unicode, format_exception
+from psychoacoustics.plugins.base import Plugin
+from psychoacoustics.exc import SkipTest
+from psychoacoustics.pyversion import force_unicode, format_exception
 
 # Invalid XML characters, control characters 0-31 sans \t, \n and \r
 CONTROL_CHARACTERS = re.compile(r"[\000-\010\013\014\016-\037]")

@@ -1,6 +1,6 @@
 import os
 import sys
-from bose.exc import SkipTest
+from psychoacoustics.exc import SkipTest
 
 try:
     from pkg_resources import EntryPoint

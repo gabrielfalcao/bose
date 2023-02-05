@@ -4,13 +4,13 @@ Documenting plugins
 A parable. If a plugin is released on pypi without any documentation, does
 anyone care?
 
-To make it easy to document your plugins, bose includes a `Sphinx`_ extension
-that will automatically generate plugin docs like those for bose's builtin
-plugins. Simply add 'bose.sphinx.pluginopts' to the list of extensions in your
+To make it easy to document your plugins, psychoacoustics includes a `Sphinx`_ extension
+that will automatically generate plugin docs like those for psychoacoustics's builtin
+plugins. Simply add 'psychoacoustics.sphinx.pluginopts' to the list of extensions in your
 conf.py::
 
   extensions = ['sphinx.ext.autodoc', 'sphinx.ext.intersphinx',
-                'bose.sphinx.pluginopts']
+                'psychoacoustics.sphinx.pluginopts']
 
 Then in your plugin documents, include a title and the ``.. autoplugin``
 directive::

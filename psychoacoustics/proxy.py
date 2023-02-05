@@ -7,16 +7,16 @@ performs two functions: enabling extended error/failure reporting
 and calling plugins.
 
 As each result event is fired, plugins are called with the same event;
-however, plugins are called with the bose.case.Test instance that
+however, plugins are called with the psychoacoustics.case.Test instance that
 wraps the actual test. So when a test fails and calls
 result.addFailure(self, err), the result proxy calls
 addFailure(self.test, err) for each plugin. This allows plugins to
 have a single stable interface for all test types, and also to
 manipulate the test object itself by setting the `test` attribute of
-the bose.case.Test that they receive.
+the psychoacoustics.case.Test that they receive.
 """
 import logging
-from bose.config import Config
+from psychoacoustics.config import Config
 
 
 log = logging.getLogger(__name__)
@@ -67,10 +67,10 @@ class ResultProxyFactory(object):
 class ResultProxy(object):
     """Proxy to TestResults (or other results handler).
 
-    One ResultProxy is created for each bose.case.Test. The result
-    proxy calls plugins with the bose.case.Test instance (instead of
+    One ResultProxy is created for each psychoacoustics.case.Test. The result
+    proxy calls plugins with the psychoacoustics.case.Test instance (instead of
     the wrapped test case) as each result call is made. Finally, the
-    real result method is called, also with the bose.case.Test
+    real result method is called, also with the psychoacoustics.case.Test
     instance as the test parameter.
 
     """
@@ -102,7 +102,7 @@ class ResultProxy(object):
         case = getattr(self.test, 'test', None)
         assert (test is self.test
                 or test is case
-                or test is getattr(case, '_bose_case', None)), (
+                or test is getattr(case, '_psychoacoustics_case', None)), (
                 "ResultProxy for %r (%s) was called with test %r (%s)"
                 % (self.test, id(self.test), test, id(test)))
 
@@ -150,7 +150,7 @@ class ResultProxy(object):
 
     def addSkip(self, test, reason):
         # 2.7 compat shim
-        from bose.plugins.skip import SkipTest
+        from psychoacoustics.plugins.skip import SkipTest
         self.assertMyTest(test)
         plugins = self.plugins
         if not isinstance(reason, Exception):

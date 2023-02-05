@@ -1,5 +1,5 @@
 # -*- encoding: utf-8 -*-
-from bose.plugins.skip import SkipTest
+from psychoacoustics.plugins.skip import SkipTest
 import sys
 
 

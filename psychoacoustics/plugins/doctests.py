@@ -1,7 +1,7 @@
 """Use the Doctest plugin with ``--with-doctest`` or the PSY_ECHOS_TICKS_WITH_DOCTEST
 environment variable to enable collection and execution of :mod:`doctests
 <doctest>`.  Because doctests are usually included in the tested package
-(instead of being grouped into packages or modules of their own), bose only
+(instead of being grouped into packages or modules of their own), psychoacoustics only
 looks for them in the non-test packages it discovers in the working directory.
 
 Doctests may also be placed into files other than python modules, in which
@@ -54,9 +54,9 @@ import os
 import sys
 import unittest
 from inspect import getmodule
-from bose.plugins.base import Plugin
-from bose.suite import ContextList
-from bose.util import anyp, getpackage, test_address, resolve_name, \
+from psychoacoustics.plugins.base import Plugin
+from psychoacoustics.suite import ContextList
+from psychoacoustics.util import anyp, getpackage, test_address, resolve_name, \
      src, tolist, isproperty
 try:
     from cStringIO import StringIO
@@ -73,7 +73,7 @@ try:
     # system version of doctest is acceptable, but needs a monkeypatch
 except (ImportError, AttributeError):
     # system version is too old
-    import bose.ext.dtcompat as doctest
+    import psychoacoustics.ext.dtcompat as doctest
 
 
 #
@@ -228,7 +228,7 @@ class Doctest(Plugin):
             tests = self.finder.find(module)
         except AttributeError:
             log.exception("Attribute error loading from %s", module)
-            # bose allows module.__test__ = False; doctest does not and throws
+            # psychoacoustics allows module.__test__ = False; doctest does not and throws
             # AttributeError
             return
         if not tests:
@@ -357,14 +357,14 @@ class DocTestCase(doctest.DocTestCase):
     def __init__(self, test, optionflags=0, setUp=None, tearDown=None,
                  checker=None, obj=None, result_var='_'):
         self._result_var = result_var
-        self._bose_obj = obj
+        self._psychoacoustics_obj = obj
         super(DocTestCase, self).__init__(
             test, optionflags=optionflags, setUp=setUp, tearDown=tearDown,
             checker=checker)
     
     def address(self):
-        if self._bose_obj is not None:
-            return test_address(self._bose_obj)
+        if self._psychoacoustics_obj is not None:
+            return test_address(self._psychoacoustics_obj)
         obj = resolve_name(self._dt_test.name)
 
         if isproperty(obj):

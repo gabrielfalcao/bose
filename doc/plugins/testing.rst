@@ -1,7 +1,7 @@
-.. automodule :: bose.plugins.plugintest
+.. automodule :: psychoacoustics.plugins.plugintest
 
 PluginTester methods
 --------------------
 
-.. autoclass :: bose.plugins.plugintest.PluginTester
+.. autoclass :: psychoacoustics.plugins.plugintest.PluginTester
    :members:

@@ -2,8 +2,8 @@
 import sys
 import unittest
 from optparse import OptionParser
-from bose.config import Config
-from bose.plugins.capture import Capture
+from psychoacoustics.config import Config
+from psychoacoustics.plugins.capture import Capture
 
 class TestCapturePlugin(unittest.TestCase):
 

@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import sys
-from bose.exc import SkipTest
+from psychoacoustics.exc import SkipTest
 import unittest
 
 class TestForXunit(unittest.TestCase):

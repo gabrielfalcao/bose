@@ -1,13 +1,13 @@
 import optparse
 import unittest
 
-import bose.plugins
+import psychoacoustics.plugins
 
 
 class OptionProcessingTests(unittest.TestCase):
 
     def test_enable_plugin(self):
-        class NamedPlugin(bose.plugins.Plugin):
+        class NamedPlugin(psychoacoustics.plugins.Plugin):
             name = "jim-bob"
         def parse_options(env, args_in):
             plugin = NamedPlugin()

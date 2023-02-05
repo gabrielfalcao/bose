@@ -6,7 +6,7 @@
 
 # Provided as-is; use at your own risk; no warranty; no promises; enjoy!
 #
-# Modified for inclusion in bose to provide support for DocFileTest in
+# Modified for inclusion in psychoacoustics to provide support for DocFileTest in
 # python 2.3:
 #
 # - all doctests removed from module (they fail under 2.3 and 2.5) 
@@ -40,8 +40,8 @@ python M.py -v
 and a detailed report of all examples tried is printed to stdout, along
 with assorted summaries at the end.
 
-You can force verbose mode by passing "verbose=True" to testmod, or prohibit
-it by passing "verbose=False".  In either of those cases, sys.argv is not
+You can force verpsychoacoustics mode by passing "verpsychoacoustics=True" to testmod, or prohibit
+it by passing "verpsychoacoustics=False".  In either of those cases, sys.argv is not
 examined by testmod.
 
 There are a variety of other ways to run doctests, including integration
@@ -732,7 +732,7 @@ class DocTestFinder:
     classmethods, and properties.
     """
 
-    def __init__(self, verbose=False, parser=DocTestParser(),
+    def __init__(self, verpsychoacoustics=False, parser=DocTestParser(),
                  recurse=True, _namefilter=None, exclude_empty=True):
         """
         Create a new doctest finder.
@@ -750,7 +750,7 @@ class DocTestFinder:
         will include tests for objects with empty docstrings.
         """
         self._parser = parser
-        self._verbose = verbose
+        self._verpsychoacoustics = verpsychoacoustics
         self._recurse = recurse
         self._exclude_empty = exclude_empty
         # _namefilter is undocumented, and exists only for temporary backward-
@@ -835,7 +835,7 @@ class DocTestFinder:
         tests = []
         self._find(tests, obj, name, module, source_lines, globs, {})
         # Sort the tests by alpha order of names, for consistency in
-        # verbose-mode output.  This was a feature of doctest in Pythons
+        # verpsychoacoustics-mode output.  This was a feature of doctest in Pythons
         # <= 2.3 that got lost by accident in 2.4.  It was repaired in
         # 2.4.4 and 2.5.
         tests.sort()
@@ -874,7 +874,7 @@ class DocTestFinder:
         Find tests for the given object and any contained objects, and
         add them to `tests`.
         """
-        if self._verbose:
+        if self._verpsychoacoustics:
             print 'Finding tests in %s' % name
 
         # If we've already processed this object, then ignore it.
@@ -1035,7 +1035,7 @@ class DocTestRunner:
     # separate sections of the summary.
     DIVIDER = "*" * 70
 
-    def __init__(self, checker=None, verbose=None, optionflags=0):
+    def __init__(self, checker=None, verpsychoacoustics=None, optionflags=0):
         """
         Create a new test runner.
 
@@ -1043,7 +1043,7 @@ class DocTestRunner:
         should be used to compare the expected outputs and actual
         outputs of doctest examples.
 
-        Optional keyword arg 'verbose' prints lots of stuff if true,
+        Optional keyword arg 'verpsychoacoustics' prints lots of stuff if true,
         only failures if false; by default, it's true iff '-v' is in
         sys.argv.
 
@@ -1053,9 +1053,9 @@ class DocTestRunner:
         more information.
         """
         self._checker = checker or OutputChecker()
-        if verbose is None:
-            verbose = '-v' in sys.argv
-        self._verbose = verbose
+        if verpsychoacoustics is None:
+            verpsychoacoustics = '-v' in sys.argv
+        self._verpsychoacoustics = verpsychoacoustics
         self.optionflags = optionflags
         self.original_optionflags = optionflags
 
@@ -1074,9 +1074,9 @@ class DocTestRunner:
     def report_start(self, out, test, example):
         """
         Report that the test runner is about to process the given
-        example.  (Only displays a message if verbose=True)
+        example.  (Only displays a message if verpsychoacoustics=True)
         """
-        if self._verbose:
+        if self._verpsychoacoustics:
             if example.want:
                 out('Trying:\n' + _indent(example.source) +
                     'Expecting:\n' + _indent(example.want))
@@ -1087,9 +1087,9 @@ class DocTestRunner:
     def report_success(self, out, test, example, got):
         """
         Report that the given example ran successfully.  (Only
-        displays a message if verbose=True)
+        displays a message if verpsychoacoustics=True)
         """
-        if self._verbose:
+        if self._verpsychoacoustics:
             out("ok\n")
 
     def report_failure(self, out, test, example, got):
@@ -1324,19 +1324,19 @@ class DocTestRunner:
     #/////////////////////////////////////////////////////////////////
     # Summarization
     #/////////////////////////////////////////////////////////////////
-    def summarize(self, verbose=None):
+    def summarize(self, verpsychoacoustics=None):
         """
         Print a summary of all the test cases that have been run by
         this DocTestRunner, and return a tuple `(f, t)`, where `f` is
         the total number of failed examples, and `t` is the total
         number of tried examples.
 
-        The optional `verbose` argument controls how detailed the
+        The optional `verpsychoacoustics` argument controls how detailed the
         summary is.  If the verbosity is not specified, then the
         DocTestRunner's verbosity is used.
         """
-        if verbose is None:
-            verbose = self._verbose
+        if verpsychoacoustics is None:
+            verpsychoacoustics = self._verpsychoacoustics
         notests = []
         passed = []
         failed = []
@@ -1352,7 +1352,7 @@ class DocTestRunner:
                 passed.append( (name, t) )
             else:
                 failed.append(x)
-        if verbose:
+        if verpsychoacoustics:
             if notests:
                 print len(notests), "items had no tests:"
                 notests.sort()
@@ -1369,12 +1369,12 @@ class DocTestRunner:
             failed.sort()
             for thing, (f, t) in failed:
                 print " %3d of %3d in %s" % (f, t, thing)
-        if verbose:
+        if verpsychoacoustics:
             print totalt, "tests in", len(self._name2ft), "items."
             print totalt - totalf, "passed and", totalf, "failed."
         if totalf:
             print "***Test Failed***", totalf, "failures."
-        elif verbose:
+        elif verpsychoacoustics:
             print "Test passed."
         return totalf, totalt
 
@@ -1586,10 +1586,10 @@ class DebugRunner(DocTestRunner):
 # class, updated by testmod.
 master = None
 
-def testmod(m=None, name=None, globs=None, verbose=None, isprivate=None,
+def testmod(m=None, name=None, globs=None, verpsychoacoustics=None, isprivate=None,
             report=True, optionflags=0, extraglobs=None,
             raise_on_error=False, exclude_empty=False):
-    """m=None, name=None, globs=None, verbose=None, isprivate=None,
+    """m=None, name=None, globs=None, verpsychoacoustics=None, isprivate=None,
        report=True, optionflags=0, extraglobs=None, raise_on_error=False,
        exclude_empty=False
 
@@ -1619,11 +1619,11 @@ def testmod(m=None, name=None, globs=None, verbose=None, isprivate=None,
     merged into the globals that are used to execute examples.  By
     default, no extra globals are used.  This is new in 2.4.
 
-    Optional keyword arg "verbose" prints lots of stuff if true, prints
+    Optional keyword arg "verpsychoacoustics" prints lots of stuff if true, prints
     only failures if false; by default, it's true iff "-v" is in sys.argv.
 
     Optional keyword arg "report" prints a summary at the end when true,
-    else prints nothing at the end.  In verbose mode, the summary is
+    else prints nothing at the end.  In verpsychoacoustics mode, the summary is
     detailed, else very brief (in fact, empty if all tests passed).
 
     Optional keyword arg "optionflags" or's together module constants,
@@ -1656,7 +1656,7 @@ def testmod(m=None, name=None, globs=None, verbose=None, isprivate=None,
     global Tester instance doctest.master.  Methods of doctest.master
     can be called directly too, if you want to do something unusual.
     Passing report=0 to testmod is especially useful then, to delay
-    displaying a summary.  Invoke doctest.master.summarize(verbose)
+    displaying a summary.  Invoke doctest.master.summarize(verpsychoacoustics)
     when you're done fiddling.
     """
     global master
@@ -1685,9 +1685,9 @@ def testmod(m=None, name=None, globs=None, verbose=None, isprivate=None,
     finder = DocTestFinder(_namefilter=isprivate, exclude_empty=exclude_empty)
 
     if raise_on_error:
-        runner = DebugRunner(verbose=verbose, optionflags=optionflags)
+        runner = DebugRunner(verpsychoacoustics=verpsychoacoustics, optionflags=optionflags)
     else:
-        runner = DocTestRunner(verbose=verbose, optionflags=optionflags)
+        runner = DocTestRunner(verpsychoacoustics=verpsychoacoustics, optionflags=optionflags)
 
     for test in finder.find(m, name, globs=globs, extraglobs=extraglobs):
         runner.run(test)
@@ -1703,7 +1703,7 @@ def testmod(m=None, name=None, globs=None, verbose=None, isprivate=None,
     return runner.failures, runner.tries
 
 def testfile(filename, module_relative=True, name=None, package=None,
-             globs=None, verbose=None, report=True, optionflags=0,
+             globs=None, verpsychoacoustics=None, report=True, optionflags=0,
              extraglobs=None, raise_on_error=False, parser=DocTestParser()):
     """
     Test examples in the given file.  Return (#failures, #tests).
@@ -1742,11 +1742,11 @@ def testfile(filename, module_relative=True, name=None, package=None,
     merged into the globals that are used to execute examples.  By
     default, no extra globals are used.
 
-    Optional keyword arg "verbose" prints lots of stuff if true, prints
+    Optional keyword arg "verpsychoacoustics" prints lots of stuff if true, prints
     only failures if false; by default, it's true iff "-v" is in sys.argv.
 
     Optional keyword arg "report" prints a summary at the end when true,
-    else prints nothing at the end.  In verbose mode, the summary is
+    else prints nothing at the end.  In verpsychoacoustics mode, the summary is
     detailed, else very brief (in fact, empty if all tests passed).
 
     Optional keyword arg "optionflags" or's together module constants,
@@ -1774,7 +1774,7 @@ def testfile(filename, module_relative=True, name=None, package=None,
     global Tester instance doctest.master.  Methods of doctest.master
     can be called directly too, if you want to do something unusual.
     Passing report=0 to testmod is especially useful then, to delay
-    displaying a summary.  Invoke doctest.master.summarize(verbose)
+    displaying a summary.  Invoke doctest.master.summarize(verpsychoacoustics)
     when you're done fiddling.
     """
     global master
@@ -1801,9 +1801,9 @@ def testfile(filename, module_relative=True, name=None, package=None,
         globs.update(extraglobs)
 
     if raise_on_error:
-        runner = DebugRunner(verbose=verbose, optionflags=optionflags)
+        runner = DebugRunner(verpsychoacoustics=verpsychoacoustics, optionflags=optionflags)
     else:
-        runner = DocTestRunner(verbose=verbose, optionflags=optionflags)
+        runner = DocTestRunner(verpsychoacoustics=verpsychoacoustics, optionflags=optionflags)
 
     # Read the file, convert it to a test, and run it.
     s = open(filename).read()
@@ -1820,12 +1820,12 @@ def testfile(filename, module_relative=True, name=None, package=None,
 
     return runner.failures, runner.tries
 
-def run_docstring_examples(f, globs, verbose=False, name="NoName",
+def run_docstring_examples(f, globs, verpsychoacoustics=False, name="NoName",
                            compileflags=None, optionflags=0):
     """
     Test examples in the given object's docstring (`f`), using `globs`
     as globals.  Optional argument `name` is used in failure messages.
-    If the optional argument `verbose` is true, then generate output
+    If the optional argument `verpsychoacoustics` is true, then generate output
     even if there are no failures.
 
     `compileflags` gives the set of flags that should be used by the
@@ -1838,8 +1838,8 @@ def run_docstring_examples(f, globs, verbose=False, name="NoName",
     information.
     """
     # Find, parse, and run all tests in the given module.
-    finder = DocTestFinder(verbose=verbose, recurse=False)
-    runner = DocTestRunner(verbose=verbose, optionflags=optionflags)
+    finder = DocTestFinder(verpsychoacoustics=verpsychoacoustics, recurse=False)
+    runner = DocTestRunner(verpsychoacoustics=verpsychoacoustics, optionflags=optionflags)
     for test in finder.find(f, name, globs=globs):
         runner.run(test, compileflags=compileflags)
 
@@ -1850,7 +1850,7 @@ def run_docstring_examples(f, globs, verbose=False, name="NoName",
 # actually used in any way.
 
 class Tester:
-    def __init__(self, mod=None, globs=None, verbose=None,
+    def __init__(self, mod=None, globs=None, verpsychoacoustics=None,
                  isprivate=None, optionflags=0):
 
         warnings.warn("class Tester is deprecated; "
@@ -1865,19 +1865,19 @@ class Tester:
             globs = mod.__dict__
         self.globs = globs
 
-        self.verbose = verbose
+        self.verpsychoacoustics = verpsychoacoustics
         self.isprivate = isprivate
         self.optionflags = optionflags
         self.testfinder = DocTestFinder(_namefilter=isprivate)
-        self.testrunner = DocTestRunner(verbose=verbose,
+        self.testrunner = DocTestRunner(verpsychoacoustics=verpsychoacoustics,
                                         optionflags=optionflags)
 
     def runstring(self, s, name):
         test = DocTestParser().get_doctest(s, self.globs, name, None, None)
-        if self.verbose:
+        if self.verpsychoacoustics:
             print "Running string", name
         (f,t) = self.testrunner.run(test)
-        if self.verbose:
+        if self.verpsychoacoustics:
             print f, "of", t, "examples failed in string", name
         return (f,t)
 
@@ -1904,8 +1904,8 @@ class Tester:
         m.__test__ = d
         return self.rundoc(m, name)
 
-    def summarize(self, verbose=None):
-        return self.testrunner.summarize(verbose)
+    def summarize(self, verpsychoacoustics=None):
+        return self.testrunner.summarize(verpsychoacoustics)
 
     def merge(self, other):
         self.testrunner.merge(other.testrunner)
@@ -1964,7 +1964,7 @@ class DocTestCase(unittest.TestCase):
             optionflags |= _unittest_reportflags
 
         runner = DocTestRunner(optionflags=optionflags,
-                               checker=self._dt_checker, verbose=False)
+                               checker=self._dt_checker, verpsychoacoustics=False)
 
         try:
             runner.DIVIDER = "-"*70
@@ -1991,7 +1991,7 @@ class DocTestCase(unittest.TestCase):
     def debug(self):
         self.setUp()
         runner = DebugRunner(optionflags=self._dt_optionflags,
-                             checker=self._dt_checker, verbose=False)
+                             checker=self._dt_checker, verpsychoacoustics=False)
         runner.run(self._dt_test)
         self.tearDown()
 

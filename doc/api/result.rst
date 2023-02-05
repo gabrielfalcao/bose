@@ -1,2 +1,2 @@
-.. automodule :: bose.result
+.. automodule :: psychoacoustics.result
    :members:

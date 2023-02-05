@@ -1,5 +1,5 @@
-from bose.plugins.skip import SkipTest
-from bose.plugins.multiprocess import MultiProcess
+from psychoacoustics.plugins.skip import SkipTest
+from psychoacoustics.plugins.multiprocess import MultiProcess
 
 def setup_module():
     try:

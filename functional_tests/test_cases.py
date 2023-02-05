@@ -1,7 +1,7 @@
 import unittest
-from bose.config import Config
-from bose import case
-from bose.plugins import Plugin, PluginManager
+from psychoacoustics.config import Config
+from psychoacoustics import case
+from psychoacoustics.plugins import Plugin, PluginManager
 
 class TestTestCasePluginCalls(unittest.TestCase):
 

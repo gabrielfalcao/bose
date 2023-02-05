@@ -2,7 +2,7 @@
 *.pyc
 *.pyo
 .DS_Store
-.bose
+.psychoacoustics
 *.egg-info
 *.bak
 *.rej
@@ -16,7 +16,7 @@ _env
 doc/.build
 dist
 build
-.boseids
+.psychoacousticsids
 .tox
 .*.sw[nop]
 cover

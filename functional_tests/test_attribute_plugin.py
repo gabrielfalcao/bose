@@ -1,8 +1,8 @@
 import os
 import sys
 import unittest
-from bose.plugins.attrib import AttributeSelector
-from bose.plugins import PluginTester
+from psychoacoustics.plugins.attrib import AttributeSelector
+from psychoacoustics.plugins import PluginTester
 
 support = os.path.join(os.path.dirname(__file__), 'support')
 

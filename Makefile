@@ -2,7 +2,7 @@ MAKEFILE_PATH		:= $(realpath $(firstword $(MAKEFILE_LIST)))
 GIT_ROOT		:= $(shell dirname $(MAKEFILE_PATH))
 VENV_ROOT		:= $(GIT_ROOT)/.venv
 
-PACKAGE_NAME		:= bose
+PACKAGE_NAME		:= psychoacoustics
 MAIN_CLI_NAME		:= psytests
 REQUIREMENTS_FILE	:= requirements.txt
 

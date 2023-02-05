@@ -1,4 +1,4 @@
-bose internals
+psychoacoustics internals
 ==============
 
 .. toctree ::

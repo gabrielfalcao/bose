@@ -1,10 +1,10 @@
 import unittest
 import pdb
 import sys
-import bose.case
-import bose.failure
-from bose.pyversion import unbound_method
-from bose.config import Config
+import psychoacoustics.case
+import psychoacoustics.failure
+from psychoacoustics.pyversion import unbound_method
+from psychoacoustics.config import Config
 from mock import ResultProxyFactory, ResultProxy
 
 class TestNoseCases(unittest.TestCase):
@@ -16,7 +16,7 @@ class TestNoseCases(unittest.TestCase):
         def func(a=a):
             a.append(1)
 
-        case = bose.case.FunctionTestCase(func)
+        case = psychoacoustics.case.FunctionTestCase(func)
         case(res)
         assert a[0] == 1
 
@@ -28,7 +28,7 @@ class TestNoseCases(unittest.TestCase):
             def test_func(self, a=a):
                 a.append(1)
 
-        case = bose.case.MethodTestCase(unbound_method(TestClass,
+        case = psychoacoustics.case.MethodTestCase(unbound_method(TestClass,
                                                        TestClass.test_func))
         case(res)
         assert a[0] == 1
@@ -45,7 +45,7 @@ class TestNoseCases(unittest.TestCase):
             def test_func(self, a=a):
                 a.append(1)
 
-        case = bose.case.MethodTestCase(unbound_method(TestClass,
+        case = psychoacoustics.case.MethodTestCase(unbound_method(TestClass,
                                                        TestClass.test_func))
         case(res)
         assert a[0] == 1
@@ -61,7 +61,7 @@ class TestNoseCases(unittest.TestCase):
             def test_func(self):
                 called.append('test')
 
-        case = bose.case.MethodTestCase(unbound_method(TestClass,
+        case = psychoacoustics.case.MethodTestCase(unbound_method(TestClass,
                                                        TestClass.test_func))
         case(res)
         self.assertEqual(called, ['setup', 'test', 'teardown'])
@@ -71,7 +71,7 @@ class TestNoseCases(unittest.TestCase):
                 called.append('setup')
                 raise Exception("failed")
         called[:] = []
-        case = bose.case.MethodTestCase(unbound_method(TestClassFailingSetup,
+        case = psychoacoustics.case.MethodTestCase(unbound_method(TestClassFailingSetup,
                                             TestClassFailingSetup.test_func))
         case(res)
         self.assertEqual(called, ['setup'])        
@@ -82,13 +82,13 @@ class TestNoseCases(unittest.TestCase):
                 raise Exception("failed")
             
         called[:] = []
-        case = bose.case.MethodTestCase(unbound_method(TestClassFailingTest,
+        case = psychoacoustics.case.MethodTestCase(unbound_method(TestClassFailingTest,
                                             TestClassFailingTest.test_func))
         case(res)
         self.assertEqual(called, ['setup', 'test', 'teardown'])     
         
     def test_function_test_case_fixtures(self):
-        from bose.tools import with_setup
+        from psychoacoustics.tools import with_setup
         res = unittest.TestResult()
 
         called = {}
@@ -103,7 +103,7 @@ class TestNoseCases(unittest.TestCase):
             raise TypeError("An exception")
 
         func_exc = with_setup(st, td)(func_exc)
-        case = bose.case.FunctionTestCase(func_exc)
+        case = psychoacoustics.case.FunctionTestCase(func_exc)
         case(res)
         assert 'st' in called
         assert 'func' in called
@@ -111,7 +111,7 @@ class TestNoseCases(unittest.TestCase):
 
     def test_failure_case(self):
         res = unittest.TestResult()
-        f = bose.failure.Failure(ValueError, "No such test spam")
+        f = psychoacoustics.failure.Failure(ValueError, "No such test spam")
         f(res)
         assert res.errors
 
@@ -126,7 +126,7 @@ class TestNoseCases(unittest.TestCase):
             pass
 
         foo = Foo()
-        case = bose.case.FunctionTestCase(test_foo, arg=(foo,))
+        case = psychoacoustics.case.FunctionTestCase(test_foo, arg=(foo,))
         case_repr_before = case.__repr__()
         foo.bar = "snafu'd!"
         case_repr_after = case.__repr__()
@@ -146,7 +146,7 @@ class TestNoseCases(unittest.TestCase):
                 pass
 
         foo = Foo()
-        case = bose.case.FunctionTestCase(
+        case = psychoacoustics.case.FunctionTestCase(
             unbound_method(FooTester, FooTester.test_foo), arg=(foo,))
         case_repr_before = case.__repr__()
         foo.bar = "snafu'd!"
@@ -173,7 +173,7 @@ class TestNoseTestWrapper(unittest.TestCase):
                 print "TC tearDown %s" % self
                 called.append('tearDown')
 
-        case = bose.case.Test(TC())
+        case = psychoacoustics.case.Test(TC())
         case(res)
         assert not res.errors, res.errors
         assert not res.failures, res.failures
@@ -188,7 +188,7 @@ class TestNoseTestWrapper(unittest.TestCase):
         ResultProxy.called[:] = []
         res = unittest.TestResult()
         config = Config()
-        case = bose.case.Test(TC(), config=config,
+        case = psychoacoustics.case.Test(TC(), config=config,
                               resultProxy=ResultProxyFactory())
 
         case(res)
@@ -200,7 +200,7 @@ class TestNoseTestWrapper(unittest.TestCase):
                                  'stopTest', 'afterTest'])
 
     def test_address(self):
-        from bose.util import absfile, src
+        from psychoacoustics.util import absfile, src
         class TC(unittest.TestCase):
             def runTest(self):
                 raise Exception("error")
@@ -225,30 +225,30 @@ class TestNoseTestWrapper(unittest.TestCase):
                 pass
 
         fl = src(absfile(__file__))
-        case = bose.case.Test(TC())
+        case = psychoacoustics.case.Test(TC())
         self.assertEqual(case.address(), (fl, __name__, 'TC.runTest'))
 
-        case = bose.case.Test(bose.case.FunctionTestCase(test))
+        case = psychoacoustics.case.Test(psychoacoustics.case.FunctionTestCase(test))
         self.assertEqual(case.address(), (fl, __name__, 'test'))
 
-        case = bose.case.Test(bose.case.FunctionTestCase(
+        case = psychoacoustics.case.Test(psychoacoustics.case.FunctionTestCase(
             dummy, arg=(1,), descriptor=test))
         self.assertEqual(case.address(), (fl, __name__, 'test'))
 
-        case = bose.case.Test(bose.case.MethodTestCase(
+        case = psychoacoustics.case.Test(psychoacoustics.case.MethodTestCase(
                                   unbound_method(Test, Test.test)))
         self.assertEqual(case.address(), (fl, __name__, 'Test.test'))
 
-        case = bose.case.Test(
-            bose.case.MethodTestCase(unbound_method(Test, Test.try_something),
+        case = psychoacoustics.case.Test(
+            psychoacoustics.case.MethodTestCase(unbound_method(Test, Test.try_something),
                                      arg=(1,2,),
                                      descriptor=unbound_method(Test,
                                                                Test.test_gen)))
         self.assertEqual(case.address(),
                          (fl, __name__, 'Test.test_gen'))
 
-        case = bose.case.Test(
-            bose.case.MethodTestCase(unbound_method(Test, Test.test_gen),
+        case = psychoacoustics.case.Test(
+            psychoacoustics.case.MethodTestCase(unbound_method(Test, Test.test_gen),
                                      test=dummy, arg=(1,)))
         self.assertEqual(case.address(),
                          (fl, __name__, 'Test.test_gen'))
@@ -264,13 +264,13 @@ class TestNoseTestWrapper(unittest.TestCase):
             def test(self):
                 pass
 
-        case = bose.case.Test(TC())
+        case = psychoacoustics.case.Test(TC())
         self.assertEqual(case.context, TC)
 
-        case = bose.case.Test(bose.case.FunctionTestCase(test))
+        case = psychoacoustics.case.Test(psychoacoustics.case.FunctionTestCase(test))
         self.assertEqual(case.context, sys.modules[__name__])
 
-        case = bose.case.Test(bose.case.MethodTestCase(unbound_method(Test,
+        case = psychoacoustics.case.Test(psychoacoustics.case.MethodTestCase(unbound_method(Test,
                                                            Test.test)))
         self.assertEqual(case.context, Test)
 
@@ -290,9 +290,9 @@ class TestNoseTestWrapper(unittest.TestCase):
             def test_c(self):
                 pass
 
-        case_a = bose.case.Test(TC('test_a'))
-        case_b = bose.case.Test(TC('test_b'))
-        case_c = bose.case.Test(TC('test_c'))
+        case_a = psychoacoustics.case.Test(TC('test_a'))
+        case_b = psychoacoustics.case.Test(TC('test_b'))
+        case_c = psychoacoustics.case.Test(TC('test_c'))
 
         assert case_a.shortDescription().endswith("This is the description")
         assert case_b.shortDescription().endswith("This is the description")
@@ -307,7 +307,7 @@ class TestNoseTestWrapper(unittest.TestCase):
             def runTest(self):
                 pass
 
-        case = bose.case.Test(TC())
+        case = psychoacoustics.case.Test(TC())
         self.assertEqual(case.shortDescription(), None)
 
 if __name__ == '__main__':

@@ -1,7 +1,7 @@
 try:
     from twisted.trial import unittest
 except ImportError:
-    from bose import SkipTest
+    from psychoacoustics import SkipTest
     raise SkipTest('twisted not available; skipping')
 
 class TestTwisted(unittest.TestCase):

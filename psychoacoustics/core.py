@@ -1,4 +1,4 @@
-"""Implements bose test program and collector.
+"""Implements psychoacoustics test program and collector.
 """
 from __future__ import generators
 
@@ -8,16 +8,16 @@ import sys
 import time
 import unittest
 
-from bose.config import Config, all_config_files
-from bose.loader import defaultTestLoader
-from bose.plugins.manager import PluginManager, DefaultPluginManager, \
+from psychoacoustics.config import Config, all_config_files
+from psychoacoustics.loader import defaultTestLoader
+from psychoacoustics.plugins.manager import PluginManager, DefaultPluginManager, \
      RestrictedPluginManager
-from bose.result import TextTestResult
-from bose.suite import FinalizingSuiteWrapper
-from bose.util import isclass, tolist
+from psychoacoustics.result import TextTestResult
+from psychoacoustics.suite import FinalizingSuiteWrapper
+from psychoacoustics.util import isclass, tolist
 
 
-log = logging.getLogger('bose.core')
+log = logging.getLogger('psychoacoustics.core')
 compat_24 = sys.version_info >= (2, 4)
 
 __all__ = ['TestProgram', 'main', 'run', 'run_exit', 'runmodule', 'collector',
@@ -25,7 +25,7 @@ __all__ = ['TestProgram', 'main', 'run', 'run_exit', 'runmodule', 'collector',
 
 
 class TextTestRunner(unittest.TextTestRunner):
-    """Test runner that uses bose's TextTestResult to enable errorClasses,
+    """Test runner that uses psychoacoustics's TextTestResult to enable errorClasses,
     as well as providing hooks for plugins to override or replace the test
     output stream, results, and the test case itself.
     """
@@ -82,14 +82,14 @@ class TestProgram(unittest.TestProgram):
     * testLoader: Test loader instance (default: None)
     * env: Environment; ignored if config is provided (default: None;
       os.environ is read)
-    * config: :class:`bose.config.Config` instance (default: None)
+    * config: :class:`psychoacoustics.config.Config` instance (default: None)
     * suite: Suite or list of tests to run (default: None). Passing a
       suite or lists of tests will bypass all test discovery and
       loading. *ALSO NOTE* that if you pass a unittest.TestSuite
       instance as the suite, context fixtures at the class, module and
       package level will not be used, and many plugin hooks will not
-      be called. If you want normal bose behavior, either pass a list
-      of tests, or a fully-configured :class:`bose.suite.ContextSuite`.
+      be called. If you want normal psychoacoustics behavior, either pass a list
+      of tests, or a fully-configured :class:`psychoacoustics.suite.ContextSuite`.
     * exit: Exit after running tests and printing report (default: True)
     * plugins: List of plugins to use; ignored if config is provided
       (default: load plugins with DefaultPluginManager)
@@ -148,7 +148,7 @@ class TestProgram(unittest.TestProgram):
         # quick outs: version, plugins (optparse would have already
         # caught and exited on help)
         if self.config.options.version:
-            from bose import __version__
+            from psychoacoustics import __version__
             sys.stdout = sys.__stdout__
             print "%s version %s" % (os.path.basename(sys.argv[0]), __version__)
             sys.exit(0)
@@ -246,9 +246,9 @@ class TestProgram(unittest.TestProgram):
                 print
 
     def usage(cls):
-        import bose
+        import psychoacoustics
         try:
-            ld = bose.__loader__
+            ld = psychoacoustics.__loader__
             text = ld.get_data(os.path.join(
                 os.path.dirname(__file__), 'usage.txt'))
         except AttributeError:
@@ -280,14 +280,14 @@ def run(*arg, **kw):
     * testLoader: Test loader instance (default: None)
     * env: Environment; ignored if config is provided (default: None;
       os.environ is read)
-    * config: :class:`bose.config.Config` instance (default: None)
+    * config: :class:`psychoacoustics.config.Config` instance (default: None)
     * suite: Suite or list of tests to run (default: None). Passing a
       suite or lists of tests will bypass all test discovery and
       loading. *ALSO NOTE* that if you pass a unittest.TestSuite
       instance as the suite, context fixtures at the class, module and
       package level will not be used, and many plugin hooks will not
-      be called. If you want normal bose behavior, either pass a list
-      of tests, or a fully-configured :class:`bose.suite.ContextSuite`.
+      be called. If you want normal psychoacoustics behavior, either pass a list
+      of tests, or a fully-configured :class:`psychoacoustics.suite.ContextSuite`.
     * plugins: List of plugins to use; ignored if config is provided
       (default: load plugins with DefaultPluginManager)
     * addplugins: List of **extra** plugins to use. Pass a list of plugin

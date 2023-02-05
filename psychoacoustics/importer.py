@@ -7,7 +7,7 @@ the builtin importer.
 import logging
 import os
 import sys
-from bose.config import Config
+from psychoacoustics.config import Config
 
 from imp import find_module, load_module, acquire_lock, release_lock
 

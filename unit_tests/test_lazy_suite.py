@@ -1,5 +1,5 @@
 import unittest
-from bose.suite import LazySuite
+from psychoacoustics.suite import LazySuite
 from helpers import iter_compat
 
 def gen():

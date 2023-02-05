@@ -1,9 +1,9 @@
 import os
 import unittest
 from cStringIO import StringIO
-from bose.core import TestProgram
-from bose.config import Config
-from bose.result import _TextTestResult
+from psychoacoustics.core import TestProgram
+from psychoacoustics.config import Config
+from psychoacoustics.result import _TextTestResult
 
 here = os.path.dirname(__file__)
 support = os.path.join(here, 'support')

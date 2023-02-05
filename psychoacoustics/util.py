@@ -1,4 +1,4 @@
-"""Utility functions and classes used by bose internally.
+"""Utility functions and classes used by psychoacoustics internally.
 """
 import inspect
 import itertools
@@ -9,10 +9,10 @@ import re
 import sys
 import types
 import unittest
-from bose.pyversion import ClassType, TypeType, isgenerator, ismethod
+from psychoacoustics.pyversion import ClassType, TypeType, isgenerator, ismethod
 
 
-log = logging.getLogger('bose')
+log = logging.getLogger('psychoacoustics')
 
 ident_re = re.compile(r'^[A-Za-z_][A-Za-z0-9_.]*$')
 class_types = (ClassType, TypeType)
@@ -20,7 +20,7 @@ skip_pattern = r"(?:\.svn)|(?:[^.]+\.py[co])|(?:.*~)|(?:.*\$py\.class)|(?:__pyca
 
 try:
     set()
-    set = set # make from bose.util import set happy
+    set = set # make from psychoacoustics.util import set happy
 except NameError:
     try:
         from sets import Set as set
@@ -172,13 +172,13 @@ def ispackage(path):
     """
     Is this path a package directory?
 
-    >>> ispackage('bose')
+    >>> ispackage('psychoacoustics')
     True
     >>> ispackage('unit_tests')
     False
-    >>> ispackage('bose/plugins')
+    >>> ispackage('psychoacoustics/plugins')
     True
-    >>> ispackage('bose/loader.py')
+    >>> ispackage('psychoacoustics/loader.py')
     False
     """
     if os.path.isdir(path):
@@ -239,26 +239,26 @@ def getpackage(filename):
     'foo'
     >>> getpackage('biff/baf.py')
     'baf'
-    >>> getpackage('bose/util.py')
-    'bose.util'
+    >>> getpackage('psychoacoustics/util.py')
+    'psychoacoustics.util'
 
     Works for directories too.
 
-    >>> getpackage('bose')
-    'bose'
-    >>> getpackage('bose/plugins')
-    'bose.plugins'
+    >>> getpackage('psychoacoustics')
+    'psychoacoustics'
+    >>> getpackage('psychoacoustics/plugins')
+    'psychoacoustics.plugins'
 
     And __init__ files stuck onto directories
 
-    >>> getpackage('bose/plugins/__init__.py')
-    'bose.plugins'
+    >>> getpackage('psychoacoustics/plugins/__init__.py')
+    'psychoacoustics.plugins'
 
     Absolute paths also work.
 
-    >>> path = os.path.abspath(os.path.join('bose', 'plugins'))
+    >>> path = os.path.abspath(os.path.join('psychoacoustics', 'plugins'))
     >>> getpackage(path)
-    'bose.plugins'
+    'psychoacoustics.plugins'
     """
     src_file = src(filename)
     if (os.path.isdir(src_file) or not src_file.endswith('.py')) and not ispackage(src_file):
@@ -298,9 +298,9 @@ def resolve_name(name, module=None):
     """Resolve a dotted name to a module and its parts. This is stolen
     wholesale from unittest.TestLoader.loadTestByName.
 
-    >>> resolve_name('bose.util') #doctest: +ELLIPSIS
-    <module 'bose.util' from...>
-    >>> resolve_name('bose.util.resolve_name') #doctest: +ELLIPSIS
+    >>> resolve_name('psychoacoustics.util') #doctest: +ELLIPSIS
+    <module 'psychoacoustics.util' from...>
+    >>> resolve_name('psychoacoustics.util.resolve_name') #doctest: +ELLIPSIS
     <function resolve_name at...>
     """
     parts = name.split('.')
@@ -332,7 +332,7 @@ def split_test_name(test):
     file_or_module:callable
 
     Either side of the : may be dotted. To change the splitting behavior, you
-    can alter bose.util.split_test_re.
+    can alter psychoacoustics.util.split_test_re.
     """
     norm = os.path.normpath
     file_or_mod = test
@@ -490,8 +490,8 @@ def regex_last_key(regex):
     """Sort key function factory that puts items that match a
     regular expression last.
 
-    >>> from bose.config import Config
-    >>> from bose.pyversion import sort_list
+    >>> from psychoacoustics.config import Config
+    >>> from psychoacoustics.pyversion import sort_list
     >>> c = Config()
     >>> regex = c.testMatch
     >>> entries = ['.', '..', 'a_test', 'src', 'lib', 'test', 'foo.py']
@@ -595,7 +595,7 @@ def transplant_func(func, module):
     'pprint'
     >>> pp = transplant_func(pprint, __name__)
     >>> pp.__module__
-    'bose.util'
+    'psychoacoustics.util'
 
     The original function is not modified.
 
@@ -610,7 +610,7 @@ def transplant_func(func, module):
     [1, 2]
 
     """
-    from bose.tools import make_decorator
+    from psychoacoustics.tools import make_decorator
     if isgenerator(func):
         def newfunc(*arg, **kw):
             for v in func(*arg, **kw):
@@ -629,12 +629,12 @@ def transplant_class(cls, module):
     Make a class appear to reside in `module`, rather than the module in which
     it is actually defined.
 
-    >>> from bose.failure import Failure
+    >>> from psychoacoustics.failure import Failure
     >>> Failure.__module__
-    'bose.failure'
+    'psychoacoustics.failure'
     >>> Nf = transplant_class(Failure, __name__)
     >>> Nf.__module__
-    'bose.util'
+    'psychoacoustics.util'
     >>> Nf.__name__
     'Failure'
 

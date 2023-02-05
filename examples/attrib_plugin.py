@@ -1,5 +1,5 @@
 """
-Examples of test function/method attribute usage with patched bose
+Examples of test function/method attribute usage with patched psychoacoustics
 
 Simple syntax (-a, --attr) examples:
   * psytests -a status=stable

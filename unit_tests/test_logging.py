@@ -1,7 +1,7 @@
 import logging
 import unittest
-from bose.config import Config
-#from bose.core import configure_logging
+from psychoacoustics.config import Config
+#from psychoacoustics.core import configure_logging
 from mock import *
 
 
@@ -28,13 +28,13 @@ class TestLoggingConfig(unittest.TestCase):
         """root logger settings ignored"""
 
         root = logging.getLogger('')
-        bose = logging.getLogger('bose')
+        psychoacoustics = logging.getLogger('psychoacoustics')
 
         config = Config()
         config.configureLogging()
         
         root.setLevel(logging.DEBUG)
-        self.assertEqual(bose.level, logging.WARN)
+        self.assertEqual(psychoacoustics.level, logging.WARN)
     
 if __name__ == '__main__':
     unittest.main()

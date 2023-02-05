@@ -1,2 +1,2 @@
-.. automodule :: bose.proxy
+.. automodule :: psychoacoustics.proxy
    :members:

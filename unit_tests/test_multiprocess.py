@@ -2,11 +2,11 @@ import pickle
 import sys
 import unittest
 
-from bose import case
-from bose.plugins import multiprocess
-from bose.plugins.skip import SkipTest
-from bose.config import Config
-from bose.loader import TestLoader
+from psychoacoustics import case
+from psychoacoustics.plugins import multiprocess
+from psychoacoustics.plugins.skip import SkipTest
+from psychoacoustics.config import Config
+from psychoacoustics.loader import TestLoader
 try:
     # 2.7+
     from unittest.runner import _WritelnDecorator

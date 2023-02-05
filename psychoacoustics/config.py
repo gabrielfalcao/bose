@@ -5,20 +5,20 @@ import re
 import sys
 import ConfigParser
 from optparse import OptionParser
-from bose.util import absdir, tolist
-from bose.plugins.manager import NoPlugins
+from psychoacoustics.util import absdir, tolist
+from psychoacoustics.plugins.manager import NoPlugins
 from warnings import warn, filterwarnings
 
 log = logging.getLogger(__name__)
 
 # not allowed in config files
-option_blacklist = ['help', 'verbose']
+option_blacklist = ['help', 'verpsychoacoustics']
 
 config_files = [
     # Linux users will prefer this
-    "~/.boserc",
+    "~/.psychoacousticsrc",
     # Windows users will prefer this
-    "~/bose.cfg"
+    "~/psychoacoustics.cfg"
     ]
 
 # plaforms on which the exe check defaults to off
@@ -26,7 +26,7 @@ config_files = [
 exe_allowed_platforms = ('win32', 'cli')
 
 filterwarnings("always", category=DeprecationWarning,
-               module=r'(.*\.)?bose\.config')
+               module=r'(.*\.)?psychoacoustics\.config')
 
 class NoSuchOptionError(Exception):
     def __init__(self, name):
@@ -139,9 +139,9 @@ class ConfiguredDefaultsOptionParser(object):
 
 
 class Config(object):
-    """bose configuration.
+    """psychoacoustics configuration.
 
-    Instances of Config are used throughout bose to configure
+    Instances of Config are used throughout psychoacoustics to configure
     behavior, including plugin lists. Here are the default values for
     all config keys::
 
@@ -268,8 +268,8 @@ class Config(object):
         return parser.parseArgsAndConfigFiles(argv[1:], cfg_files)
 
     def configure(self, argv=None, doc=None):
-        """Configure the bose running environment. Execute configure before
-        collecting tests with bose.TestCollector to enable output capture and
+        """Configure the psychoacoustics running environment. Execute configure before
+        collecting tests with psychoacoustics.TestCollector to enable output capture and
         other features.
         """
         env = self.env
@@ -346,9 +346,9 @@ class Config(object):
             self.plugins.begin()
 
     def configureLogging(self):
-        """Configure logging for bose, or optionally other packages. Any logger
+        """Configure logging for psychoacoustics, or optionally other packages. Any logger
         name may be set with the debug option, and that logger will be set to
-        debug level and be assigned the same handler as the bose loggers, unless
+        debug level and be assigned the same handler as the psychoacoustics loggers, unless
         it already has a handler.
         """
         if self.loggingConfig:
@@ -363,7 +363,7 @@ class Config(object):
             handler = logging.StreamHandler(self.logStream)
         handler.setFormatter(format)
 
-        logger = logging.getLogger('bose')
+        logger = logging.getLogger('psychoacoustics')
         logger.propagate = 0
 
         # only add our default handler if there isn't already one there
@@ -401,13 +401,13 @@ class Config(object):
             for logger_name in debug_loggers:
                 l = logging.getLogger(logger_name)
                 l.setLevel(logging.DEBUG)
-                if not l.handlers and not logger_name.startswith('bose'):
+                if not l.handlers and not logger_name.startswith('psychoacoustics'):
                     l.addHandler(handler)
 
     def configureWhere(self, where):
         """Configure the working directory or directories for the test run.
         """
-        from bose.importer import add_path
+        from psychoacoustics.importer import add_path
         self.workingDir = None
         where = tolist(where)
         warned = False
@@ -450,17 +450,17 @@ class Config(object):
         parser.add_option(
             "-V","--version", action="store_true",
             dest="version", default=False,
-            help="Output bose version and exit")
+            help="Output psychoacoustics version and exit")
         parser.add_option(
             "-p", "--plugins", action="store_true",
             dest="showPlugins", default=False,
             help="Output list of available plugins and exit. Combine with "
             "higher verbosity for greater detail")
         parser.add_option(
-            "-v", "--verbose",
+            "-v", "--verpsychoacoustics",
             action="count", dest="verbosity",
             default=self.verbosity,
-            help="Be more verbose. [PSY_ECHOS_TICKS_VERPSY_ECHOS_TICKS]")
+            help="Be more verpsychoacoustics. [PSY_ECHOS_TICKS_VERPSY_ECHOS_TICKS]")
         parser.add_option(
             "--verbosity", action="store", dest="verbosity",
             metavar='VERBOSITY',
@@ -468,7 +468,7 @@ class Config(object):
             "the same as -v")
         parser.add_option(
             "-q", "--quiet", action="store_const", const=0, dest="verbosity",
-            help="Be less verbose")
+            help="Be less verpsychoacoustics")
         parser.add_option(
             "-c", "--config", action="append", dest="files",
             metavar="FILES",
@@ -512,9 +512,9 @@ class Config(object):
             "-l", "--debug", action="store",
             dest="debug", default=self.debug,
             help="Activate debug logging for one or more systems. "
-            "Available debug loggers: bose, bose.importer, "
-            "bose.inspector, bose.plugins, bose.result and "
-            "bose.selector. Separate multiple names with a comma.")
+            "Available debug loggers: psychoacoustics, psychoacoustics.importer, "
+            "psychoacoustics.inspector, psychoacoustics.plugins, psychoacoustics.result and "
+            "psychoacoustics.selector. Separate multiple names with a comma.")
         parser.add_option(
             "--debug-log", dest="debugLog", action="store",
             default=self.debugLog, metavar="FILE",
@@ -577,14 +577,14 @@ class Config(object):
         parser.add_option(
             "--first-package-wins", "--first-pkg-wins", "--1st-pkg-wins",
             action="store_true", default=False, dest="firstPackageWins",
-            help="bose's importer will normally evict a package from sys."
+            help="psychoacoustics's importer will normally evict a package from sys."
             "modules if it sees a package with the same name in a different "
             "location. Set this option to disable that behavior.")
         parser.add_option(
             "--no-byte-compile",
             action="store_false", default=True, dest="byteCompile",
-            help="Prevent bose from byte-compiling the source into .pyc files "
-            "while bose is scanning for and running tests.")
+            help="Prevent psychoacoustics from byte-compiling the source into .pyc files "
+            "while psychoacoustics is scanning for and running tests.")
 
         self.plugins.loadPlugins()
         self.pluginOpts(parser)

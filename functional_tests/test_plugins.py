@@ -1,8 +1,8 @@
 import os
 import sys
 import unittest
-from bose.config import Config
-from bose.core import TestProgram
+from psychoacoustics.config import Config
+from psychoacoustics.core import TestProgram
 
 here = os.path.abspath(os.path.dirname(__file__))
 support = os.path.join(here, 'support')
@@ -41,7 +41,7 @@ class TestPluginCalls(unittest.TestCase):
              'loadTestsFromDir', 'afterDirectory',
              'report', 'finalize'])
 
-    def test_plugin_calls_package1_verbose(self):
+    def test_plugin_calls_package1_verpsychoacoustics(self):
         wdir = os.path.join(support, 'package1')
         man = RecordingPluginManager()
         conf = Config(plugins=man, stream=sys.stdout)

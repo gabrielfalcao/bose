@@ -10,7 +10,7 @@ For example, consider this collection of packages:
 
     >>> import os
     >>> support = os.path.join(os.path.dirname(__file__), 'support')
-    >>> from bose.util import ls_tree
+    >>> from psychoacoustics.util import ls_tree
     >>> print ls_tree(support) # doctest: +REPORT_NDIFF
     |-- package1
     |   |-- __init__.py
@@ -27,11 +27,11 @@ into package2f and package2c.
 
 .. Note ::
 
-   The run() function in :mod:`bose.plugins.plugintest` reformats test result
+   The run() function in :mod:`psychoacoustics.plugins.plugintest` reformats test result
    output to remove timings, which will vary from run to run, and
    redirects the output to stdout.
 
-    >>> from bose.plugins.plugintest import run_buffered as run
+    >>> from psychoacoustics.plugins.plugintest import run_buffered as run
 
 ..
 

@@ -6,11 +6,11 @@ import re
 import unittest
 from xml.sax import saxutils
 
-from bose.pyversion import UNICODE_STRINGS
-from bose.tools import eq_
-from bose.plugins.xunit import Xunit, escape_cdata, id_split, Tee
-from bose.exc import SkipTest
-from bose.config import Config
+from psychoacoustics.pyversion import UNICODE_STRINGS
+from psychoacoustics.tools import eq_
+from psychoacoustics.plugins.xunit import Xunit, escape_cdata, id_split, Tee
+from psychoacoustics.exc import SkipTest
+from psychoacoustics.config import Config
 
 def mktest():
     class TC(unittest.TestCase):
@@ -302,7 +302,7 @@ class TestXMLOutputWithXML(BaseTestXMLOutputWithXML):
             assert '</error></testcase></testsuite>' in result
 
     def test_non_utf8_error(self):
-        # See http://code.google.com/p/python-bose/issues/detail?id=395
+        # See http://code.google.com/p/python-psychoacoustics/issues/detail?id=395
         test = mktest()
         self.x.beforeTest(test)
         try:

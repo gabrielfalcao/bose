@@ -1,9 +1,9 @@
 import unittest
 import imp
 import sys
-from bose.loader import TestLoader
-from bose.plugins import multiprocess
-from bose.suite import ContextSuite
+from psychoacoustics.loader import TestLoader
+from psychoacoustics.plugins import multiprocess
+from psychoacoustics.suite import ContextSuite
 
 class T_fixt:
     def setupClass(cls):

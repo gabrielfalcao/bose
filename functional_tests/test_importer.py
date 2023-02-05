@@ -1,8 +1,8 @@
 import os
 import sys
 import unittest
-from bose.importer import Importer
-from bose.plugins.skip import SkipTest
+from psychoacoustics.importer import Importer
+from psychoacoustics.plugins.skip import SkipTest
 
 
 class TestImporter(unittest.TestCase):
@@ -156,13 +156,13 @@ class TestImporter(unittest.TestCase):
         d2 = os.path.join(self.dir, 'dir2')
         sys.path.insert(0, d1)
         mod_sys_imported = __import__('mod')
-        mod_bose_imported = imp.importFromDir(d1, 'mod')
-        assert mod_bose_imported is mod_sys_imported, \
-               "bose reimported a module in sys.modules from the same path"
+        mod_psychoacoustics_imported = imp.importFromDir(d1, 'mod')
+        assert mod_psychoacoustics_imported is mod_sys_imported, \
+               "psychoacoustics reimported a module in sys.modules from the same path"
 
-        mod_bose_imported2 = imp.importFromDir(d2, 'mod')
-        assert mod_bose_imported2 != mod_sys_imported, \
-               "bose failed to reimport same name, different dir"
+        mod_psychoacoustics_imported2 = imp.importFromDir(d2, 'mod')
+        assert mod_psychoacoustics_imported2 != mod_sys_imported, \
+               "psychoacoustics failed to reimport same name, different dir"
 
     def test_sys_modules_symlinked_package_no_reload(self):
         if not self.has_symlinks:
@@ -174,16 +174,16 @@ class TestImporter(unittest.TestCase):
         sys.path.insert(0, d1)
         # Symlinked package
         mod_sys_imported = __import__('pak')
-        mod_bose_imported = imp.importFromDir(d2, 'pak')
-        assert mod_bose_imported is mod_sys_imported, \
-               "bose reimported a module in sys.modules from the same file"
+        mod_psychoacoustics_imported = imp.importFromDir(d2, 'pak')
+        assert mod_psychoacoustics_imported is mod_sys_imported, \
+               "psychoacoustics reimported a module in sys.modules from the same file"
 
         # Module inside symlinked package
         mod_sys_imported = __import__('pak.mod', fromlist=['mod'])
-        mod_bose_imported = imp.importFromDir(d2, 'pak.mod')
-        assert mod_bose_imported is mod_sys_imported, \
-               ("bose reimported a module in sys.modules from the same file",
-               mod_sys_imported.__file__, mod_bose_imported.__file__)
+        mod_psychoacoustics_imported = imp.importFromDir(d2, 'pak.mod')
+        assert mod_psychoacoustics_imported is mod_sys_imported, \
+               ("psychoacoustics reimported a module in sys.modules from the same file",
+               mod_sys_imported.__file__, mod_psychoacoustics_imported.__file__)
 
     def test_import_pkg_from_path_fpw(self):
         imp = self.imp

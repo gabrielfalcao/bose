@@ -12,10 +12,10 @@ from __future__ import generators
 import logging
 import sys
 import unittest
-from bose.case import Test
-from bose.config import Config
-from bose.proxy import ResultProxyFactory
-from bose.util import isclass, resolve_name, try_run
+from psychoacoustics.case import Test
+from psychoacoustics.config import Config
+from psychoacoustics.proxy import ResultProxyFactory
+from psychoacoustics.util import isclass, resolve_name, try_run
 
 if sys.platform == 'cli':
     if sys.version_info[:2] < (2, 6):
@@ -216,7 +216,7 @@ class ContextSuite(LazySuite):
                 if result.shouldStop:
                     log.debug("stopping")
                     break
-                # each bose.case.Test will create its own result proxy
+                # each psychoacoustics.case.Test will create its own result proxy
                 # so the cases need the original result, to avoid proxy
                 # chains
                 test(orig)
@@ -409,7 +409,7 @@ class ContextSuiteFactory(object):
         be a callable (in which case the resulting ContextSuite will
         have no parent context and be evaluated lazily) or an
         iterable. In that case the tests will wrapped in
-        bose.case.Test, be examined and the context of each found and a
+        psychoacoustics.case.Test, be examined and the context of each found and a
         suite of suites returned, organized into a stack with the
         outermost suites belonging to the outermost contexts.
         """
@@ -568,7 +568,7 @@ class ContextList(object):
 class FinalizingSuiteWrapper(unittest.TestSuite):
     """Wraps suite and calls final function after suite has
     executed. Used to call final functions in cases (like running in
-    the standard test runner) where test running is not under bose's
+    the standard test runner) where test running is not under psychoacoustics's
     control.
     """
     def __init__(self, suite, finalize):
@@ -594,14 +594,14 @@ class FinalizingSuiteWrapper(unittest.TestSuite):
 class TestDir:
     def __init__(*arg, **kw):
         raise NotImplementedError(
-            "TestDir is not usable with bose 0.10. The class is present "
-            "in bose.suite for backwards compatibility purposes but it "
+            "TestDir is not usable with psychoacoustics 0.10. The class is present "
+            "in psychoacoustics.suite for backwards compatibility purposes but it "
             "may not be used.")
 
 
 class TestModule:
     def __init__(*arg, **kw):
         raise NotImplementedError(
-            "TestModule is not usable with bose 0.10. The class is present "
-            "in bose.suite for backwards compatibility purposes but it "
+            "TestModule is not usable with psychoacoustics 0.10. The class is present "
+            "in psychoacoustics.suite for backwards compatibility purposes but it "
             "may not be used.")

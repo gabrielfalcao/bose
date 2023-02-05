@@ -1,5 +1,5 @@
 Importer
 ========
 
-.. automodule :: bose.importer
+.. automodule :: psychoacoustics.importer
    :members:

@@ -1,2 +1,2 @@
-.. automodule :: bose.selector
+.. automodule :: psychoacoustics.selector
    :members:

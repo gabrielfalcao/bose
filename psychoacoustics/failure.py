@@ -1,7 +1,7 @@
 import logging
 import unittest
 from traceback import format_tb
-from bose.pyversion import is_base_exception
+from psychoacoustics.pyversion import is_base_exception
 
 log = logging.getLogger(__name__)
 

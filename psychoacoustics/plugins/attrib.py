@@ -24,7 +24,7 @@ Here's how to set ``slow=1`` like above with the decorator:
 
 .. code-block:: python
 
-    from bose.plugins.attrib import attr
+    from psychoacoustics.plugins.attrib import attr
     @attr('slow')
     def test_big_download():
         import urllib
@@ -34,7 +34,7 @@ And here's how to set an attribute with a specific value:
 
 .. code-block:: python
 
-    from bose.plugins.attrib import attr
+    from psychoacoustics.plugins.attrib import attr
     @attr(speed='slow')
     def test_big_download():
         import urllib
@@ -49,7 +49,7 @@ on all its test methods at once.  For example:
 
 .. code-block:: python
 
-    from bose.plugins.attrib import attr
+    from psychoacoustics.plugins.attrib import attr
     @attr(speed='slow')
     class MyTestCase:
         def test_long_integration(self):
@@ -105,10 +105,10 @@ import logging
 import os
 import sys
 from inspect import isfunction
-from bose.plugins.base import Plugin
-from bose.util import tolist
+from psychoacoustics.plugins.base import Plugin
+from psychoacoustics.util import tolist
 
-log = logging.getLogger('bose.plugins.attrib')
+log = logging.getLogger('psychoacoustics.plugins.attrib')
 compat_24 = sys.version_info >= (2, 4)
 
 def attr(*args, **kwargs):

@@ -1,7 +1,7 @@
 import sys
 import time
 import unittest
-from bose.tools import *
+from psychoacoustics.tools import *
 
 compat_24 =  sys.version_info >= (2, 4)
 
@@ -48,7 +48,7 @@ class TestTools(unittest.TestCase):
         assert '__unittest' not in istest.func_globals
 
     def test_raises(self):
-        from bose.case import FunctionTestCase
+        from psychoacoustics.case import FunctionTestCase
 
         def raise_typeerror():
             raise TypeError("foo")
@@ -117,7 +117,7 @@ class TestTools(unittest.TestCase):
         assert f2.teardown == 'teardown'
 
     def test_nested_decorators(self):
-        from bose.tools import raises, timed, with_setup
+        from psychoacoustics.tools import raises, timed, with_setup
 
         def test():
             pass
@@ -132,8 +132,8 @@ class TestTools(unittest.TestCase):
         assert test.teardown == foo
 
     def test_decorator_func_sorting(self):
-        from bose.tools import raises, timed, with_setup
-        from bose.util import func_lineno
+        from psychoacoustics.tools import raises, timed, with_setup
+        from psychoacoustics.util import func_lineno
 
         def test1():
             pass
@@ -160,8 +160,8 @@ class TestTools(unittest.TestCase):
         self.assertEqual(func_lineno(test3), test3_pos)
 
     def test_testcase_funcs(self):
-        import bose.tools
-        tc_asserts = [ at for at in dir(bose.tools)
+        import psychoacoustics.tools
+        tc_asserts = [ at for at in dir(psychoacoustics.tools)
                        if at.startswith('assert_') ]
         print tc_asserts
 
@@ -172,8 +172,8 @@ class TestTools(unittest.TestCase):
             assert 'assert_true' in tc_asserts
 
     def test_multiple_with_setup(self):
-        from bose.tools import with_setup
-        from bose.case import FunctionTestCase
+        from psychoacoustics.tools import with_setup
+        from psychoacoustics.case import FunctionTestCase
         from unittest import TestResult
 
         called = []

@@ -1,5 +1,5 @@
 Test runner and main()
 ======================
 
-.. automodule :: bose.core
+.. automodule :: psychoacoustics.core
    :members:

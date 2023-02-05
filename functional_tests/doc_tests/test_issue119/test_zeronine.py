@@ -1,8 +1,8 @@
 import os
 import unittest
-from bose.plugins import Plugin
-from bose.plugins.plugintest import PluginTester
-from bose.plugins.manager import ZeroNinePlugin
+from psychoacoustics.plugins import Plugin
+from psychoacoustics.plugins.plugintest import PluginTester
+from psychoacoustics.plugins.manager import ZeroNinePlugin
 
 here = os.path.abspath(os.path.dirname(__file__))
 

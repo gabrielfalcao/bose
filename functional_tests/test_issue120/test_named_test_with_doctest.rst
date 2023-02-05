@@ -4,8 +4,8 @@ from module doctest, losing the original failure (failure to find the
 test).
 
     >>> import os
-    >>> from bose.plugins.plugintest import run_buffered as run
-    >>> from bose.plugins.doctests import Doctest
+    >>> from psychoacoustics.plugins.plugintest import run_buffered as run
+    >>> from psychoacoustics.plugins.doctests import Doctest
 
     >>> support = os.path.join(os.path.dirname(__file__), 'support')
     >>> test_name = os.path.join(support, 'some_test.py') + ':nonexistent'

@@ -7,26 +7,26 @@ Setuptools integration
               available plugins, use the :doc:`psytests <api/commands>`
               command instead.
 
-bose may be used with the setuptools_ test command. Simply specify
-bose.collector as the test suite in your setup file::
+psychoacoustics may be used with the setuptools_ test command. Simply specify
+psychoacoustics.collector as the test suite in your setup file::
 
   setup (
       # ...
-      test_suite = 'bose.collector'
+      test_suite = 'psychoacoustics.collector'
   )
 
 Then to find and run tests, you can run::
 
   python setup.py test
 
-When running under setuptools, you can configure bose settings via the
+When running under setuptools, you can configure psychoacoustics settings via the
 environment variables detailed in the psytests script usage message,
-or the setup.cfg, ~/.boserc or ~/.bose.cfg config files.
+or the setup.cfg, ~/.psychoacousticsrc or ~/.psychoacoustics.cfg config files.
 
 `psytests` command
 -------------------
 
-bose also includes its own setuptools command, ``psytests``, that provides
+psychoacoustics also includes its own setuptools command, ``psytests``, that provides
 support for all plugins and command line options. It works just like the
 ``test`` command::
 

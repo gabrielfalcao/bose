@@ -1,8 +1,8 @@
 import os
 import unittest
 
-from bose.plugins import Plugin, PluginTester
-#from bose.plugins.builtin import FailureDetail, Capture, Doctest
+from psychoacoustics.plugins import Plugin, PluginTester
+#from psychoacoustics.plugins.builtin import FailureDetail, Capture, Doctest
 
 support = os.path.join(os.path.dirname(__file__), 'support', 'issue408')
 

@@ -4,7 +4,7 @@ import unittest
 class TestBug105(unittest.TestCase):
 
     def test_load_in_def_order(self):
-        from bose.loader import TestLoader
+        from psychoacoustics.loader import TestLoader
 
         where = os.path.abspath(os.path.join(os.path.dirname(__file__),
                                              'support', 'bug105'))

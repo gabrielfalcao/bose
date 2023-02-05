@@ -3,22 +3,22 @@ Lists builtin plugins.
 """
 plugins = []
 builtins = (
-    ('bose.plugins.attrib', 'AttributeSelector'),
-    ('bose.plugins.capture', 'Capture'),
-    ('bose.plugins.logcapture', 'LogCapture'),
-    ('bose.plugins.cover', 'Coverage'),
-    ('bose.plugins.debug', 'Pdb'),
-    ('bose.plugins.deprecated', 'Deprecated'),
-    ('bose.plugins.doctests', 'Doctest'),
-    ('bose.plugins.isolate', 'IsolationPlugin'),
-    ('bose.plugins.failuredetail', 'FailureDetail'),
-    ('bose.plugins.prof', 'Profile'),
-    ('bose.plugins.skip', 'Skip'),
-    ('bose.plugins.testid', 'TestId'),
-    ('bose.plugins.multiprocess', 'MultiProcess'),
-    ('bose.plugins.xunit', 'Xunit'),
-    ('bose.plugins.allmodules', 'AllModules'),
-    ('bose.plugins.collect', 'CollectOnly'),
+    ('psychoacoustics.plugins.attrib', 'AttributeSelector'),
+    ('psychoacoustics.plugins.capture', 'Capture'),
+    ('psychoacoustics.plugins.logcapture', 'LogCapture'),
+    ('psychoacoustics.plugins.cover', 'Coverage'),
+    ('psychoacoustics.plugins.debug', 'Pdb'),
+    ('psychoacoustics.plugins.deprecated', 'Deprecated'),
+    ('psychoacoustics.plugins.doctests', 'Doctest'),
+    ('psychoacoustics.plugins.isolate', 'IsolationPlugin'),
+    ('psychoacoustics.plugins.failuredetail', 'FailureDetail'),
+    ('psychoacoustics.plugins.prof', 'Profile'),
+    ('psychoacoustics.plugins.skip', 'Skip'),
+    ('psychoacoustics.plugins.testid', 'TestId'),
+    ('psychoacoustics.plugins.multiprocess', 'MultiProcess'),
+    ('psychoacoustics.plugins.xunit', 'Xunit'),
+    ('psychoacoustics.plugins.allmodules', 'AllModules'),
+    ('psychoacoustics.plugins.collect', 'CollectOnly'),
     )
 
 for module, cls in builtins:

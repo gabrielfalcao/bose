@@ -1,9 +1,9 @@
 import sys
 from optparse import OptionParser
-from bose.pyversion import UNICODE_STRINGS
-from bose.config import Config
-from bose.plugins.logcapture import LogCapture
-from bose.tools import eq_
+from psychoacoustics.pyversion import UNICODE_STRINGS
+from psychoacoustics.config import Config
+from psychoacoustics.plugins.logcapture import LogCapture
+from psychoacoustics.tools import eq_
 import logging
 from logging import StreamHandler
 import unittest
@@ -136,9 +136,9 @@ class TestLogCapturePlugin(object):
         c.end()
 
         if py27:
-            expect = ["<class 'bose.plugins.logcapture.MyMemoryHandler'>"]
+            expect = ["<class 'psychoacoustics.plugins.logcapture.MyMemoryHandler'>"]
         else:
-            expect = ['bose.plugins.logcapture.MyMemoryHandler']
+            expect = ['psychoacoustics.plugins.logcapture.MyMemoryHandler']
         eq_([str(c.__class__) for c in logging.getLogger().handlers],
             expect)
         eq_([str(c.__class__) for c in logging.getLogger("dummy").handlers],

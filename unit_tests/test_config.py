@@ -6,28 +6,28 @@ import warnings
 import pickle
 import sys
 
-import bose.config
-from bose.plugins.manager import DefaultPluginManager
-from bose.plugins.skip import SkipTest
-from bose.plugins.prof import Profile
+import psychoacoustics.config
+from psychoacoustics.plugins.manager import DefaultPluginManager
+from psychoacoustics.plugins.skip import SkipTest
+from psychoacoustics.plugins.prof import Profile
 
 
 class TestNoseConfig(unittest.TestCase):
 
     def test_defaults(self):
-        c = bose.config.Config()
+        c = psychoacoustics.config.Config()
         assert c.addPaths == True
         # FIXME etc
 
     def test_reset(self):
-        c = bose.config.Config()
+        c = psychoacoustics.config.Config()
         c.include = 'include'
         assert c.include == 'include'
         c.reset()
         assert c.include is None
 
     def test_update(self):
-        c = bose.config.Config()
+        c = psychoacoustics.config.Config()
         c.update({'exclude':'x'})
         assert c.exclude == 'x'
 
@@ -35,13 +35,13 @@ class TestNoseConfig(unittest.TestCase):
         """
         The default configuration should have several ignore file settings.
         """
-        c = bose.config.Config()
+        c = psychoacoustics.config.Config()
         c.configure(['program'])
         self.assertEqual(len(c.ignoreFiles), 3)
     
     def test_ignore_files_single(self):
         """A single ignore-files flag should override the default settings.""" 
-        c = bose.config.Config()
+        c = psychoacoustics.config.Config()
         c.configure(['program', '--ignore-files=a'])
         self.assertEqual(len(c.ignoreFiles), 1)
         aMatcher = c.ignoreFiles[0]
@@ -53,7 +53,7 @@ class TestNoseConfig(unittest.TestCase):
         Multiple ignore-files flags should be appended together, overriding
         the default settings.
         """
-        c = bose.config.Config()
+        c = psychoacoustics.config.Config()
         c.configure(['program', '--ignore-files=a', '-Ib'])
         self.assertEqual(len(c.ignoreFiles), 2)
         aMatcher, bMatcher = c.ignoreFiles
@@ -63,7 +63,7 @@ class TestNoseConfig(unittest.TestCase):
         assert not bMatcher.match('a')
     
     def test_multiple_include(self):
-        c = bose.config.Config()
+        c = psychoacoustics.config.Config()
         c.configure(['program', '--include=a', '--include=b'])
         self.assertEqual(len(c.include), 2)
         a, b = c.include
@@ -73,7 +73,7 @@ class TestNoseConfig(unittest.TestCase):
         assert not b.match('a')
 
     def test_single_include(self):
-        c = bose.config.Config()
+        c = psychoacoustics.config.Config()
         c.configure(['program', '--include=b'])
         self.assertEqual(len(c.include), 1)
         b = c.include[0]
@@ -81,16 +81,16 @@ class TestNoseConfig(unittest.TestCase):
         assert not b.match('a')
 
     def test_plugins(self):
-        c = bose.config.Config()
+        c = psychoacoustics.config.Config()
         assert c.plugins
         c.plugins.begin()
 
     def test_testnames(self):
-        c = bose.config.Config()
+        c = psychoacoustics.config.Config()
         c.configure(['program', 'foo', 'bar', 'baz.buz.biz'])
         self.assertEqual(c.testNames, ['foo', 'bar', 'baz.buz.biz'])
 
-        c = bose.config.Config(testNames=['foo'])
+        c = psychoacoustics.config.Config(testNames=['foo'])
         c.configure([])
         self.assertEqual(c.testNames, ['foo'])
 
@@ -98,33 +98,33 @@ class TestNoseConfig(unittest.TestCase):
         # we don't need to see our own warnings
         warnings.filterwarnings(action='ignore',
                                 category=DeprecationWarning,
-                                module='bose.config')
+                                module='psychoacoustics.config')
 
         here = os.path.dirname(__file__)
         support = os.path.join(here, 'support')
         foo = os.path.abspath(os.path.join(support, 'foo'))
-        c = bose.config.Config()
+        c = psychoacoustics.config.Config()
         c.configure(['program', '-w', foo, '-w', 'bar'])
         self.assertEqual(c.workingDir, foo)
         self.assertEqual(c.testNames, ['bar'])
 
     def test_progname_looks_like_option(self):
         # issue #184
-        c = bose.config.Config()
+        c = psychoacoustics.config.Config()
         # the -v here is the program name, not an option
-        # this matters eg. with python -c "import bose; bose.main()"
+        # this matters eg. with python -c "import psychoacoustics; psychoacoustics.main()"
         c.configure(['-v', 'mytests'])
         self.assertEqual(c.verbosity, 1)
 
     def test_pickle_empty(self):
-        c = bose.config.Config()
+        c = psychoacoustics.config.Config()
         cp = pickle.dumps(c)
         cc = pickle.loads(cp)
 
     def test_pickle_configured(self):
         if 'java' in sys.version.lower():
             raise SkipTest("jython has no profiler plugin")
-        c = bose.config.Config(plugins=DefaultPluginManager())
+        c = psychoacoustics.config.Config(plugins=DefaultPluginManager())
         config_args = ['--with-doctest', '--with-coverage', 
                      '--with-id', '--attr=A', '--collect', '--all',
                      '--with-isolation', '-d', '--with-xunit', '--processes=2',

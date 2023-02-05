@@ -2,10 +2,10 @@ import imp
 import os
 import sys
 import unittest
-from bose.loader import TestLoader as Loader
+from psychoacoustics.loader import TestLoader as Loader
 
-from bose import util, loader, selector # so we can set mocks
-import bose.case
+from psychoacoustics import util, loader, selector # so we can set mocks
+import psychoacoustics.case
 
 
 def safepath(p):
@@ -122,7 +122,7 @@ def mods():
         for i in range(0, 4):
             yield test_odd, i
 
-    M['bose'] = bose
+    M['psychoacoustics'] = psychoacoustics
     M['__main__'] = sys.modules['__main__']
     M['test_module'].TC = TC
     TC.__module__ = 'test_module'
@@ -322,7 +322,7 @@ class TestTestLoader(unittest.TestCase):
         # the item in tests is a suite, we want to check that all of
         # the members of the suite are wrapped -- though this is really
         # a suite test and doesn't belong here..
-        assert filter(lambda t: isinstance(t, bose.case.Test), tests[0])
+        assert filter(lambda t: isinstance(t, psychoacoustics.case.Test), tests[0])
 
     def test_load_from_name_module_func(self):
         print "load from name module func"
@@ -332,7 +332,7 @@ class TestTestLoader(unittest.TestCase):
         assert tests
         assert len(tests) == 1, \
                "Should have loaded 1 test, but got %s" % tests
-        assert isinstance(tests[0].test, bose.case.FunctionTestCase), \
+        assert isinstance(tests[0].test, psychoacoustics.case.FunctionTestCase), \
                "Expected FunctionTestCase not %s" % tests[0].test
 
     def test_load_from_name_module_method(self):
@@ -407,7 +407,7 @@ class TestTestLoader(unittest.TestCase):
         print suite
         tests = [t for t in suite]
         for test in tests:
-            assert isinstance(test, bose.case.Test), \
+            assert isinstance(test, psychoacoustics.case.Test), \
                    "Test %r is not a test wrapper" % test
 
     def test_load_test_func(self):
@@ -416,7 +416,7 @@ class TestTestLoader(unittest.TestCase):
         suite = l.loadTestsFromName('test_module')
         tests = [t for t in suite]
         self.assertEqual(len(tests), 2, "Wanted 2 tests, got %s" % tests)
-        assert filter(lambda t: isinstance(t, bose.case.Test), tests)
+        assert filter(lambda t: isinstance(t, psychoacoustics.case.Test), tests)
         print tests
         class_tests = tests[0]
         for t in class_tests:
@@ -430,7 +430,7 @@ class TestTestLoader(unittest.TestCase):
             assert isinstance(test.test, unittest.TestCase), \
                    "Expected TestCase npt %s" % tests[0].test
         for test in func_tests:
-            assert isinstance(test.test, bose.case.FunctionTestCase), \
+            assert isinstance(test.test, psychoacoustics.case.FunctionTestCase), \
                    "Expected FunctionTestCase not %s" % tests[1].test
 
     def test_load_from_name_package_root_path(self):
@@ -477,7 +477,7 @@ class TestTestLoader(unittest.TestCase):
         cl_tests = [t for t in tests[0]]
         print "class tests", cl_tests
         normal, gens = cl_tests[0], cl_tests[1:]
-        assert isinstance(normal, bose.case.Test), \
+        assert isinstance(normal, psychoacoustics.case.Test), \
                "Expected a test case but got %s" % normal
         for gen in gens:
             assert isinstance(gen, unittest.TestSuite), \
@@ -486,7 +486,7 @@ class TestTestLoader(unittest.TestCase):
             for t in gen:
                 print "generated test %s" % t
                 print t.shortDescription()
-                assert isinstance(t, bose.case.Test), \
+                assert isinstance(t, psychoacoustics.case.Test), \
                        "Test %s is not a test?" % t
                 count += 1
             self.assertEqual(count, 4, "Expected to generate 4 tests, but "
@@ -497,9 +497,9 @@ class TestTestLoader(unittest.TestCase):
         for t in tests[1]:
             print "generated test %s" % t
             print t.shortDescription()
-            assert isinstance(t, bose.case.Test), \
+            assert isinstance(t, psychoacoustics.case.Test), \
                    "Test %s is not a Test?" % t
-            assert isinstance(t.test, bose.case.FunctionTestCase), \
+            assert isinstance(t.test, psychoacoustics.case.FunctionTestCase), \
                    "Test %s is not a FunctionTestCase" % t.test
             assert 'test_func_generator' in str(t), \
                    "Bad str val '%s' for test" % str(t)
@@ -515,9 +515,9 @@ class TestTestLoader(unittest.TestCase):
         for t in tests[2]:
             print "generated test %s" % t
             print t.shortDescription()
-            assert isinstance(t, bose.case.Test), \
+            assert isinstance(t, psychoacoustics.case.Test), \
                    "Test %s is not a Test?" % t
-            assert isinstance(t.test, bose.case.FunctionTestCase), \
+            assert isinstance(t.test, psychoacoustics.case.FunctionTestCase), \
                    "Test %s is not a FunctionTestCase" % t.test
             assert 'test_func_generator_name' in str(t), \
                    "Bad str val '%s' for test" % str(t)
@@ -545,9 +545,9 @@ class TestTestLoader(unittest.TestCase):
         for t in tests[0]:
             print "generated test %s" % t
             print t.shortDescription()
-            assert isinstance(t, bose.case.Test), \
+            assert isinstance(t, psychoacoustics.case.Test), \
                    "Test %s is not a Test?" % t
-            assert isinstance(t.test, bose.case.FunctionTestCase), \
+            assert isinstance(t.test, psychoacoustics.case.FunctionTestCase), \
                    "Test %s is not a FunctionTestCase" % t.test
             assert 'test_func_generator' in str(t), \
                    "Bad str val '%s' for test" % str(t)

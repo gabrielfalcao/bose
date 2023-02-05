@@ -1,18 +1,18 @@
 Using custom plugins without setuptools
 ---------------------------------------
 
-If you have one or more custom plugins that you'd like to use with bose, but
+If you have one or more custom plugins that you'd like to use with psychoacoustics, but
 can't or don't want to register that plugin as a setuptools entrypoint, you
-can use the ``addplugins`` keyword argument to :func:`bose.core.main` or
-:func:`bose.core.run` to make the plugins available.
+can use the ``addplugins`` keyword argument to :func:`psychoacoustics.core.main` or
+:func:`psychoacoustics.core.run` to make the plugins available.
 
-To do this you would construct a launcher script for bose, something like::
+To do this you would construct a launcher script for psychoacoustics, something like::
 
-  from bose import main
+  from psychoacoustics import main
   from yourpackage import YourPlugin, YourOtherPlugin
 
   if __name__ == '__main__':
-      bose.main(addplugins=[YourPlugin(), YourOtherPlugin()])
+      psychoacoustics.main(addplugins=[YourPlugin(), YourOtherPlugin()])
 
 Here's an example. Say that you don't like the fact that the collect-only
 plugin outputs 'ok' for each test it finds; instead you want it to output
@@ -23,7 +23,7 @@ Without the plugin, we get 'ok.'
 
 >>> import os
 >>> support = os.path.join(os.path.dirname(__file__), 'support')
->>> from bose.plugins.plugintest import run_buffered as run
+>>> from psychoacoustics.plugins.plugintest import run_buffered as run
 >>> argv = [__file__, '-v', support] # --collect-only
 >>> run(argv=argv)
 test.test ... ok
@@ -45,7 +45,7 @@ OK
 The plugin is simple. It captures and wraps the test result output stream and
 replaces 'ok' with 'maybe' and '.' with '?'.
 
->>> from bose.plugins.base import Plugin
+>>> from psychoacoustics.plugins.base import Plugin
 >>> class Maybe(Plugin):
 ...     def setOutputStream(self, stream):
 ...         self.stream = stream

@@ -1,4 +1,4 @@
-from bose.exc import SkipTest
+from psychoacoustics.exc import SkipTest
 
 def test_ok():
     pass

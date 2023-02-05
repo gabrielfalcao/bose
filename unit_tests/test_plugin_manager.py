@@ -1,6 +1,6 @@
 import unittest
-from bose import case
-from bose.plugins import Plugin, PluginManager
+from psychoacoustics import case
+from psychoacoustics.plugins import Plugin, PluginManager
 
 
 class Plug(Plugin):
@@ -27,7 +27,7 @@ class Plug3(Plugin):
 
 class Plug4(Plugin):
     def loadTestsFromModule(self, module):
-        raise AttributeError("I am missing my bose")
+        raise AttributeError("I am missing my psychoacoustics")
 
 class BetterPlug2(Plugin):
     name = 'plug2'
@@ -57,12 +57,12 @@ class TestPluginManager(unittest.TestCase):
                "Some plugins were not found by iteration: %s" % expect
 
     def test_plugin_generative_method_errors_not_hidden(self):
-        import bose.failure
+        import psychoacoustics.failure
         pm = PluginManager(plugins=[Plug3(), Plug4()])
         loaded = list(pm.loadTestsFromModule('whatever'))
         self.assertEqual(len(loaded), 2)
         for test in loaded:
-            assert isinstance(test, bose.failure.Failure), \
+            assert isinstance(test, psychoacoustics.failure.Failure), \
             "%s is not a failure" % test
 
     def test_plugin_override(self):

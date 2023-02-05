@@ -19,8 +19,8 @@ import logging
 from logging import Handler
 import threading
 
-from bose.plugins.base import Plugin
-from bose.util import anyp, ln, safe_str
+from psychoacoustics.plugins.base import Plugin
+from psychoacoustics.util import anyp, ln, safe_str
 
 try:
     from cStringIO import StringIO
@@ -110,7 +110,7 @@ class LogCapture(Plugin):
     logformat = '%(name)s: %(levelname)s: %(message)s'
     logdatefmt = None
     clear = False
-    filters = ['-bose']
+    filters = ['-psychoacoustics']
 
     def options(self, parser, env):
         """Register commandline options.
@@ -141,13 +141,13 @@ class LogCapture(Plugin):
             metavar="FILTER",
             help="Specify which statements to filter in/out. "
                  "By default, everything is captured. If the output is too"
-                 " verbose,\nuse this option to filter out needless output.\n"
+                 " verpsychoacoustics,\nuse this option to filter out needless output.\n"
                  "Example: filter=foo will capture statements issued ONLY to\n"
                  " foo or foo.what.ever.sub but not foobar or other logger.\n"
                  "Specify multiple loggers with comma: filter=foo,bar,baz.\n"
                  "If any logger name is prefixed with a minus, eg filter=-foo,\n"
                  "it will be excluded rather than included. Default: "
-                 "exclude logging messages from bose itself (-bose)."
+                 "exclude logging messages from psychoacoustics itself (-psychoacoustics)."
                  " [PSY_ECHOS_TICKS_LOGFILTER]\n")
         parser.add_option(
             "--logging-clear-handlers", action="store_true",

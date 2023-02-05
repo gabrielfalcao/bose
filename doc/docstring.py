@@ -1,6 +1,6 @@
 from docutils import nodes
 from docutils.statemachine import ViewList
-from bose.util import resolve_name
+from psychoacoustics.util import resolve_name
 
 
 def docstring_directive(dirname, arguments, options, content, lineno,

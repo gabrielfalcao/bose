@@ -96,8 +96,8 @@ __test__ = False
 
 import logging
 import os
-from bose.plugins import Plugin
-from bose.util import src, set
+from psychoacoustics.plugins import Plugin
+from psychoacoustics.util import src, set
 
 try:
     from cPickle import dump, load
@@ -122,9 +122,9 @@ class TestId(Plugin):
         """
         Plugin.options(self, parser, env)
         parser.add_option('--id-file', action='store', dest='testIdFile',
-                          default='.boseids', metavar="FILE",
+                          default='.psychoacousticsids', metavar="FILE",
                           help="Store test ids found in test runs in this "
-                          "file. Default is the file .boseids in the "
+                          "file. Default is the file .psychoacousticsids in the "
                           "working directory.")
         parser.add_option('--failed', action='store_true',
                           dest='failed', default=False,

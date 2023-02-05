@@ -1,7 +1,7 @@
 Excluding Unwanted Packages
 ---------------------------
 
-Normally, bose discovery descends into all packages. Plugins can
+Normally, psychoacoustics discovery descends into all packages. Plugins can
 change this behavior by implementing :meth:`IPluginInterface.wantDirectory()`.
 
 In this example, we have a wanted package called ``wanted_package``
@@ -15,15 +15,15 @@ and an unwanted package called ``unwanted_package``.
     >>> support_files
     ['unwanted_package', 'wanted_package']
 
-When we run bose normally, tests are loaded from both packages. 
+When we run psychoacoustics normally, tests are loaded from both packages. 
 
 .. Note ::
 
-   The function :func:`bose.plugins.plugintest.run` reformats test result
+   The function :func:`psychoacoustics.plugins.plugintest.run` reformats test result
    output to remove timings, which will vary from run to run, and
    redirects the output to stdout.
 
-    >>> from bose.plugins.plugintest import run_buffered as run
+    >>> from psychoacoustics.plugins.plugintest import run_buffered as run
 
 ..
 
@@ -40,9 +40,9 @@ When we run bose normally, tests are loaded from both packages.
 To exclude the tests in the unwanted package, we can write a simple
 plugin that implements :meth:`IPluginInterface.wantDirectory()` and returns ``False`` if
 the basename of the directory is ``"unwanted_package"``. This will
-prevent bose from descending into the unwanted package.
+prevent psychoacoustics from descending into the unwanted package.
 
-    >>> from bose.plugins import Plugin
+    >>> from psychoacoustics.plugins import Plugin
     >>> class UnwantedPackagePlugin(Plugin):
     ...     # no command line arg needed to activate plugin
     ...     enabled = True

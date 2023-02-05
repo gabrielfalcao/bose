@@ -1,7 +1,7 @@
 import logging
 import os
 import unittest
-from bose.config import Config
+from psychoacoustics.config import Config
 
 support = os.path.join(os.path.dirname(__file__), 'support')
 

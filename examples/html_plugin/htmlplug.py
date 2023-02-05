@@ -3,10 +3,10 @@ output. In this case, it formats the output as ugly unstyled html.
 
 Upgrading this plugin into one that uses a template and css to produce
 nice-looking, easily-modifiable html output is left as an exercise for
-the reader who would like to see his or her name in the bose AUTHORS file.
+the reader who would like to see his or her name in the psychoacoustics AUTHORS file.
 """
 import traceback
-from bose.plugins import Plugin
+from psychoacoustics.plugins import Plugin
 
 class HtmlOutput(Plugin):
     """Output test results as ugly, unstyled html.
