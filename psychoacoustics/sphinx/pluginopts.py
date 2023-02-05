@@ -145,7 +145,7 @@ def autohelp_directive(dirname, arguments, options, content, lineno,
 
     
 class OptBucket(object):
-    def __init__(self, doc=None, prog='bosetests'):
+    def __init__(self, doc=None, prog='psytests'):
         self.opts = []
         self.doc = doc
         self.prog = prog

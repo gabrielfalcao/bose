@@ -41,12 +41,12 @@ Here's a quick rundown of what's new in 0.9
   teardown) are correctly executed at all levels. No more -f -m or -o options:
   now simply specify the tests to run::
 
-    bosetests this/file.py that.module
+    psytests this/file.py that.module
 
   Tests may be specified down to the callable::
 
-    bosetests this/file.py:TestClass that.module:this_test
-    bosetests that.module:TestClass.test_method
+    psytests this/file.py:TestClass that.module:this_test
+    psytests that.module:TestClass.test_method
 
   There are also new options for dropping into pdb on errors or failures, and
   stopping the test run on the first error or failure (thanks to Kevin Dangoor

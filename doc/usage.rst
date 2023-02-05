@@ -1,16 +1,16 @@
 Basic usage
 -----------
 
-Use the bosetests script (after installation by setuptools)::
+Use the psytests script (after installation by setuptools)::
 
-  bosetests [options] [(optional) test files or directories]
+  psytests [options] [(optional) test files or directories]
 
 In addition to passing command-line options, you may also put configuration
 options in a .boserc or bose.cfg file in your home directory. These are
-standard .ini-style config files. Put your bosetests configuration in a
-[bosetests] section, with the -- prefix removed::
+standard .ini-style config files. Put your psytests configuration in a
+[psytests] section, with the -- prefix removed::
 
-   [bosetests]
+   [psytests]
    verbosity=3
    with-doctest=1
 
@@ -20,7 +20,7 @@ be used by tox). In order to ignore those configuration files simply set an
 environment variable ``PSY_ECHOS_TICKS_IGNORE_CONFIG_FILES``.
   
 There are several other ways to use the bose test runner besides the
-`bosetests` script. You may use bose in a test script::
+`psytests` script. You may use bose in a test script::
 
   import bose
   bose.main()
@@ -37,7 +37,7 @@ will run bose.main()::
 
   python /path/to/bose/core.py
   
-Please see the usage message for the bosetests script for information
+Please see the usage message for the psytests script for information
 about how to control which tests bose runs, which plugins are loaded,
 and the test output.
 

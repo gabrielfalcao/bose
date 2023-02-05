@@ -34,7 +34,7 @@ class TestXUnitPlugin(PluginTester, unittest.TestCase):
         print result.encode('utf8', 'replace')
         
         assert '<?xml version="1.0" encoding="UTF-8"?>' in result
-        assert '<testsuite name="bosetests" tests="6" errors="2" failures="1" skip="1">' in result
+        assert '<testsuite name="psytests" tests="6" errors="2" failures="1" skip="1">' in result
         assert '<testcase classname="test_xunit_as_suite.TestForXunit" name="test_error" time="' in result
         # TODO(Kumar) think of better x-platform code here that
         # does not confuse 2to3

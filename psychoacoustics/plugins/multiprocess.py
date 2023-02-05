@@ -580,7 +580,7 @@ class MultiProcessTestRunner(TextTestRunner):
             or not isinstance(test, unittest.TestSuite)):
             # regular test case, or a suite with context fixtures
 
-            # special case: when run like bosetests path/to/module.py
+            # special case: when run like psytests path/to/module.py
             # the top-level suite has only one item, and it shares
             # the same context as that item. In that case, we want the
             # item, not the top-level suite

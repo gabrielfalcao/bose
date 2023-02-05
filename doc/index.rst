@@ -36,13 +36,13 @@ directory, and::
 However, **please note** that without setuptools/distribute installed,
 you will not be able to use third-party bose plugins.
 
-This will install the bose libraries, as well as the :doc:`bosetests <usage>`
+This will install the bose libraries, as well as the :doc:`psytests <usage>`
 script, which you can use to automatically discover and run tests.
 
 Now you can run tests for your project::
 
   cd path/to/project
-  bosetests
+  psytests
 
 You should see output something like this::
 
@@ -54,9 +54,9 @@ You should see output something like this::
 
 Indicating that bose found and ran your tests.
 
-For help with bosetests' many command-line options, try::
+For help with psytests' many command-line options, try::
 
-  bosetests -h
+  psytests -h
 
 or visit the :doc:`usage documentation <usage>`.
 
@@ -70,7 +70,7 @@ have distribute installed, ``python3 setup.py install`` will install
 it via distribute's bootstrap script.
 
 Additionally, if your project is using `2to3
-<http://docs.python.org/library/2to3.html>`_, ``python3 setup.py bosetests``
+<http://docs.python.org/library/2to3.html>`_, ``python3 setup.py psytests``
 command will automatically convert your sources with 2to3 and then run the
 tests with python 3.
 

@@ -133,7 +133,7 @@ all tests pass.
 
 The module with shared fixtures passes.
 
-    >>> run(argv=['bosetests', '-v', test_shared]) #doctest: +REPORT_NDIFF
+    >>> run(argv=['psytests', '-v', test_shared]) #doctest: +REPORT_NDIFF
     setup called
     test_shared.TestMe.test_one ... ok
     test_shared.test_a ... ok
@@ -147,7 +147,7 @@ The module with shared fixtures passes.
 
 As does the module with no fixture annotations.
 
-    >>> run(argv=['bosetests', '-v', test_not_shared]) #doctest: +REPORT_NDIFF
+    >>> run(argv=['psytests', '-v', test_not_shared]) #doctest: +REPORT_NDIFF
     setup called
     test_not_shared.TestMe.test_one ... ok
     test_not_shared.test_a ... ok
@@ -161,7 +161,7 @@ As does the module with no fixture annotations.
 
 And the module that marks its fixtures as re-entrant.
 
-    >>> run(argv=['bosetests', '-v', test_can_split]) #doctest: +REPORT_NDIFF
+    >>> run(argv=['psytests', '-v', test_can_split]) #doctest: +REPORT_NDIFF
     setup called
     test_can_split.TestMe.test_one ... ok
     test_can_split.test_a ... ok
@@ -190,7 +190,7 @@ First we have to reset all of the test modules.
 
 Then we can run the tests again with the multiprocess plugin active.
     
-    >>> run(argv=['bosetests', '-v', '--processes=2', test_shared],
+    >>> run(argv=['psytests', '-v', '--processes=2', test_shared],
     ...     plugins=[MultiProcess()]) #doctest: +ELLIPSIS
     setup called
     test_shared.... ok
@@ -219,7 +219,7 @@ We have to reset all of the test modules again.
 
 Then we can run again and see the failures.
 
-    >>> run(argv=['bosetests', '-v', '--processes=2', test_can_split],
+    >>> run(argv=['psytests', '-v', '--processes=2', test_can_split],
     ...     plugins=[MultiProcess()]) #doctest: +ELLIPSIS
     setup called
     teardown called

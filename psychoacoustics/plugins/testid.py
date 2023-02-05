@@ -6,26 +6,26 @@ without the # prefix) instead of test names.
 
 For example, if your normal test run looks like::
 
-  % bosetests -v
+  % psytests -v
   tests.test_a ... ok
   tests.test_b ... ok
   tests.test_c ... ok
 
 When adding ``--with-id`` you'll see::
 
-  % bosetests -v --with-id
+  % psytests -v --with-id
   #1 tests.test_a ... ok
   #2 tests.test_b ... ok
   #3 tests.test_c ... ok
 
 Then you can re-run individual tests by supplying just an id number::
 
-  % bosetests -v --with-id 2
+  % psytests -v --with-id 2
   #2 tests.test_b ... ok
 
 You can also pass multiple id numbers::
 
-  % bosetests -v --with-id 2 3
+  % psytests -v --with-id 2 3
   #2 tests.test_b ... ok
   #3 tests.test_c ... ok
   
@@ -42,7 +42,7 @@ This plugin also adds a mode that will direct the test runner to record
 failed tests. Subsequent test runs will then run only the tests that failed
 last time. Activate this mode with the ``--failed`` switch::
 
- % bosetests -v --failed
+ % psytests -v --failed
  #1 test.test_a ... ok
  #2 test.test_b ... ERROR
  #3 test.test_c ... FAILED
@@ -50,7 +50,7 @@ last time. Activate this mode with the ``--failed`` switch::
  
 On the second run, only tests #2 and #3 will run::
 
- % bosetests -v --failed
+ % psytests -v --failed
  #2 test.test_b ... ERROR
  #3 test.test_c ... FAILED
 
@@ -58,25 +58,25 @@ As you correct errors and tests pass, they'll drop out of subsequent runs.
 
 First::
 
- % bosetests -v --failed
+ % psytests -v --failed
  #2 test.test_b ... ok
  #3 test.test_c ... FAILED
 
 Second::
 
- % bosetests -v --failed
+ % psytests -v --failed
  #3 test.test_c ... FAILED
 
 When all tests pass, the full set will run on the next invocation.
 
 First::
 
- % bosetests -v --failed
+ % psytests -v --failed
  #3 test.test_c ... ok
 
 Second::
  
- % bosetests -v --failed
+ % psytests -v --failed
  #1 test.test_a ... ok
  #2 test.test_b ... ok
  #3 test.test_c ... ok

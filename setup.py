@@ -29,11 +29,11 @@ try:
         packages = find_packages(),
         entry_points = {
         'console_scripts': [
-            'bosetests = bose:run_exit',
-            'bosetests%s = bose:run_exit' % py_vers_tag,
+            'psytests = bose:run_exit',
+            'psytests%s = bose:run_exit' % py_vers_tag,
             ],
         'distutils.commands': [
-            ' bosetests = bose.commands:bosetests',
+            ' psytests = bose.commands:psytests',
             ],
         },
         test_suite = 'bose.collector',
@@ -73,7 +73,7 @@ except ImportError:
     addl_args = dict(
         packages = ['bose', 'bose.ext', 'bose.plugins', 'bose.sphinx',
                     'bose.tools'],
-        scripts = ['bin/bosetests'],
+        scripts = ['bin/psytests'],
         )
 
 setup(
@@ -106,7 +106,7 @@ setup(
     license = 'GNU LGPL',
     keywords = 'test unittest doctest automatic discovery',
     url = 'http://readthedocs.org/docs/bose/',
-    data_files = [('man/man1', ['bosetests.1'])],
+    data_files = [('man/man1', ['psytests.1'])],
     package_data = {'': ['*.txt',
                          'examples/*.py',
                          'examples/*/*.py']},

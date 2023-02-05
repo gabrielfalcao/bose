@@ -42,7 +42,7 @@ tests failing.
 
     >>> support = os.path.join(os.path.dirname(__file__), 'support')
     >>> suitepath = os.path.join(support, 'test_spam.py')
-    >>> run(argv=['bosetests', suitepath],
+    >>> run(argv=['psytests', suitepath],
     ...     plugins=[FailBeforePlugin()])
     EE
     ======================================================================
@@ -66,7 +66,7 @@ tests failing.
 
 But with the fail-after plugin, the entire test run will fail.
 
-    >>> run(argv=['bosetests', suitepath],
+    >>> run(argv=['psytests', suitepath],
     ...     plugins=[FailAfterPlugin()])
     Traceback (most recent call last):
     ...
@@ -80,7 +80,7 @@ of test execution, the entire test run fails when the plugin is used.
     ...     
     ...     def prepareTestLoader(self, loader):
     ...         raise TypeError("That loader is not my type")
-    >>> run(argv=['bosetests', suitepath],
+    >>> run(argv=['psytests', suitepath],
     ...     plugins=[FailPreparationPlugin()])
     Traceback (most recent call last):
     ...
@@ -106,7 +106,7 @@ caught, but logged as a Failure.
     ...         if False:
     ...             yield None
     ...         raise TypeError("bug in plugin")
-    >>> run(argv=['bosetests', suitepath],
+    >>> run(argv=['psytests', suitepath],
     ...     plugins=[FailLoadPlugin()])
     ..E
     ======================================================================
@@ -133,7 +133,7 @@ following test would crash bose:
     ...         if False:
     ...             yield None
     ...         raise TypeError("bug in plugin")
-    >>> run(argv=['bosetests', suitepath],
+    >>> run(argv=['psytests', suitepath],
     ...     plugins=[FailLoadFromNamePlugin()])
     E
     ======================================================================

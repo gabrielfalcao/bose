@@ -78,9 +78,9 @@ linkcheck:
 man:
 	mkdir -p .build/man ./build/doctrees
 	$(SPHINXBUILD) -b man $(ALLSPHINXOPTS) .build/man
-	cp .build/man/bosetests.1 ../
+	cp .build/man/psytests.1 ../
 	@echo
-	@echo "Generated man page copied to ../bosetests.1"
+	@echo "Generated man page copied to ../psytests.1"
 
 readme:
 	mkdir -p .build/text .build/doctrees$

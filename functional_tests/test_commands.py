@@ -23,18 +23,18 @@ class TestCommands(unittest.TestCase):
         os.chdir(self.dir)
         sys.stderr = self.stderr
     
-    def test_setup_bosetests_command_works(self):
+    def test_setup_psytests_command_works(self):
         from setuptools.dist import Distribution
         buf = StringIO()
         sys.stderr = buf
-        cmd = commands.bosetests(
+        cmd = commands.psytests(
             Distribution(attrs={'script_name': 'setup.py',
                                 'package_dir': {'issue191': support}}))
         cmd.finalize_options()
         ## FIXME why doesn't Config see the chdir above?
-        print cmd._bosetests__config.workingDir
-        cmd._bosetests__config.workingDir = support
-        cmd._bosetests__config.stream = buf
+        print cmd._psytests__config.workingDir
+        cmd._psytests__config.workingDir = support
+        cmd._psytests__config.stream = buf
         try:
             cmd.run()
         except SystemExit, e:

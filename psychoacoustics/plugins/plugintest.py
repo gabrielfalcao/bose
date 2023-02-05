@@ -186,7 +186,7 @@ class PluginTester(object):
 
     - activate
 
-      - the argument to send bosetests to activate the plugin
+      - the argument to send psytests to activate the plugin
 
     - suitepath
 
@@ -202,12 +202,12 @@ class PluginTester(object):
 
     - args
 
-      - a list of arguments to add to the bosetests command, in addition to
+      - a list of arguments to add to the psytests command, in addition to
         the activate argument
 
     - env
 
-      - optional dict of environment variables to send bosetests
+      - optional dict of environment variables to send psytests
 
     """
     activate = None
@@ -260,10 +260,10 @@ class PluginTester(object):
         self.output = AccessDecorator(stream)
 
     def setUp(self):
-        """runs bosetests with the specified test suite, all plugins
+        """runs psytests with the specified test suite, all plugins
         activated.
         """
-        self.argv = ['bosetests', self.activate]
+        self.argv = ['psytests', self.activate]
         if self.args:
             self.argv.extend(self.args)
         if self.suitepath:
@@ -377,7 +377,7 @@ def run(*arg, **kw):
         env = kw.pop('env', {})
         kw['config'] = Config(env=env, plugins=plugins)
     if 'argv' not in kw:
-        kw['argv'] = ['bosetests', '-v']
+        kw['argv'] = ['psytests', '-v']
     kw['config'].stream = buffer
 
     # Set up buffering so that all output goes to our buffer,

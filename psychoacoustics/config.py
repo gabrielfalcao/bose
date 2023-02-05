@@ -149,7 +149,7 @@ class Config(object):
       self.args = ()
       self.testMatch = re.compile(env.get('PSY_ECHOS_TICKS_TESTMATCH', r'(?:\b|_)[Tt]est'))
       self.addPaths = not env.get('PSY_ECHOS_TICKS_NOPATH', False)
-      self.configSection = 'bosetests'
+      self.configSection = 'psytests'
       self.debug = env.get('PSY_ECHOS_TICKS_DEBUG')
       self.debugLog = env.get('PSY_ECHOS_TICKS_DEBUG_LOG')
       self.exclude = None
@@ -183,7 +183,7 @@ class Config(object):
         self.testMatchPat = env.get('PSY_ECHOS_TICKS_TESTMATCH', r'(?:\b|_)[Tt]est')
         self.testMatch = re.compile(self.testMatchPat)
         self.addPaths = not env.get('PSY_ECHOS_TICKS_NOPATH', False)
-        self.configSection = 'bosetests'
+        self.configSection = 'psytests'
         self.debug = env.get('PSY_ECHOS_TICKS_DEBUG')
         self.debugLog = env.get('PSY_ECHOS_TICKS_DEBUG_LOG')
         self.exclude = None

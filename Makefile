@@ -3,7 +3,7 @@ GIT_ROOT		:= $(shell dirname $(MAKEFILE_PATH))
 VENV_ROOT		:= $(GIT_ROOT)/.venv
 
 PACKAGE_NAME		:= bose
-MAIN_CLI_NAME		:= bosetests
+MAIN_CLI_NAME		:= psytests
 REQUIREMENTS_FILE	:= requirements.txt
 
 PACKAGE_PATH		:= $(GIT_ROOT)/$(PACKAGE_NAME)

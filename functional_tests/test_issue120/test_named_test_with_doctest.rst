@@ -9,7 +9,7 @@ test).
 
     >>> support = os.path.join(os.path.dirname(__file__), 'support')
     >>> test_name = os.path.join(support, 'some_test.py') + ':nonexistent'
-    >>> run(argv=['bosetests', '--with-doctest', test_name],
+    >>> run(argv=['psytests', '--with-doctest', test_name],
     ...     plugins=[Doctest()])
     E
     ======================================================================

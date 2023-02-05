@@ -6,7 +6,7 @@
 
 All commandline options to fall back to values configured in
 configuration files.  The configuration lives in a single section
-("bosetests") in each configuration file.
+("psytests") in each configuration file.
 
     >>> support = os.path.join(os.path.dirname(__file__), "support",
     ...                        "config_defaults")
@@ -24,11 +24,11 @@ configuration files.  The configuration lives in a single section
     ...         "--verbosity", action="store", dest="verbosity",
     ...         type="int")
     ...     return bose.config.ConfiguredDefaultsOptionParser(parser,
-    ...                                                       "bosetests",
+    ...                                                       "psytests",
     ...                                                       error)
 
     >>> def parse(args, config_files):
-    ...     argv = ["bosetests"] + list(args)
+    ...     argv = ["psytests"] + list(args)
     ...     return get_parser().parseArgsAndConfigFiles(argv, config_files)
 
 
@@ -65,14 +65,14 @@ Invalid values should cause an error specifically about configuration
 files (not about a commandline option)
 
     >>> options, arguments = parse([], StringIO("""\
-    ... [bosetests]
+    ... [psytests]
     ... verbosity = spam
     ... """))
     error: Error reading config file '<???>': option 'verbosity': invalid integer value: 'spam'
 
-Unrecognised option in bosetests config section
+Unrecognised option in psytests config section
 
-    >>> options, args = parse([], StringIO("[bosetests]\nspam=eggs\n"))
+    >>> options, args = parse([], StringIO("[psytests]\nspam=eggs\n"))
     error: Error reading config file '<???>': no such option 'spam'
 
 If there were multiple config files, the error message tells us which
@@ -139,7 +139,7 @@ Missing config files don't deserve an error or warning
     {'verbosity': 1}
 
 
-The same goes for missing config file section ("bosetests")
+The same goes for missing config file section ("psytests")
 
     >>> options, args = parse([], StringIO("[spam]\nfoo=bar\n"))
     >>> print options.__dict__

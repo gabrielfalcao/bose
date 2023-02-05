@@ -10,7 +10,7 @@
 *.orig
 example.cfg
 .coverage
-bosetests.xml
+psytests.xml
 xunit.xml
 _env
 doc/.build

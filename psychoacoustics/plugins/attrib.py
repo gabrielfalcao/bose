@@ -17,7 +17,7 @@ Here is an example:
 Once you've assigned an attribute ``slow = 1`` you can exclude that
 test and all other tests having the slow attribute by running ::
 
-    $ bosetests -a '!slow'
+    $ psytests -a '!slow'
 
 There is also a decorator available for you that will set attributes.
 Here's how to set ``slow=1`` like above with the decorator:
@@ -42,7 +42,7 @@ And here's how to set an attribute with a specific value:
 
 This test could be run with ::
 
-    $ bosetests -a speed=slow
+    $ psytests -a speed=slow
 
 In Python 2.6 and higher, ``@attr`` can be used on a class to set attributes
 on all its test methods at once.  For example:
@@ -64,24 +64,24 @@ Simple syntax
 
 Examples of using the ``-a`` and ``--attr`` options:
 
-* ``bosetests -a status=stable``
+* ``psytests -a status=stable``
    Only runs tests with attribute "status" having value "stable"
 
-* ``bosetests -a priority=2,status=stable``
+* ``psytests -a priority=2,status=stable``
    Runs tests having both attributes and values
 
-* ``bosetests -a priority=2 -a slow``
+* ``psytests -a priority=2 -a slow``
    Runs tests that match either attribute
 
-* ``bosetests -a tags=http``
+* ``psytests -a tags=http``
    If a test's ``tags`` attribute was a list and it contained the value
    ``http`` then it would be run
 
-* ``bosetests -a slow``
+* ``psytests -a slow``
    Runs tests with the attribute ``slow`` if its value does not equal False
    (False, [], "", etc...)
 
-* ``bosetests -a '!slow'``
+* ``psytests -a '!slow'``
    Runs tests that do NOT have the attribute ``slow`` or have a ``slow``
    attribute that is equal to False
    **NOTE**:
@@ -93,10 +93,10 @@ Expression Evaluation
 
 Examples using the ``-A`` and ``--eval-attr`` options:
 
-* ``bosetests -A "not slow"``
+* ``psytests -A "not slow"``
   Evaluates the Python expression "not slow" and runs the test if True
 
-* ``bosetests -A "(priority > 5) and not slow"``
+* ``psytests -A "(priority > 5) and not slow"``
   Evaluates a complex Python expression and runs the test if True
 
 """

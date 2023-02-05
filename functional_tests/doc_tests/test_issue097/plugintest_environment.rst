@@ -64,12 +64,12 @@ For the purposes of this test, we need a known ``os.environ`` and
     >>> os.environ = {"spam": "eggs"}
     >>> sys.argv = ["spamtests"]
 
-PluginTester always uses the [bosetests, self.activate] as its argv.
+PluginTester always uses the [psytests, self.activate] as its argv.
 If ``env`` is not overridden, the default is an empty ``env``.
 
     >>> tester = Tester()
     >>> tester.setUp()
-    argv: ['bosetests', '-v']
+    argv: ['psytests', '-v']
     env: {}
 
 An empty ``env`` is respected...
@@ -78,7 +78,7 @@ An empty ``env`` is respected...
     ...    env = {}
     >>> tester = EmptyEnvTester()
     >>> tester.setUp()
-    argv: ['bosetests', '-v']
+    argv: ['psytests', '-v']
     env: {}
 
 ... as is a non-empty ``env``.
@@ -87,7 +87,7 @@ An empty ``env`` is respected...
     ...    env = {"foo": "bar"}
     >>> tester = NonEmptyEnvTester()
     >>> tester.setUp()
-    argv: ['bosetests', '-v']
+    argv: ['psytests', '-v']
     env: {'foo': 'bar'}
 
 
@@ -96,7 +96,7 @@ An empty ``env`` is respected...
     >>> from bose.plugins.plugintest import run_buffered as run
     >>> run(suite=unittest.TestSuite(tests=[]),
     ...     plugins=[PrintEnvPlugin()]) # doctest: +REPORT_NDIFF
-    argv: ['bosetests', '-v']
+    argv: ['psytests', '-v']
     env: {}
     <BLANKLINE>
     ----------------------------------------------------------------------
@@ -106,7 +106,7 @@ An empty ``env`` is respected...
     >>> run(env={},
     ...     suite=unittest.TestSuite(tests=[]),
     ...     plugins=[PrintEnvPlugin()]) # doctest: +REPORT_NDIFF
-    argv: ['bosetests', '-v']
+    argv: ['psytests', '-v']
     env: {}
     <BLANKLINE>
     ----------------------------------------------------------------------
@@ -116,7 +116,7 @@ An empty ``env`` is respected...
     >>> run(env={"foo": "bar"},
     ...     suite=unittest.TestSuite(tests=[]),
     ...     plugins=[PrintEnvPlugin()]) # doctest: +REPORT_NDIFF
-    argv: ['bosetests', '-v']
+    argv: ['psytests', '-v']
     env: {'foo': 'bar'}
     <BLANKLINE>
     ----------------------------------------------------------------------
@@ -144,7 +144,7 @@ An explicit config parameter with an env is honoured:
     >>> config = PrintArgvConfig(env={"foo": "bar"}, plugins=manager)
     >>> run(config=config,
     ...     suite=unittest.TestSuite(tests=[])) # doctest: +REPORT_NDIFF
-    argv: ['bosetests', '-v']
+    argv: ['psytests', '-v']
     env: {'foo': 'bar'}
     <BLANKLINE>
     ----------------------------------------------------------------------

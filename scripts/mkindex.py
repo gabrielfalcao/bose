@@ -65,7 +65,7 @@ docs['news'] = news_html['body']
 print "Usage..."
 conf = Config(plugins=BuiltinPluginManager())
 usage_txt = conf.help(bose.main.__doc__).replace(
-    'mkindex.py', 'bosetests')
+    'mkindex.py', 'psytests')
 docs['usage'] = '<pre>%s</pre>' % usage_txt
 
 out = tpl % docs

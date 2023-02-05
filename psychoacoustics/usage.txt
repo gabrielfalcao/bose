@@ -65,12 +65,12 @@ Configuration
 In addition to passing command-line options, you may also put
 configuration options in your project's *setup.cfg* file, or a .boserc
 or bose.cfg file in your home directory. In any of these standard
-ini-style config files, you put your bosetests configuration in a
-``[bosetests]`` section. Options are the same as on the command line,
+ini-style config files, you put your psytests configuration in a
+``[psytests]`` section. Options are the same as on the command line,
 with the -- prefix removed. For options that are simple switches, you
 must supply a value:
 
-  [bosetests]
+  [psytests]
   verbosity=3
   with-doctest=1
 
@@ -83,10 +83,10 @@ Using Plugins
 
 There are numerous bose plugins available via easy_install and
 elsewhere. To use a plugin, just install it. The plugin will add
-command line options to bosetests. To verify that the plugin is installed,
+command line options to psytests. To verify that the plugin is installed,
 run:
 
-  bosetests --plugins
+  psytests --plugins
 
 You can add -v or -vv to that command to show more information
 about each plugin.

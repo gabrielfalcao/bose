@@ -1,6 +1,6 @@
 """
 This plugin bypasses the actual execution of tests, and instead just collects
-test names. Fixtures are also bypassed, so running bosetests with the 
+test names. Fixtures are also bypassed, so running psytests with the 
 collection plugin enabled should be very quick.
 
 This plugin is useful in combination with the testid plugin (``--with-id``).

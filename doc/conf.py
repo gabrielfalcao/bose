@@ -239,4 +239,4 @@ latex_documents = [
 intersphinx_mapping = {'http://docs.python.org/dev': None}
 
 # Man page
-man_pages = [('man', 'bosetests', 'Nicer testing for Python', 'Nose developers', 1)]
+man_pages = [('man', 'psytests', 'Nicer testing for Python', 'Nose developers', 1)]

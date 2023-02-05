@@ -259,7 +259,7 @@ def tools():
 
 def usage():
     conf = Config(plugins=BuiltinPluginManager())
-    usage_text = conf.help(bose.main.__doc__).replace('mkwiki.py', 'bosetests')
+    usage_text = conf.help(bose.main.__doc__).replace('mkwiki.py', 'psytests')
     out = '{{{\n%s\n}}}\n' % usage_text
     return out
 

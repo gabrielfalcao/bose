@@ -21,7 +21,7 @@ class TestBuggyGenerators(unittest.TestCase):
         stream = StringIO()
         runner = TestRunner(stream=stream)
         prog = TestProgram(
-            argv=['bosetests',
+            argv=['psytests',
                   os.path.join(support, 'test_buggy_generators.py')],
             testRunner=runner,
             config=Config(),

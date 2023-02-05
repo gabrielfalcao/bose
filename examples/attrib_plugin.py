@@ -2,26 +2,26 @@
 Examples of test function/method attribute usage with patched bose
 
 Simple syntax (-a, --attr) examples:
-  * bosetests -a status=stable
+  * psytests -a status=stable
     => only test cases with attribute "status" having value "stable"
 
-  * bosetests -a priority=2,status=stable
+  * psytests -a priority=2,status=stable
     => both attributes must match
 
-  * bosetests -a tags=http
+  * psytests -a tags=http
     => attribute list "tags" must contain value "http" (see test_foobar()
        below for definition)
 
-  * bosetests -a slow
+  * psytests -a slow
     => attribute "slow" must be defined and its value cannot equal to False
        (False, [], "", etc...)
 
-  * bosetests -a !slow
+  * psytests -a !slow
     => attribute "slow" must NOT be defined or its value must be equal to False
 
 Eval expression syntax (-A, --eval-attr) examples:
-  * bosetests -A "not slow"
-  * bosetests -A "(priority > 5) and not slow"
+  * psytests -A "not slow"
+  * psytests -A "(priority > 5) and not slow"
   
 This example and the accompanied patch is in public domain, free for any use.
 
@@ -69,14 +69,14 @@ class TestSomething:
 # class methods "inherit" attributes from the class but can override them
 class TestOverride:
     value = "class"
-    # run all methods with "bosetests -a value"
+    # run all methods with "psytests -a value"
 
     @attr(value = "method")
     def test_override(self):
-        # run with "bosetests -a value=method"
+        # run with "psytests -a value=method"
         print "override"
     
     def test_inherit(self):
-        # run with "bosetests -a value=class"
+        # run with "psytests -a value=class"
         print "inherit"
     

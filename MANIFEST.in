@@ -3,9 +3,9 @@ include CHANGELOG
 include NEWS
 include README.txt
 include lgpl.txt
-include bosetests.1
+include psytests.1
 include install-rpm.sh
-include bin/bosetests
+include bin/psytests
 include distribute_setup.py
 include selftest.py
 include setup3lib.py

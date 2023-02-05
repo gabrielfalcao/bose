@@ -1,27 +1,27 @@
 """
-bosetests setuptools command
+psytests setuptools command
 ----------------------------
 
-The easiest way to run tests with bose is to use the `bosetests` setuptools
+The easiest way to run tests with bose is to use the `psytests` setuptools
 command::
 
-  python setup.py bosetests
+  python setup.py psytests
 
 This command has one *major* benefit over the standard `test` command: *all
 bose plugins are supported*.
 
-To configure the `bosetests` command, add a [bosetests] section to your
-setup.cfg. The [bosetests] section can contain any command line arguments that
-bosetests supports. The differences between issuing an option on the command
+To configure the `psytests` command, add a [psytests] section to your
+setup.cfg. The [psytests] section can contain any command line arguments that
+psytests supports. The differences between issuing an option on the command
 line and adding it to setup.cfg are:
 
 * In setup.cfg, the -- prefix must be excluded
 * In setup.cfg, command line flags that take no arguments must be given an
   argument flag (1, T or TRUE for active, 0, F or FALSE for inactive)
 
-Here's an example [bosetests] setup.cfg section::
+Here's an example [psytests] setup.cfg section::
 
-  [bosetests]
+  [psytests]
   verbosity=1
   detailed-errors=1
   with-coverage=1
@@ -30,17 +30,17 @@ Here's an example [bosetests] setup.cfg section::
   pdb=1
   pdb-failures=1
 
-If you commonly run bosetests with a large number of options, using
-the bosetests setuptools command and configuring with setup.cfg can
+If you commonly run psytests with a large number of options, using
+the psytests setuptools command and configuring with setup.cfg can
 make running your tests much less tedious. (Note that the same options
 and format supported in setup.cfg are supported in all other config
-files, and the bosetests script will also load config files.)
+files, and the psytests script will also load config files.)
 
 Another reason to run tests with the command is that the command will
 install packages listed in your `tests_require`, as well as doing a
 complete build of your package before running tests. For packages with
 dependencies or that build C extensions, using the setuptools command
-can be more convenient than building by hand and running the bosetests
+can be more convenient than building by hand and running the psytests
 script.
 
 Bootstrapping
@@ -56,13 +56,13 @@ section of your setup()::
       )
 
 This will direct setuptools to download and activate bose during the setup
-process, making the ``bosetests`` command available.
+process, making the ``psytests`` command available.
 
 """
 try:
     from setuptools import Command
 except ImportError:
-    Command = bosetests = None
+    Command = psytests = None
 else:
     from bose.config import Config, option_blacklist, user_config_files, \
         flag, _bool
@@ -86,8 +86,8 @@ else:
         return opt_list
 
 
-    class bosetests(Command):
-        description = "Run unit tests using bosetests"
+    class psytests(Command):
+        description = "Run unit tests using psytests"
         __config = Config(files=user_config_files(),
                           plugins=DefaultPluginManager())
         __parser = __config.getParser()
@@ -147,7 +147,7 @@ else:
                     self.distribution.tests_require)
 
             ei_cmd = self.get_finalized_command("egg_info")
-            argv = ['bosetests', '--where', ei_cmd.egg_base] 
+            argv = ['psytests', '--where', ei_cmd.egg_base] 
             for (option_name, cmd_name) in self.option_to_cmds.items():
                 if option_name in option_blacklist:
                     continue

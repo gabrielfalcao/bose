@@ -8,17 +8,17 @@ and close to unittest's loader whereever possible. The complication comes from
 supporting proper fixture setup and teardown when the test name requested is a
 or is inside of a dotted module. Say we run like this:
 
-bosetests foo/bar/baz.py
+psytests foo/bar/baz.py
 
 that should look in foo for setup, then baz for setup, but only after
 importing the target module (baz) and finding any tests therein. If baz has
 tests, then foo.setup runs, bar.setup runs, baz.setup runs, baz's tests run,
 then baz.teardown, bar.teardown, foo.teardown.
 
-bosetests w/o argument is identical in meaning to bosetests .
+psytests w/o argument is identical in meaning to psytests .
 -> loader.loadTestsFromNames(names=[.])
 
-bosetests foo and bosetests -w foo are identical in meaning
+psytests foo and psytests -w foo are identical in meaning
 -> loader.loadTestsFromNames(names=['foo'])
 
 loadTestsFromName(name, module=None):

@@ -19,7 +19,7 @@ class TestIssue135(unittest.TestCase):
         old_argv = sys.argv
         old_stderr = sys.stderr
         sys.stderr = stringio
-        sys.argv = ["bosetests", wd]
+        sys.argv = ["psytests", wd]
         try:
             main(exit=False)
         finally:
