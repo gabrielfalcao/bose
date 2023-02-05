@@ -161,18 +161,18 @@ class AttributeSelector(Plugin):
         """Register command line options"""
         parser.add_option("-a", "--attr",
                           dest="attr", action="append",
-                          default=env.get('NOSE_ATTR'),
+                          default=env.get('BOSE_ATTR'),
                           metavar="ATTR",
                           help="Run only tests that have attributes "
-                          "specified by ATTR [NOSE_ATTR]")
+                          "specified by ATTR [BOSE_ATTR]")
         # disable in < 2.4: eval can't take needed args
         if compat_24:
             parser.add_option("-A", "--eval-attr",
                               dest="eval_attr", metavar="EXPR", action="append",
-                              default=env.get('NOSE_EVAL_ATTR'),
+                              default=env.get('BOSE_EVAL_ATTR'),
                               help="Run only tests for whose attributes "
                               "the Python expression EXPR evaluates "
-                              "to True [NOSE_EVAL_ATTR]")
+                              "to True [BOSE_EVAL_ATTR]")
 
     def configure(self, options, config):
         """Configure the plugin and system, based on selected options.

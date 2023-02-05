@@ -189,7 +189,7 @@ class MultiProcess(Plugin):
         Register command-line options.
         """
         parser.add_option("--processes", action="store",
-                          default=env.get('NOSE_PROCESSES', 0),
+                          default=env.get('BOSE_PROCESSES', 0),
                           dest="multiprocess_workers",
                           metavar="NUM",
                           help="Spread test run among this many processes. "
@@ -198,23 +198,23 @@ class MultiProcess(Plugin):
                           "Pass a negative number to have the number of "
                           "processes automatically set to the number of "
                           "cores. Passing 0 means to disable parallel "
-                          "testing. Default is 0 unless NOSE_PROCESSES is "
+                          "testing. Default is 0 unless BOSE_PROCESSES is "
                           "set. "
-                          "[NOSE_PROCESSES]")
+                          "[BOSE_PROCESSES]")
         parser.add_option("--process-timeout", action="store",
-                          default=env.get('NOSE_PROCESS_TIMEOUT', 10),
+                          default=env.get('BOSE_PROCESS_TIMEOUT', 10),
                           dest="multiprocess_timeout",
                           metavar="SECONDS",
                           help="Set timeout for return of results from each "
                           "test runner process. Default is 10. "
-                          "[NOSE_PROCESS_TIMEOUT]")
+                          "[BOSE_PROCESS_TIMEOUT]")
         parser.add_option("--process-restartworker", action="store_true",
-                          default=env.get('NOSE_PROCESS_RESTARTWORKER', False),
+                          default=env.get('BOSE_PROCESS_RESTARTWORKER', False),
                           dest="multiprocess_restartworker",
                           help="If set, will restart each worker process once"
                           " their tests are done, this helps control memory "
                           "leaks from killing the system. "
-                          "[NOSE_PROCESS_RESTARTWORKER]")
+                          "[BOSE_PROCESS_RESTARTWORKER]")
 
     def configure(self, options, config):
         """

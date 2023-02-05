@@ -18,13 +18,13 @@ class OptionProcessingTests(unittest.TestCase):
         options = parse_options({}, [])
         assert not options.enable_plugin_jim_bob, \
                "Plugin should not be enabled"
-        options = parse_options({"NOSE_WITH_JIM_BOB": "1"}, [])
+        options = parse_options({"BOSE_WITH_JIM_BOB": "1"}, [])
         assert options.enable_plugin_jim_bob, \
                "Plugin should be enabled"
         options = parse_options({}, ["--with-jim-bob"])
         assert options.enable_plugin_jim_bob, \
                "Plugin should be enabled"
-        options = parse_options({"NOSE_WITH_JIM_BOB": "1"}, ["--with-jim-bob"])
+        options = parse_options({"BOSE_WITH_JIM_BOB": "1"}, ["--with-jim-bob"])
         assert options.enable_plugin_jim_bob, \
                "Plugin should be enabled"
 

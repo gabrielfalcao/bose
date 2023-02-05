@@ -4786,7 +4786,7 @@ I took a [very] quick stab at adding a test to bose's suite for this but couldn'
        <item>
          
          <pubDate>Thu, 28 Sep 2006 02:33:39 GMT</pubDate>
-         <title>#94: --doctest-extension and NOSE_DOCTEST_EXTENSION conflict</title>   
+         <title>#94: --doctest-extension and BOSE_DOCTEST_EXTENSION conflict</title>   
          <link>http://bose.python-hosting.com/ticket/94</link>
          <description>If you define both the environmental variable and give the command-line variable, you get:
 
@@ -5713,8 +5713,8 @@ I'm getting some strange behavior trying to run `python setup.py test`
 It only finds my doctests.  However, if I run `bosetests -v --with-doctest --doctest-tests` all tests are found.  In setup.py I am setting the env vars which would be the equivalent of the above command line options, i.e.
 
 {{{
-os.environ['NOSE_WITH_DOCTEST'] = '1'
-os.environ['NOSE_DOCTEST_TESTS'] = '1'
+os.environ['BOSE_WITH_DOCTEST'] = '1'
+os.environ['BOSE_DOCTEST_TESTS'] = '1'
 }}}
 
 I will dig around the code a little more to see if I can figure out where it's going wrong, but wanted to submit this ticket in the meantime since you might know where to look in bose.collector

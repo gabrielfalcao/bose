@@ -10,22 +10,22 @@ class TestCoveragePlugin(object):
     def test_cover_options_packages(self):
         _test_options_helper('--cover-package', 'coverPackages',
                              ['pkg1', 'pkg2', 'pkg3'], [],
-                             'pkg1,pkg2,pkg3', 'NOSE_COVER_PACKAGE')
+                             'pkg1,pkg2,pkg3', 'BOSE_COVER_PACKAGE')
 
     def test_cover_options_noprint(self):
         _test_options_helper('--cover-no-print', 'coverPrint',
                              False, True,
-                             env_key='NOSE_COVER_NO_PRINT')
+                             env_key='BOSE_COVER_NO_PRINT')
 
     def test_cover_options_erase(self):
         _test_options_helper('--cover-erase', 'coverErase',
                              True, False,
-                             env_key='NOSE_COVER_ERASE')
+                             env_key='BOSE_COVER_ERASE')
 
     def test_cover_options_tests(self):
         _test_options_helper('--cover-tests', 'coverTests',
                              True, False,
-                             env_key='NOSE_COVER_TESTS')
+                             env_key='BOSE_COVER_TESTS')
 
     def test_cover_options_config_file(self):
         def get_sys_info(cov_inst):
@@ -48,7 +48,7 @@ class TestCoveragePlugin(object):
                 '--cover-config-file', 'coverConfigFile',
                 'not_default_config_file', True,
                 arg_value='not_default_config_file',
-                env_key='NOSE_COVER_CONFIG_FILE')
+                env_key='BOSE_COVER_CONFIG_FILE')
 
             cov_info = get_sys_info(c1.coverInstance)
             config_files = get_config_files(cov_info)

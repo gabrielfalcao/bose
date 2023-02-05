@@ -57,7 +57,7 @@ class TestOptions(unittest.TestCase):
     def test_file_from_environ(self):
         parser = optparse.OptionParser()
         x = Xunit()
-        x.add_options(parser, env={'NOSE_XUNIT_FILE': "kangaroo.xml"})
+        x.add_options(parser, env={'BOSE_XUNIT_FILE': "kangaroo.xml"})
         (options, args) = parser.parse_args([])
         eq_(options.xunit_file, "kangaroo.xml")
 
@@ -99,7 +99,7 @@ class TestXMLOutputWithXML(unittest.TestCase):
     def test_prefix_from_environ(self):
         parser = optparse.OptionParser()
         x = Xunit()
-        x.add_options(parser, env={'NOSE_XUNIT_PREFIX_WITH_TESTSUITE_NAME': 'true'})
+        x.add_options(parser, env={'BOSE_XUNIT_PREFIX_WITH_TESTSUITE_NAME': 'true'})
         (options, args) = parser.parse_args([])
         eq_(options.xunit_prefix_class, True)
 

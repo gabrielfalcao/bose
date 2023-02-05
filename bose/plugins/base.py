@@ -80,7 +80,7 @@ class Plugin(object):
         OptionConflictErrors. If you override this method and want the default
         --with-$name option to be registered, be sure to call super().
         """
-        env_opt = 'NOSE_WITH_%s' % self.name.upper()
+        env_opt = 'BOSE_WITH_%s' % self.name.upper()
         env_opt = env_opt.replace('-', '_')
         parser.add_option("--with-%s" % self.name,
                           action="store_true",

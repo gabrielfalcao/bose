@@ -19,7 +19,7 @@ removed:
 There is also possiblity to disable configuration files loading (might
 be useful when runnig i.e. tox and you don't want your global bose
 config file to be used by tox). In order to ignore those configuration
-files simply set an environment variable "NOSE_IGNORE_CONFIG_FILES".
+files simply set an environment variable "BOSE_IGNORE_CONFIG_FILES".
 
 There are several other ways to use the bose test runner besides the
 *bosetests* script. You may use bose in a test script:
@@ -183,7 +183,7 @@ Options
 
 -v=DEFAULT, --verbose=DEFAULT
 
-   Be more verbose. [NOSE_VERBOSE]
+   Be more verbose. [BOSE_VERBOSE]
 
 --verbosity=VERBOSITY
 
@@ -203,7 +203,7 @@ Options
    Look for tests in this directory. May be specified multiple times.
    The first directory passed will be used as the working directory,
    in place of the current working directory, which is the default.
-   Others will be added to the list of tests to execute. [NOSE_WHERE]
+   Others will be added to the list of tests to execute. [BOSE_WHERE]
 
 --py3where=PY3WHERE
 
@@ -211,13 +211,13 @@ Options
    same as 'where', but only applies if running under Python 3.x or
    above.  Note that, if present under 3.x, this option completely
    replaces any directories specified with 'where', so the 'where'
-   option becomes ineffective. [NOSE_PY3WHERE]
+   option becomes ineffective. [BOSE_PY3WHERE]
 
 -m=REGEX, --match=REGEX, --testmatch=REGEX
 
    Files, directories, function names, and class names that match this
    regular expression are considered tests.  Default: (?:\b|_)[Tt]est
-   [NOSE_TESTMATCH]
+   [BOSE_TESTMATCH]
 
 --tests=NAMES
 
@@ -246,18 +246,18 @@ Options
    Completely ignore any file that matches this regular expression.
    Takes precedence over any other settings or plugins. Specifying
    this option will replace the default setting. Specify this option
-   multiple times to add more regular expressions [NOSE_IGNORE_FILES]
+   multiple times to add more regular expressions [BOSE_IGNORE_FILES]
 
 -e=REGEX, --exclude=REGEX
 
-   Don't run tests that match regular expression [NOSE_EXCLUDE]
+   Don't run tests that match regular expression [BOSE_EXCLUDE]
 
 -i=REGEX, --include=REGEX
 
    This regular expression will be applied to files, directories,
    function names, and class names for a chance to include additional
    tests that do not match TESTMATCH.  Specify this option multiple
-   times to add more regular expressions [NOSE_INCLUDE]
+   times to add more regular expressions [BOSE_INCLUDE]
 
 -x, --stop
 
@@ -265,13 +265,13 @@ Options
 
 -P, --no-path-adjustment
 
-   Don't make any changes to sys.path when loading tests [NOSE_NOPATH]
+   Don't make any changes to sys.path when loading tests [BOSE_NOPATH]
 
 --exe
 
    Look for tests in python modules that are executable. Normal
    behavior is to exclude executable modules, since they may not be
-   import-safe [NOSE_INCLUDE_EXE]
+   import-safe [BOSE_INCLUDE_EXE]
 
 --noexe
 
@@ -295,32 +295,32 @@ Options
 
 -a=ATTR, --attr=ATTR
 
-   Run only tests that have attributes specified by ATTR [NOSE_ATTR]
+   Run only tests that have attributes specified by ATTR [BOSE_ATTR]
 
 -A=EXPR, --eval-attr=EXPR
 
    Run only tests for whose attributes the Python expression EXPR
-   evaluates to True [NOSE_EVAL_ATTR]
+   evaluates to True [BOSE_EVAL_ATTR]
 
 -s, --nocapture
 
    Don't capture stdout (any stdout output will be printed
-   immediately) [NOSE_NOCAPTURE]
+   immediately) [BOSE_NOCAPTURE]
 
 --nologcapture
 
    Disable logging capture plugin. Logging configuration will be left
-   intact. [NOSE_NOLOGCAPTURE]
+   intact. [BOSE_NOLOGCAPTURE]
 
 --logging-format=FORMAT
 
    Specify custom format to print statements. Uses the same format as
-   used by standard logging handlers. [NOSE_LOGFORMAT]
+   used by standard logging handlers. [BOSE_LOGFORMAT]
 
 --logging-datefmt=FORMAT
 
    Specify custom date/time format to print statements. Uses the same
-   format as used by standard logging handlers. [NOSE_LOGDATEFMT]
+   format as used by standard logging handlers. [BOSE_LOGDATEFMT]
 
 --logging-filter=FILTER
 
@@ -331,7 +331,7 @@ Options
    or other logger. Specify multiple loggers with comma:
    filter=foo,bar,baz. If any logger name is prefixed with a minus, eg
    filter=-foo, it will be excluded rather than included. Default:
-   exclude logging messages from bose itself (-bose). [NOSE_LOGFILTER]
+   exclude logging messages from bose itself (-bose). [BOSE_LOGFILTER]
 
 --logging-clear-handlers
 
@@ -344,11 +344,11 @@ Options
 --with-coverage
 
    Enable plugin Coverage:  Activate a coverage report using Ned
-   Batchelder's coverage module.  [NOSE_WITH_COVERAGE]
+   Batchelder's coverage module.  [BOSE_WITH_COVERAGE]
 
 --cover-package=PACKAGE
 
-   Restrict coverage output to selected packages [NOSE_COVER_PACKAGE]
+   Restrict coverage output to selected packages [BOSE_COVER_PACKAGE]
 
 --cover-erase
 
@@ -356,18 +356,18 @@ Options
 
 --cover-tests
 
-   Include test modules in coverage report [NOSE_COVER_TESTS]
+   Include test modules in coverage report [BOSE_COVER_TESTS]
 
 --cover-min-percentage=DEFAULT
 
    Minimum percentage of coverage for tests to pass
-   [NOSE_COVER_MIN_PERCENTAGE]
+   [BOSE_COVER_MIN_PERCENTAGE]
 
 --cover-inclusive
 
    Include all python files under working directory in coverage
    report.  Useful for discovering holes in test coverage if not all
-   files are imported by the test suite. [NOSE_COVER_INCLUSIVE]
+   files are imported by the test suite. [BOSE_COVER_INCLUSIVE]
 
 --cover-html
 
@@ -379,7 +379,7 @@ Options
 
 --cover-branches
 
-   Include branch coverage in coverage report [NOSE_COVER_BRANCHES]
+   Include branch coverage in coverage report [BOSE_COVER_BRANCHES]
 
 --cover-xml
 
@@ -391,7 +391,7 @@ Options
 
 --cover-config-file=DEFAULT
 
-   Location of coverage config file [NOSE_COVER_CONFIG_FILE]
+   Location of coverage config file [BOSE_COVER_CONFIG_FILE]
 
 --cover-no-print
 
@@ -416,25 +416,25 @@ Options
 --with-doctest
 
    Enable plugin Doctest:  Activate doctest plugin to find and run
-   doctests in non-test modules.  [NOSE_WITH_DOCTEST]
+   doctests in non-test modules.  [BOSE_WITH_DOCTEST]
 
 --doctest-tests
 
    Also look for doctests in test modules. Note that classes, methods
    and functions should have either doctests or non-doctest tests, not
-   both. [NOSE_DOCTEST_TESTS]
+   both. [BOSE_DOCTEST_TESTS]
 
 --doctest-extension=EXT
 
    Also look for doctests in files with this extension
-   [NOSE_DOCTEST_EXTENSION]
+   [BOSE_DOCTEST_EXTENSION]
 
 --doctest-result-variable=VAR
 
    Change the variable name set to the result of the last interpreter
    command from the default '_'. Can be used to avoid conflicts with
    the _() function used for text translation.
-   [NOSE_DOCTEST_RESULT_VAR]
+   [BOSE_DOCTEST_RESULT_VAR]
 
 --doctest-fixtures=SUFFIX
 
@@ -454,17 +454,17 @@ Options
    after each test module or package runs to its state before the
    test. PLEASE NOTE that this plugin should not be used with the
    coverage plugin, or in any other case where module reloading may
-   produce undesirable side-effects.  [NOSE_WITH_ISOLATION]
+   produce undesirable side-effects.  [BOSE_WITH_ISOLATION]
 
 -d, --detailed-errors, --failure-detail
 
    Add detail to error output by attempting to evaluate failed asserts
-   [NOSE_DETAILED_ERRORS]
+   [BOSE_DETAILED_ERRORS]
 
 --with-profile
 
    Enable plugin Profile:  Use this plugin to run tests using the
-   hotshot profiler.   [NOSE_WITH_PROFILE]
+   hotshot profiler.   [BOSE_WITH_PROFILE]
 
 --profile-sort=SORT
 
@@ -486,7 +486,7 @@ Options
 
    Enable plugin TestId:  Activate to add a test id (like #1) to each
    test name output. Activate with --failed to rerun failing tests
-   only.  [NOSE_WITH_ID]
+   only.  [BOSE_WITH_ID]
 
 --id-file=FILE
 
@@ -503,29 +503,29 @@ Options
    the number of processors or cores in your machine for best results.
    Pass a negative number to have the number of processes
    automatically set to the number of cores. Passing 0 means to
-   disable parallel testing. Default is 0 unless NOSE_PROCESSES is
-   set. [NOSE_PROCESSES]
+   disable parallel testing. Default is 0 unless BOSE_PROCESSES is
+   set. [BOSE_PROCESSES]
 
 --process-timeout=SECONDS
 
    Set timeout for return of results from each test runner process.
-   Default is 10. [NOSE_PROCESS_TIMEOUT]
+   Default is 10. [BOSE_PROCESS_TIMEOUT]
 
 --process-restartworker
 
    If set, will restart each worker process once their tests are done,
    this helps control memory leaks from killing the system.
-   [NOSE_PROCESS_RESTARTWORKER]
+   [BOSE_PROCESS_RESTARTWORKER]
 
 --with-xunit
 
    Enable plugin Xunit: This plugin provides test results in the
-   standard XUnit XML format. [NOSE_WITH_XUNIT]
+   standard XUnit XML format. [BOSE_WITH_XUNIT]
 
 --xunit-file=FILE
 
    Path to xml file to store the xunit report in. Default is
-   bosetests.xml in the working directory [NOSE_XUNIT_FILE]
+   bosetests.xml in the working directory [BOSE_XUNIT_FILE]
 
 --xunit-testsuite-name=PACKAGE
 
@@ -538,12 +538,12 @@ Options
    This can be used in a matrixed build to distinguish between failures
    in different environments.
    If enabled, the testsuite name is used as a prefix.
-   [NOSE_XUNIT_PREFIX_WITH_TESTSUITE_NAME]
+   [BOSE_XUNIT_PREFIX_WITH_TESTSUITE_NAME]
 
 --all-modules
 
    Enable plugin AllModules: Collect tests from all python modules.
-   [NOSE_ALL_MODULES]
+   [BOSE_ALL_MODULES]
 
 --collect-only
 

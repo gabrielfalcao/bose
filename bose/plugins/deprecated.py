@@ -28,7 +28,7 @@ class Deprecated(ErrorClassPlugin):
     def options(self, parser, env):
         """Register commandline options.
         """
-        env_opt = 'NOSE_WITHOUT_DEPRECATED'
+        env_opt = 'BOSE_WITHOUT_DEPRECATED'
         parser.add_option('--no-deprecated', action='store_true',
                           dest='noDeprecated', default=env.get(env_opt, False),
                           help="Disable special handling of DeprecatedTest "

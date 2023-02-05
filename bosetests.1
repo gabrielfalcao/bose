@@ -1,6 +1,6 @@
 .\" Man page generated from reStructuredText.
 .
-.TH "NOSETESTS" "1" "November 11, 2015" "1.3" "bose"
+.TH "BOSETESTS" "1" "November 11, 2015" "1.3" "bose"
 .SH NAME
 bosetests \- Nicer testing for Python
 .
@@ -206,7 +206,7 @@ Output list of available plugins and exit. Combine with higher verbosity for gre
 .INDENT 0.0
 .TP
 .B \-v=DEFAULT, \-\-verbose=DEFAULT
-Be more verbose. [NOSE_VERBOSE]
+Be more verbose. [BOSE_VERBOSE]
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -226,17 +226,17 @@ Load configuration from config file(s). May be specified multiple times; in that
 .INDENT 0.0
 .TP
 .B \-w=WHERE, \-\-where=WHERE
-Look for tests in this directory. May be specified multiple times. The first directory passed will be used as the working directory, in place of the current working directory, which is the default. Others will be added to the list of tests to execute. [NOSE_WHERE]
+Look for tests in this directory. May be specified multiple times. The first directory passed will be used as the working directory, in place of the current working directory, which is the default. Others will be added to the list of tests to execute. [BOSE_WHERE]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-py3where=PY3WHERE
-Look for tests in this directory under Python 3.x. Functions the same as \(aqwhere\(aq, but only applies if running under Python 3.x or above.  Note that, if present under 3.x, this option completely replaces any directories specified with \(aqwhere\(aq, so the \(aqwhere\(aq option becomes ineffective. [NOSE_PY3WHERE]
+Look for tests in this directory under Python 3.x. Functions the same as \(aqwhere\(aq, but only applies if running under Python 3.x or above.  Note that, if present under 3.x, this option completely replaces any directories specified with \(aqwhere\(aq, so the \(aqwhere\(aq option becomes ineffective. [BOSE_PY3WHERE]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-m=REGEX, \-\-match=REGEX, \-\-testmatch=REGEX
-Files, directories, function names, and class names that match this regular expression are considered tests.  Default: (?:\eb|_)[Tt]est [NOSE_TESTMATCH]
+Files, directories, function names, and class names that match this regular expression are considered tests.  Default: (?:\eb|_)[Tt]est [BOSE_TESTMATCH]
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -261,17 +261,17 @@ Load logging config from this file \-\- bypasses all other logging config settin
 .INDENT 0.0
 .TP
 .B \-I=REGEX, \-\-ignore\-files=REGEX
-Completely ignore any file that matches this regular expression. Takes precedence over any other settings or plugins. Specifying this option will replace the default setting. Specify this option multiple times to add more regular expressions [NOSE_IGNORE_FILES]
+Completely ignore any file that matches this regular expression. Takes precedence over any other settings or plugins. Specifying this option will replace the default setting. Specify this option multiple times to add more regular expressions [BOSE_IGNORE_FILES]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-e=REGEX, \-\-exclude=REGEX
-Don\(aqt run tests that match regular expression [NOSE_EXCLUDE]
+Don\(aqt run tests that match regular expression [BOSE_EXCLUDE]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-i=REGEX, \-\-include=REGEX
-This regular expression will be applied to files, directories, function names, and class names for a chance to include additional tests that do not match TESTMATCH.  Specify this option multiple times to add more regular expressions [NOSE_INCLUDE]
+This regular expression will be applied to files, directories, function names, and class names for a chance to include additional tests that do not match TESTMATCH.  Specify this option multiple times to add more regular expressions [BOSE_INCLUDE]
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -281,12 +281,12 @@ Stop running tests after the first error or failure
 .INDENT 0.0
 .TP
 .B \-P, \-\-no\-path\-adjustment
-Don\(aqt make any changes to sys.path when loading tests [NOSE_NOPATH]
+Don\(aqt make any changes to sys.path when loading tests [BOSE_NOPATH]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-exe
-Look for tests in python modules that are executable. Normal behavior is to exclude executable modules, since they may not be import\-safe [NOSE_INCLUDE_EXE]
+Look for tests in python modules that are executable. Normal behavior is to exclude executable modules, since they may not be import\-safe [BOSE_INCLUDE_EXE]
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -311,32 +311,32 @@ Prevent bose from byte\-compiling the source into .pyc files while bose is scann
 .INDENT 0.0
 .TP
 .B \-a=ATTR, \-\-attr=ATTR
-Run only tests that have attributes specified by ATTR [NOSE_ATTR]
+Run only tests that have attributes specified by ATTR [BOSE_ATTR]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-A=EXPR, \-\-eval\-attr=EXPR
-Run only tests for whose attributes the Python expression EXPR evaluates to True [NOSE_EVAL_ATTR]
+Run only tests for whose attributes the Python expression EXPR evaluates to True [BOSE_EVAL_ATTR]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-s, \-\-nocapture
-Don\(aqt capture stdout (any stdout output will be printed immediately) [NOSE_NOCAPTURE]
+Don\(aqt capture stdout (any stdout output will be printed immediately) [BOSE_NOCAPTURE]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-nologcapture
-Disable logging capture plugin. Logging configuration will be left intact. [NOSE_NOLOGCAPTURE]
+Disable logging capture plugin. Logging configuration will be left intact. [BOSE_NOLOGCAPTURE]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-logging\-format=FORMAT
-Specify custom format to print statements. Uses the same format as used by standard logging handlers. [NOSE_LOGFORMAT]
+Specify custom format to print statements. Uses the same format as used by standard logging handlers. [BOSE_LOGFORMAT]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-logging\-datefmt=FORMAT
-Specify custom date/time format to print statements. Uses the same format as used by standard logging handlers. [NOSE_LOGDATEFMT]
+Specify custom date/time format to print statements. Uses the same format as used by standard logging handlers. [BOSE_LOGDATEFMT]
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -347,7 +347,7 @@ Example: filter=foo will capture statements issued ONLY to
  foo or foo.what.ever.sub but not foobar or other logger.
 Specify multiple loggers with comma: filter=foo,bar,baz.
 If any logger name is prefixed with a minus, eg filter=\-foo,
-it will be excluded rather than included. Default: exclude logging messages from bose itself (\-bose). [NOSE_LOGFILTER]
+it will be excluded rather than included. Default: exclude logging messages from bose itself (\-bose). [BOSE_LOGFILTER]
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -364,12 +364,12 @@ Set the log level to capture
 .B \-\-with\-coverage
 Enable plugin Coverage: 
 Activate a coverage report using Ned Batchelder\(aqs coverage module.
- [NOSE_WITH_COVERAGE]
+ [BOSE_WITH_COVERAGE]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-cover\-package=PACKAGE
-Restrict coverage output to selected packages [NOSE_COVER_PACKAGE]
+Restrict coverage output to selected packages [BOSE_COVER_PACKAGE]
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -379,17 +379,17 @@ Erase previously collected coverage statistics before run
 .INDENT 0.0
 .TP
 .B \-\-cover\-tests
-Include test modules in coverage report [NOSE_COVER_TESTS]
+Include test modules in coverage report [BOSE_COVER_TESTS]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-cover\-min\-percentage=DEFAULT
-Minimum percentage of coverage for tests to pass [NOSE_COVER_MIN_PERCENTAGE]
+Minimum percentage of coverage for tests to pass [BOSE_COVER_MIN_PERCENTAGE]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-cover\-inclusive
-Include all python files under working directory in coverage report.  Useful for discovering holes in test coverage if not all files are imported by the test suite. [NOSE_COVER_INCLUSIVE]
+Include all python files under working directory in coverage report.  Useful for discovering holes in test coverage if not all files are imported by the test suite. [BOSE_COVER_INCLUSIVE]
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -404,7 +404,7 @@ Produce HTML coverage information in dir
 .INDENT 0.0
 .TP
 .B \-\-cover\-branches
-Include branch coverage in coverage report [NOSE_COVER_BRANCHES]
+Include branch coverage in coverage report [BOSE_COVER_BRANCHES]
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -441,22 +441,22 @@ Disable special handling of DeprecatedTest exceptions.
 .B \-\-with\-doctest
 Enable plugin Doctest: 
 Activate doctest plugin to find and run doctests in non\-test modules.
- [NOSE_WITH_DOCTEST]
+ [BOSE_WITH_DOCTEST]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-doctest\-tests
-Also look for doctests in test modules. Note that classes, methods and functions should have either doctests or non\-doctest tests, not both. [NOSE_DOCTEST_TESTS]
+Also look for doctests in test modules. Note that classes, methods and functions should have either doctests or non\-doctest tests, not both. [BOSE_DOCTEST_TESTS]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-doctest\-extension=EXT
-Also look for doctests in files with this extension [NOSE_DOCTEST_EXTENSION]
+Also look for doctests in files with this extension [BOSE_DOCTEST_EXTENSION]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-doctest\-result\-variable=VAR
-Change the variable name set to the result of the last interpreter command from the default \(aq_\(aq. Can be used to avoid conflicts with the _() function used for text translation. [NOSE_DOCTEST_RESULT_VAR]
+Change the variable name set to the result of the last interpreter command from the default \(aq_\(aq. Can be used to avoid conflicts with the _() function used for text translation. [BOSE_DOCTEST_RESULT_VAR]
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -478,19 +478,19 @@ resets the contents of sys.modules after each test module or
 package runs to its state before the test. PLEASE NOTE that this
 plugin should not be used with the coverage plugin, or in any other case
 where module reloading may produce undesirable side\-effects.
- [NOSE_WITH_ISOLATION]
+ [BOSE_WITH_ISOLATION]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-d, \-\-detailed\-errors, \-\-failure\-detail
-Add detail to error output by attempting to evaluate failed asserts [NOSE_DETAILED_ERRORS]
+Add detail to error output by attempting to evaluate failed asserts [BOSE_DETAILED_ERRORS]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-with\-profile
 Enable plugin Profile: 
 Use this plugin to run tests using the hotshot profiler. 
- [NOSE_WITH_PROFILE]
+ [BOSE_WITH_PROFILE]
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -518,7 +518,7 @@ Disable special handling of SkipTest exceptions.
 Enable plugin TestId: 
 Activate to add a test id (like #1) to each test name output. Activate
 with \-\-failed to rerun failing tests only.
- [NOSE_WITH_ID]
+ [BOSE_WITH_ID]
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -533,27 +533,27 @@ Run the tests that failed in the last test run.
 .INDENT 0.0
 .TP
 .B \-\-processes=NUM
-Spread test run among this many processes. Set a number equal to the number of processors or cores in your machine for best results. Pass a negative number to have the number of processes automatically set to the number of cores. Passing 0 means to disable parallel testing. Default is 0 unless NOSE_PROCESSES is set. [NOSE_PROCESSES]
+Spread test run among this many processes. Set a number equal to the number of processors or cores in your machine for best results. Pass a negative number to have the number of processes automatically set to the number of cores. Passing 0 means to disable parallel testing. Default is 0 unless BOSE_PROCESSES is set. [BOSE_PROCESSES]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-process\-timeout=SECONDS
-Set timeout for return of results from each test runner process. Default is 10. [NOSE_PROCESS_TIMEOUT]
+Set timeout for return of results from each test runner process. Default is 10. [BOSE_PROCESS_TIMEOUT]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-process\-restartworker
-If set, will restart each worker process once their tests are done, this helps control memory leaks from killing the system. [NOSE_PROCESS_RESTARTWORKER]
+If set, will restart each worker process once their tests are done, this helps control memory leaks from killing the system. [BOSE_PROCESS_RESTARTWORKER]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-with\-xunit
-Enable plugin Xunit: This plugin provides test results in the standard XUnit XML format. [NOSE_WITH_XUNIT]
+Enable plugin Xunit: This plugin provides test results in the standard XUnit XML format. [BOSE_WITH_XUNIT]
 .UNINDENT
 .INDENT 0.0
 .TP
 .B \-\-xunit\-file=FILE
-Path to xml file to store the xunit report in. Default is bosetests.xml in the working directory [NOSE_XUNIT_FILE]
+Path to xml file to store the xunit report in. Default is bosetests.xml in the working directory [BOSE_XUNIT_FILE]
 .UNINDENT
 .INDENT 0.0
 .TP
@@ -564,7 +564,7 @@ Name of the testsuite in the xunit xml, generated by plugin. Default test suite 
 .TP
 .B \-\-all\-modules
 Enable plugin AllModules: Collect tests from all python modules.
- [NOSE_ALL_MODULES]
+ [BOSE_ALL_MODULES]
 .UNINDENT
 .INDENT 0.0
 .TP

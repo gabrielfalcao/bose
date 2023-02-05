@@ -162,7 +162,7 @@
   Patch by John Szakmeister.
 - Repopulate nose.tools.__all__ so that the autodocs generate correctly.
   Patch by Taavi Burns.
-- Fixed a bug where nose was failing to parse the NOSE_COVER_PACKAGE
+- Fixed a bug where nose was failing to parse the BOSE_COVER_PACKAGE
   environment variable correctly. (#109)
   Patch by Churkin Oleg.
 - Taught nose to lookup it's usage text according to PEP-302.
@@ -842,7 +842,7 @@
 
 - Add doctest support
 - Add optional code coverage support, using Ned Batchelder's coverage.py;
-  activate with --coverage switch or NOSE_COVERAGE environment variable
+  activate with --coverage switch or BOSE_COVERAGE environment variable
 - More informative error message on import error
 - Fix bug where module setup could be called twice and teardown skipped
   for certain setup method names.

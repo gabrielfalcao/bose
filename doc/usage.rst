@@ -17,7 +17,7 @@ standard .ini-style config files. Put your bosetests configuration in a
 There is also possiblity to disable configuration files loading (might be
 useful when runnig i.e. tox and you don't want your global bose config file to
 be used by tox). In order to ignore those configuration files simply set an
-environment variable ``NOSE_IGNORE_CONFIG_FILES``.
+environment variable ``BOSE_IGNORE_CONFIG_FILES``.
   
 There are several other ways to use the bose test runner besides the
 `bosetests` script. You may use bose in a test script::

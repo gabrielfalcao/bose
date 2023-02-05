@@ -22,10 +22,10 @@ class FailureDetail(Plugin):
         parser.add_option(
             "-d", "--detailed-errors", "--failure-detail",
             action="store_true",
-            default=env.get('NOSE_DETAILED_ERRORS'),
+            default=env.get('BOSE_DETAILED_ERRORS'),
             dest="detailedErrors", help="Add detail to error"
             " output by attempting to evaluate failed"
-            " asserts [NOSE_DETAILED_ERRORS]")
+            " asserts [BOSE_DETAILED_ERRORS]")
 
     def configure(self, options, conf):
         """Configure plugin.
